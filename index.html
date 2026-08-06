@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/jpeg" href="favicon.jpg">
+  <title>MatChaの神秘小屋</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ===== 200天倒计时覆盖层 ===== -->
+  <div class="countdown-overlay" id="countdown-overlay">
+    <div class="countdown-bg-hearts"></div>
+    <div class="countdown-container">
+      <div class="countdown-lock" id="countdown-lock">
+        <span class="countdown-lock-icon">🔒</span>
+        <p class="countdown-lock-title">预祝页面</p>
+        <p class="countdown-lock-sub">一份特别的惊喜正在路上……</p>
+        <div class="countdown-timer" id="countdown-timer">
+          <div class="countdown-unit"><span class="countdown-num" id="cd-days">--</span><span class="countdown-label">天</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="cd-hours">--</span><span class="countdown-label">时</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="cd-mins">--</span><span class="countdown-label">分</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="cd-secs">--</span><span class="countdown-label">秒</span></div>
+        </div>
+        <p class="countdown-hint">倒计时结束后揭晓 ✨</p>
+        <button class="countdown-close-btn countdown-skip-btn" id="countdown-skip-btn">先看看主页 →</button>
+      </div>
+      <div class="countdown-reveal" id="countdown-reveal" style="display:none;">
+        <span class="countdown-reveal-icon">💌</span>
+        <h2 class="countdown-reveal-title">致琳琳</h2>
+        <p class="countdown-reveal-date">2026.1.27 — 2026.8.15 · 200 天</p>
+        <div class="countdown-reveal-divider"></div>
+        <div class="countdown-reveal-body" id="countdown-message">
+          <!-- 临时占位：第二百天要说的话 -->
+          <p>这是第二百天我要说的话——临时占位</p>
+          <p>亲爱的琳琳，和你在一起的每一天都是我最珍贵的礼物。感谢你出现在我的生命里，成为我最美的意外。</p>
+          <p>200天，说长不长，说短不短，但每一分每一秒都因为有你而变得不再平凡。</p>
+          <p>未来还有很长的路，我希望一直牵着你的手，陪你走下去。</p>
+          <p style="text-align:right; margin-top:1.5rem;">—— 你的 MatCha</p>
+        </div>
+        <button class="countdown-close-btn" id="countdown-close-btn">❤ 我知道了</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-overlay"></div>
+
+  <header class="header-bar">
+    <div class="header-left">
+      <span class="header-dot green-dot"></span>
+      <span class="header-label">MatChaの神秘小屋</span>
+    </div>
+    <div class="header-right">
+      <span class="header-label">✨ おかえり ✨</span>
+      <span class="header-dot black-dot"></span>
+    </div>
+  </header>
+
+  <nav class="toc-bar">
+    <a href="#hero" class="toc-item active">介绍</a>
+    <span class="toc-sep">/</span>
+    <a href="#passage" class="toc-item">文章</a>
+    <span class="toc-sep">/</span>
+    <a href="#ad" class="toc-item">广告</a>
+    <span class="toc-sep">/</span>
+    <a href="#nav" class="toc-item">导航</a>
+  </nav>
+
+  <main class="main-grid">
+
+    <!-- ===== 区域一：Hero ===== -->
+    <section class="section hero-section" id="hero">
+      <div class="hero-left-col">
+        <div class="hero-image-container">
+          <img src="myicon.jpg" alt="林正澔头像" class="hero-avatar">
+        </div>
+        <div class="hero-sleepy">
+          <img src="sleepy.jpg" alt="好想睡觉" class="sleepy-img">
+          <span class="sleepy-caption">好想睡觉 Zzz</span>
+        </div>
+      </div>
+      <div class="hero-text">
+        <h1 class="name-cn">牛奶哥</h1>
+        <div class="divider-line"></div>
+        <p class="birth-info">2009 <span class="accent">·</span> 福州土著</p>
+        <p class="school-info">福州高级中学 <span class="bold">高二七班</span></p>
+        <div class="hero-tags">
+          <span>写作者</span><span>吉他手</span><span>Minecraft 玩家</span><span>抹茶爱好者</span><span>旅行者</span>
+        </div>
+        <div class="hero-bio">
+          <div class="bio-row"><span class="bio-label">MatCha</span><span class="bio-sep">—</span><span class="bio-desc">MC 玩家 · 瑞士卷爱好者 · 木茶</span></div>
+          <div class="bio-row"><span class="bio-label">AKG</span><span class="bio-sep">—</span><span class="bio-desc">Asian Kung-fu Generation · 日摇</span></div>
+          <div class="bio-row"><span class="bio-label">遠行</span><span class="bio-sep">—</span><span class="bio-desc">22 座城市 · 越远越好</span></div>
+        </div>
+      </div>
+      <div class="hero-label-rotated"><span>IDENTITY</span></div>
+    </section>
+
+    <!-- ===== 区域二：MatCha 网名由来 ===== -->
+    <section class="section name-section" id="name">
+      <div class="section-tag">MATCHA</div>
+      <div class="name-content">
+        <div class="name-big">
+          <span class="name-line-accent">MatCha</span>
+          <span class="name-line">MaTtya</span>
+          <span class="name-line">MuoCha</span>
+          <span class="name-line">木茶</span>
+        </div>
+      </div>
+      <div class="name-story">
+        <div class="story-block"><h3 class="block-title">MC</h3><p class="block-text">首字母大写的执念——<br>Minecraft 玩家的身份印记</p></div>
+        <div class="story-block"><h3 class="block-title">瑞士卷</h3><p class="block-text">巧克力味 × 抹茶味<br>童年最爱的味道组合</p></div>
+        <div class="story-image-block"><img src="cooking.jpg" alt="认真做饭表情包" class="cooking-img"><span class="img-caption">认真做饭.jpg</span></div>
+      </div>
+    </section>
+
+    <!-- ===== 区域三：网名变体 ===== -->
+    <section class="section alias-section" id="alias">
+      <div class="alias-grid">
+        <div class="alias-item"><span class="alias-name">Koieta</span></div>
+        <div class="alias-item"><span class="alias-name">Koisarete</span></div>
+        <div class="alias-item alias-highlight"><span class="alias-name">RoubeiMilk</span></div>
+        <div class="alias-item alias-explain"><p><strong>肉贝</strong> — 朋友三岁亲妹的误称<br>将错就错，成了独特的昵称</p></div>
+        <div class="alias-item alias-explain"><p><strong>牛奶</strong> — 小学长方体课堂的<br>牛奶盒子固定供应方</p></div>
+        <div class="alias-item alias-variants"><span>牛奶哥</span><span>牛奶姐</span><span>奶牛哥</span><span>奶牛姐</span></div>
+      </div>
+      <div class="section-rosette"><span>ALIAS</span></div>
+    </section>
+
+    <!-- ===== 区域四：人格特点 ===== -->
+    <section class="section personality-section" id="personality">
+      <div class="pers-layout">
+        <div class="pers-left">
+          <div class="pers-tag">PERSONALITY</div>
+          <div class="pers-traits">
+            <span class="trait-badge">三分热度</span><span class="trait-badge">胜负欲旺盛</span><span class="trait-badge">马马虎虎</span><span class="trait-badge dark">温柔细腻</span>
+          </div>
+        </div>
+        <div class="pers-right"><p class="pers-quote">"尽管自认为做事马马虎虎还不关心后果，<br>但还是有时候被贴上了温柔细腻的标签，<br><span class="accent-text">不是很明白。</span>"</p></div>
+      </div>
+    </section>
+
+    <!-- ===== 区域五：喜好 ===== -->
+    <section class="section likes-section" id="likes">
+      <div class="likes-header"><h2 class="likes-title">好</h2><div class="likes-title-line"></div></div>
+      <div class="likes-grid">
+        <div class="like-card" id="like-color"><div class="like-number">01</div><h3>颜色</h3><div class="color-swatch"></div><p>抹茶的绿，绿帽子的绿——<br>有种擦边和自谦感</p></div>
+        <div class="like-card like-card-large" id="like-city"><div class="like-number">02</div><h3>城市 · 东京</h3><div class="city-image-crop"><img src="tokyo.jpg" alt="涉谷街景" class="city-img"></div><p>涉谷街景 · 此刻我想到的就是东京</p></div>
+        <div class="like-card" id="like-game"><div class="like-number">03</div><h3>游戏</h3><p class="like-big-text">Minecraft</p><div class="mc-image-crop"><img src="MC.jpg" alt="Minecraft" class="mc-img"></div><p>玩了很久，一直都在玩的那个</p></div>
+        <div class="like-card like-card-wide" id="like-music"><div class="like-number">04</div><h3>音乐</h3><div class="music-content"><img src="asiankungfugeneration.jpg" alt="Asian Kung-fu Generation" class="music-img"><div class="music-info"><p class="music-band">Asian Kung-fu Generation</p><p class="music-note">亚细亚功夫小子 · 日本摇滚乐队<br>最近一直在听的</p></div></div></div>
+        <div class="like-card like-card-small" id="like-media"><div class="like-number">05</div><h3>文艺作品</h3><p>小说、番剧、视频系列<br>数不过来，别问我行话<br><span class="small-note">TxT 不是很狂热</span></p></div>
+      </div>
+    </section>
+
+    <!-- ===== 区域六：爱好 & 旅行 ===== -->
+    <section class="section hobbies-section" id="hobbies">
+      <div class="hobbies-left">
+        <h2 class="hobbies-title">爱好</h2>
+        <div class="hobby-tags"><span>写作</span><span>弹吉他</span><span>做视频</span><span>玩游戏</span></div>
+        <p class="hobby-note">不是特别有耐心和恒心<br>但总时不时拿出来做</p>
+      </div>
+      <div class="hobbies-right">
+        <h2 class="travel-title">远行</h2>
+        <p class="travel-intro">虽然身材偏胖，但实际上喜欢旅游，而且认为越远越好。</p>
+        <div class="kyoto-image-crop"><img src="kyoto.JPG" alt="俯看京都" class="kyoto-img"><span class="kyoto-caption">俯看京都</span></div>
+        <div class="travel-cities"><span>珠海</span><span>广州</span><span>深圳</span><span>香港</span><span>澳门</span><span>潮州</span><span>漳州</span><span>福州</span><span>武夷山</span><span>黄山</span><span>上海</span><span>北京</span><span>鄂尔多斯</span><span>呼和浩特</span><span>包头</span><span>西宁</span><span>敦煌</span><span>贵州</span><span>马尼拉</span><span>吉隆坡</span><span>大阪</span><span>京都</span></div>
+      </div>
+    </section>
+
+    <!-- ===== 区域七：联系方式 ===== -->
+    <section class="section contact-section" id="contact">
+      <div class="contact-tag">CONTACT</div>
+      <div class="contact-links">
+        <div class="contact-item"><span class="contact-label">微信</span><span class="contact-value">MatChaRoubeiMilk</span></div>
+        <div class="contact-divider"></div>
+        <div class="contact-item"><span class="contact-label">QQ</span><span class="contact-value">938338415</span></div>
+        <div class="contact-divider"></div>
+        <div class="contact-item"><span class="contact-label">Email</span><span class="contact-value">linzhenghao472@gmail.com</span></div>
+      </div>
+    </section>
+
+    <!-- ===== 区域八：文章（横跨全幅） ===== -->
+    <section class="section passage-section" id="passage">
+      <div class="passage-header">
+        <h2 class="passage-title">文</h2>
+        <div class="passage-title-line"></div>
+        <div class="passage-controls">
+          <select id="passage-cat-filter" class="passage-select">
+            <option value="all">全部</option>
+            <option value="原创">原创</option>
+            <option value="优秀二创">优秀二创</option>
+          </select>
+          <select id="passage-sort" class="passage-select">
+            <option value="desc">最新</option>
+            <option value="asc">最早</option>
+          </select>
+        </div>
+      </div>
+      <div class="passage-featured" id="passage-featured"></div>
+      <div class="passage-list" id="passage-list"></div>
+    </section>
+
+    <!-- ===== 区域九：社交链接 ===== -->
+    <section class="section social-section" id="social">
+      <div class="social-tag">SOCIAL</div>
+      <div class="social-links">
+        <a href="https://space.bilibili.com/523372964?spm_id_from=333.1007.0.0" target="_blank" rel="noopener" class="social-link-item">
+          <div class="social-link-img-crop">
+            <img src="bilibili.jpg" alt="Bilibili" class="social-link-img">
+          </div>
+          <span class="social-link-label">Bilibili</span>
+          <span class="social-link-desc">关注我的B站</span>
+        </a>
+        <a href="https://x.com/MatChaRoubei" target="_blank" rel="noopener" class="social-link-item">
+          <div class="social-link-img-crop">
+            <img src="X.jpg" alt="X / Twitter" class="social-link-img">
+          </div>
+          <span class="social-link-label">X / Twitter</span>
+          <span class="social-link-desc">关注我的X</span>
+        </a>
+        <a href="https://www.youtube.com/@MatCha_RoubeiMilkBro" target="_blank" rel="noopener" class="social-link-item">
+          <div class="social-link-img-crop">
+            <img src="youtube.jpg" alt="YouTube" class="social-link-img">
+          </div>
+          <span class="social-link-label">YouTube</span>
+          <span class="social-link-desc">关注我的YT</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== 区域十：广告（MC 交流群） ===== -->
+    <section class="section ad-section" id="ad">
+      <div class="passage-header">
+        <h2 class="passage-title" style="font-size: 3.5rem;">广</h2>
+        <div class="passage-title-line"></div>
+      </div>
+      <div class="ad-hero">
+        <div class="ad-hero-badge">📢 AD</div>
+        <h3 class="ad-hero-title">加入福州高级中学MC交流群喵！</h3>
+        <p class="ad-hero-qun">群号：<strong>692629678</strong></p>
+      </div>
+      <div class="ad-maps">
+        <h4 class="ad-subtitle">🗺️ 地图</h4>
+        <div class="ad-image-grid">
+          <figure class="ad-figure">
+            <img src="map1.jpg" alt="主城" class="ad-img">
+            <figcaption>主城</figcaption>
+          </figure>
+          <figure class="ad-figure">
+            <img src="map2.jpg" alt="胃袋城" class="ad-img">
+            <figcaption>胃袋城</figcaption>
+          </figure>
+          <figure class="ad-figure">
+            <img src="map3.jpg" alt="我不知道" class="ad-img">
+            <figcaption>我不知道</figcaption>
+          </figure>
+          <figure class="ad-figure">
+            <img src="map4.jpg" alt="樱落千念" class="ad-img">
+            <figcaption>樱落千念</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="ad-gallery">
+        <h4 class="ad-subtitle">🖼️ 宣传图</h4>
+        <div class="ad-image-grid">
+          <figure class="ad-figure">
+            <img src="mcad0.jpg" alt="我不知道战舰" class="ad-img">
+            <figcaption>我不知道战舰</figcaption>
+          </figure>
+          <figure class="ad-figure">
+            <img src="mcad1.jpg" alt="樱花林" class="ad-img">
+            <figcaption>樱花林</figcaption>
+          </figure>
+          <figure class="ad-figure">
+            <img src="mcad2.jpg" alt="一张雪峰" class="ad-img">
+            <figcaption>一张雪峰</figcaption>
+          </figure>
+          <figure class="ad-figure">
+            <img src="mcad3.jpg" alt="太空战舰" class="ad-img">
+            <figcaption>太空战舰</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 区域十一：导航（施工中） ===== -->
+    <section class="section nav-section" id="nav">
+      <div class="nav-tag">LINKS</div>
+      <div class="nav-links" id="nav-links">
+        <a href="https://zxycx330.github.io/wc/" target="_blank" rel="noopener" class="nav-link-item">
+          <span class="nav-link-icon">🔗</span>
+          <span class="nav-link-label">缘点o导航</span>
+          <span class="nav-link-desc">zxycx330.github.io/wc/</span>
+        </a>
+        <a href="https://zxycx330.github.io/realheartword/" target="_blank" rel="noopener" class="nav-link-item">
+          <span class="nav-link-icon">🎲</span>
+          <span class="nav-link-label">真心话大冒险抽题</span>
+          <span class="nav-link-desc">zxycx330.github.io/realheartword/</span>
+        </a>
+        <div class="nav-construction">
+          <span class="nav-construction-icon">🚧</span>
+          <span class="nav-construction-text">正在施工中<br><small>Coming Soon</small></span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer-bar">
+    <div class="footer-left"><span>© 2026 LIN ZHENGHAO</span></div>
+    <div class="footer-center"><span class="footer-dot green-dot"></span></div>
+    <div class="footer-right"><span>MatCha / 木茶</span></div>
+  </footer>
+
+  <div class="disclaimer">
+    <p>这都是我用 DeepSeek 做的，我一眼网站源码都没有看，我也是小白来着 :P</p>
+  </div>
+
+  <!-- 文章阅读模态 -->
+  <div class="article-modal" id="article-modal">
+    <div class="article-modal-overlay" id="article-modal-overlay"></div>
+    <div class="article-modal-content">
+      <span class="article-modal-close" id="article-modal-close">&times;</span>
+      <div class="article-modal-meta">
+        <span class="article-modal-category" id="article-modal-cat"></span>
+        <span class="article-modal-date" id="article-modal-date"></span>
+        <span class="article-modal-author" id="article-modal-author"></span>
+      </div>
+      <h2 class="article-modal-title" id="article-modal-title"></h2>
+      <div class="article-modal-body" id="article-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+  </div>
+
+  <!-- 文章正文（隐藏，仅供 modal 读取完整内容） -->
+  <div style="display:none;" id="article-bodies">
+    <div id="ab-1">
+<p><strong>第一章 起势</strong></p>
+<p>"真是风和日丽啊。"咖啡店的装饰古典而优雅，钢琴师演奏着帝国作曲家最新的谱子《帝国的荣耀》，二人正在享受下午茶。这里是圣洛基市，帝国的中心城市。街上的行人似乎漫无目的地逛着，大楼展示屏的内容切了又切，既有序，又混沌，直到——"砰！"一阵枪声打破了这份氛围，行人齐望向了第三大道的方向。</p>
+<p>"见笑了，约翰。"汉弗莱明显受了一惊，拿起手帕擦起衣服上的咖啡，"您看起来知道些什么。"</p>
+<p>"第三大道啊。"被称为约翰的绅士闻了闻杯里的咖啡，轻吸一口，再把杯子放回托盘，仿佛若有所思，说："我的朋友，帝国治安长杰斯汀曾跟我提到过，第三大道的周博士一直是他们的烦恼。"</p>
+<p>汉弗莱露出了轻松的表情，"你知道吗，约翰？我一直都很欣赏周博士的才华的。可惜，出了农场的羊便不是羊了。"说着，汉弗莱轻摇了摇头，补充道："暴发户们终究是没有智慧。"</p>
+<p>"大快人心！"，我拍手道，"周博士这种无良的学者早该被清理了！加瑟需要净化！"</p>
+<p>这是我向前线报道的第一天。圣洛基的每一个市民都需要进行特殊军事训练，而我，终于被帝国战争部选中，得到了前往加瑟清理敌人的机会。前往军区的路上，我不觉哼起了小歌来，这是帝国最新的流行歌曲，说实在从乐理学层面这首歌，没什么特殊的，节奏也很无脑，但是国会山的大人物们也在跳。</p>
+<p>"谁在万万人前无畏默默守护？谁在敌人面前雷厉风行出击？嘿！荣幸之至！"（《Macarena》西语的拍子）</p>
+<p>踩着四四拍的脚步，我朝帝国为数不多的黑夜走去。这里，恐怕是黄昏。</p>
+<p><strong>第二章 纳垢</strong></p>
+<p>"加瑟，是帝国最后的黑夜。加瑟净化之后的帝国将永远光明！"</p>
+<p>"从五十年前的第一次战斗，如今为止帝国以无畏的勇气和高超的技术取得了傲视的战果！"</p>
+<p>"帝国社会部长表示，占领加瑟已然成为了无需帝国担忧的战局！"</p>
+<p>木质的收音机播放着形形色色的新闻，一支未抽完的雪茄放在了左手旁的支架上。"大人，我有一点想请教你。"帝国中央政府一间不起眼的小房间里，约翰正处理着来自战争部的文件。提问题的是他的秘书，也是约翰的远亲。</p>
+<p>"为什么加瑟的战局如此利我，但战争部的行动…"秘书欲言又止，"说。"，得到约翰的回应后，秘书接话："显得那么克制？"</p>
+<p>约翰低着头看文件，没有直接回答，不紧不慢的抛出了另一个问题。"强尼，你觉得帝国的经济状况如何？"</p>
+<p>名叫强尼的秘书愣了一会儿，不明白为什么约翰要提这个问题，回道："很好。股市指数每时每刻都在创造新高，技术发展迅速，国民平均购买力远超之前水平。"</p>
+<p>约翰依旧低着头，敲了敲桌子，追问道："那你想想，战争结束后会发生什么？"</p>
+<p>强尼再次深思了一会儿，回答："繁荣一统的帝国会在帝国体制的带领下稳步发展，不断寻找增长点，不断创造辉煌。"</p>
+<p>约翰冷笑了一声，终于抬起了头："强尼，你知道发达的诅咒吗？"</p>
+<p>"不知。"强尼老实回答，不明白为啥约翰要当谜语人。</p>
+<p>"社会开发已经完成，AI正逐渐代替普通脑力劳动型岗位。如果战争结束，普通人该何去何从？"</p>
+<p>强尼微微张了张嘴，好像想说些什么，接着开口："大人。国家总能创建一些岗位的。"</p>
+<p>"是啊…"约翰轻叹了一口气，"但是制度是会变质的…军工复合体是不会消失的。没人敢赌，至少现在，挺好…"，约翰拿起了手边的雪茄，深吸了一口。</p>
+<p>"可是…加瑟的人总会死光的，那不如不拖。"</p>
+<p>"三天一小战果，十天一大战果，你觉得哈马滋为什么跟杀不完一样？除非？——"约翰特地在非字上加强了语气。强尼的身上流出了几滴冷汗，约翰低下头，继续浏览起了文件，好像刚什么也没发生过，但不知怎的，强尼从他的眼睛里看到了几分…恐惧。</p>
+    </div>
+    <div id="ab-2">
+<p><strong>第一章 后战争时代</strong></p>
+<p>"2027年，第一次企业战争爆发，南海争端发生。2032年，第二次企业战争爆发，世界网络瘫痪。2035年，第三次企业战争爆发，大量城市消失。2040年，第四次企业战争爆发，纽约遭遇核爆。2045年1月1日，在荒坂、军用科技为主导的超级公司的领导下，地联成员公司决定共同成立地球联合集团，宣告战争结束。"</p>
+<p>京城地联大厦一楼的屏幕循环播放着企业战争的纪念广告。他环四周，荒坂的特殊标记、军用科技的硬核文字、生物技术的叶片……这里是北平的CBD，无数地联的企业的大厦围绕着他，天上的浮空车络绎不绝。</p>
+<p>"这广告我听的耳朵都起茧子了！"一个穿着华丽的人一改脸上的平和，奋力往地上躲了躲脚，"到底还要多久才能轮到我测序？"</p>
+<p>"得了吧"旁边一个人泼了冷水，"我朋友凌晨三点排的队，现在前面还有两三百号人呢，咱们慢着呢。"</p>
+<p>"就冲着这VR的价格，我觉得这么多人排队很合理……"，另一个人附和。</p>
+<p>类似的场景此时在世界各地的地联大厦里都在上演着。</p>
+<p>2077年1月1日，地联集团突然召开了一场浩大的发布会。发布会的明星产品是一个VR眼镜"联梦"，以及眼镜专门玩的VR游戏——"矿石工艺"。</p>
+<p>联梦不同于世嘉达利过去所有的超梦，乃是以地联集团的名义，而非公司的名义发布的。"我们的这款VR眼镜突破了现实和虚拟的局限，我们的技术指挥官称，眼镜能通过脑电波技术模拟出理论上人类的所有感觉。花朵的香气，食物的美味，景色的美丽，都能在这款游戏里100%体现。"发布会上的解说员的自信是地联以往发布会从未有过的。</p>
+<p>联梦刚刚发布，就登顶了世界各大媒体的头条。当天微博的热搜榜第一是："如何购买地联VR眼镜？"也不怪他们疑惑。地联本次采取的销售严格程度是从未有过的，需要顾客提前到就近的地联大厦申请排队，进行人体数据采集，之后才能抽签购买，首批全球发行量仅一百万台。作为反差的是，联梦的价格比人们估计的低得多——一千欧元。</p>
+<p>尽管预约过程极其繁琐，地联还被指责暗中收集用户个人信息，眼镜的预约数以惊人的速度增长着。发布会后的第二天，全球的预约人数已经达到了10亿。要知道，2077年全球人口才恢复到40亿！</p>
+<p>林予衡面无表情地看着地联大厦一楼哀嚎的人群，身旁伴随着一个体型修长而身着西装的西装男。"少爷，您的联梦老爷已经安排好了，就在大厦的听涟间里。"保镖提醒林予衡道。</p>
+<p>林予衡没有回答，而是在众人羡慕的眼神中径直走向了VIP通道，里面有前往大厦120层的秘密专梯。别人会因为身份检测太慢而排队等待，难道作为康淘公司太子的林予衡还要排队吗？</p>
+<p>电梯飞驰而上，很快就到了大厦的最顶层。"少爷，设备在那了。"管家指了指听涟间里的一个白色休眠仓。这个休眠仓和林予衡在自家娱乐室看到的定制休眠舱没什么差别，只是上面用着方块字体大大地写着"康陶董事长之子专属"。</p>
+<p>林予衡缓步走到了休眠舱前，按下了侧边的进入按钮。"老刘，进游戏帮我干点活"趁着舱门还没关上，林允衡向管家发出指令。"明白。"老刘的回应短而有力。</p>
+<p>休眠舱彻底关上了，林予的思绪开始游走："奇怪，老爹平常是不允许我玩游戏的，为什么在上个月鼓励自己来玩集团的最新游戏？而且游戏的名字'minecraft'，怎么和我转生前就知道的游戏长得一模一样？"，带着这样的问题，他进入了游戏。</p>
+    </div>
+    <div id="ab-3">
+<p>hzl之所以讨人厌，那么点可太多了。我认为是他给自己立了个（控分）学霸人设，实际上根本没实力；还是个超级现充，他呆过的圈子的圈里人都对这种人感到反感；可能是因为父亲是已故军人的缘故，给自己立了超级粉红人设，属于一看外国就要上纲上线的程度，比如对"狗日的"十分敏感；兴趣点非常小众，唱戏，还是难听的那种。与别人共同点本来就少，还硬要挤别人圈子，挤进圈子还魔怔，被讨厌正常现象好吧。</p>
+    </div>
+    <div id="ab-4">
+<p>NCE2教了定语从句，但几乎完全没提到过whose和whom主导的定语从句。我运用AI工具查了一些相关信息，方便写作时装逼👍👍👍</p>
+<p><strong>Whose:</strong> 对于句子中的一部分 …A whose B… 在这种情况下，whose后面的词和前面的词关系就是 B belongs to A，写的时候可以这么想，写完A后发现A的某样东西可以补充进句子，就可以这么写。</p>
+<p>举个例子："I sold the bike whose wheels were broken"，本来已经从"I sold the bike which has been broken"改成够烦的了，但还可以用of which代替whose看起来更花里胡哨：I sold the bike of which the wheels were broken。没错，感觉来了，就是那种能看懂但是自己又完全分析不清"为什么可以这样"的规则……</p>
+<p><strong>Whom:</strong> 我们经常听到whom作宾语，但是我以前一直不理解……实际上whom是其后面句子的宾语，这么看的话很多句子为什么用whom就了解了吧。</p>
+<p>总而言之，我上了这么久NCE2居然不教这个几个意思。不会的也不用担心，因为课标要求是能看懂定语从句就行了，没必要自己写。但是……作文分的高级句子那项可以蹭一下。</p>
+    </div>
+    <div id="ab-5">
+<p>回家途中无事可做，念此前在语文卷子上看到一篇议论文，对其观点略有不满，穷极脑力回想，然而未能还原全貌。余借此表达自己观点。</p>
+<p>那篇议论文建议我们交益友而非损友。"损友"只不过是我的概括讲法，文中讲的是①一起吃喝玩乐的"狐朋狗友"②除了提供情感价值毫无作用的关系好点的人。那么适合找哪些人呢？能够给你帮助，互相学习共同进步的。</p>
+<p>子曰："三人行，必有我师焉。"不管什么朋友，他总有一个值得你学习的地方，不是吗？只要你想，任何所谓损友都能发挥正向作用，等效于益友啊！这中间需要的只是一个认知的转变罢了。所以损友是可以交的。</p>
+<p>伯牙鼓琴的故事人人有所听闻，是啊，知音难觅。事实是，益友不一定难找，起码比知音多了去了，但很难广交。那有人说啦，现在社会那么发达，找个社交app，参加个线下社交活动不行么？那个人说的对，那我问你：我们有足够的闲暇时间吗？那些闲暇时间适合如此吗？</p>
+    </div>
+    <div id="ab-6">
+<p>在先前的讨论中，我不严谨的告诉了Li_cat关于匀速率圆周运动——最简单的曲线运动，有点基础就能理解的玩意。但是我觉得不太完美，那么我尽可能的试一下。</p>
+<p><strong>1.矢量：</strong>具有大小和方向的量。速度、加速度、位移，等等等等，都是矢量。平行的矢量是等效的，可以互相替换。矢量加法遵循所谓的"平行四边形法则"，也等效于将矢量平移首尾相接后尾到首的矢量。</p>
+<p><strong>2.匀速率圆周运动的定义。</strong>这里的匀速率是什么意思呢？就是说物体在绕点做圆周运动时"速度"是一样的。注意，速度是一个矢量，所以我们常说的速度实际上是速率——速度的大小，即速度的模长。</p>
+<p>在这种运动中，既然物体的运动速率相同，那么速度大小不变。速度在切线上。设速度v1→，经过时间Δt，速度为v2→。Δv = lim(Δt→0) (v2-v1)/Δt = dv/dt。因为v1与v2大小相同，尾几乎重合，所以夹角趋于0，Δv与v1的夹角为(π-0)/2 = π/2，Δv垂直于v1。v1在圆的切线上，所以Δv是向心速度。</p>
+<p>当然，为了扯上力学，还可以算a = lim(Δt→0) Δv/Δt = dv/dt，自然，方向跟Δv是一样的。因为F=ma，所以还可以算向心力ma。</p>
+    </div>
+    <div id="ab-7">
+<p><strong>🍵：</strong>泛情是一种决策，这是无意识的，决策的回报是更多生子机会，决策代价是更低的信任。结果是拥有泛情能力的人占到人数的多数，因为生的多。</p>
+<p><strong>🐟：</strong>那是远古时期的人，与现代人不同。泛情是人之本能，而专一是道德要求。泛情是会受到指责的。人和类人猿的区别就是道德感哒！</p>
+<p><strong>🍵：</strong>连人类，甚至智人自己的道德都不尽相同。道德是社会风貌滋生的，道德同样影响着社会风貌。不能认为其他人种一定有道德。道德存在于智人的想象之中，是一种无形的秩序。就连道德也在不断变化。</p>
+<p><strong>🐟：</strong>你说的对，但是道德的实现还要扯到法律吧？政治法律要求一夫一妻，所以才要忠贞。</p>
+<p><strong>🍵：</strong>重点在于现代社会为何反对泛情——中国古代的多妾和海外的我不清楚。正是因为社会反对，法律才会不支持。会不会因为泛情是封建社会女人被异化的映射所以才被认为需要打倒？</p>
+<p><strong>🐟：</strong>不仅如此，多妾制度是不是古代中国父系社会的产物，男权的象征？</p>
+<p><strong>🍵：</strong>（延续之前的想法）工业革命和世界大战期间的妇女上工促进了女性地位的提升，从而放大了这股声音？法律如此规定的好处是什么？中国如此的原因，是近现代化西方思想的传入；而西方如此有利于当时社会的发展。（灵光一闪⚡️）提倡一夫一妻制，相当于拆散古代大家庭结构而变成小家庭结构，促进了资本的流动性！这是它被推动发展的重要原因。当然还有当权者想要削弱家庭势力等等…</p>
+<p><strong>🐟：</strong>那么中国？</p>
+<p><strong>🍵：</strong>真不太想得出来…可能是因为男女的出生占比1:1，打仗男的死了所以女的偏多，这部分分配到上层阶级了？</p>
+<p><strong>🐳：</strong>小家庭制度增加了劳动力市场的劳动力，扩大了市场需求（比如房地产）</p>
+<p><strong>🐟：</strong>肯定还有父权社会下女性渴望平等自由的爱情的缘故吧。</p>
+<p><strong>🍵：</strong>你说的对，但是社会地位提高的作用不可忽视</p>
+<p><strong>🐟：</strong>实际上还有妇女自己的思考在的。若妇女不改变思想也没辙。</p>
+<p>略…改了很多</p>
+    </div>
+    <div id="ab-8">
+<p>我是一个混合了很多地方文化的人。1949年，随着红旗插遍长江以南，我的曾祖父去了宝岛，留下了怀孕的曾祖母。曾祖母靠着地瓜勉强过日子，养大了我的爷爷。我的奶奶曾在台湾工作，不知为何到了福州。我的母亲是漳州平和人，高考失利来到福州。因为时代的原因，我父亲上的是大专，学的是航海方向。后来他去当船员乃至船长，后面自己也开了一家相关行业的公司。</p>
+<p>我自出生到之后的一年，在平和呆着。可以说早期我的语言系统是闽南话的。三鹿奶粉的影响下，我从小喝托关系从澳大利亚带的奶粉。回到福州后，我一般只听到普通话，幼儿园教我英语，跟爷爷奶奶在一起的时候又说的是福州话。6岁到7岁，我有上外教课，英语也成了我所熟悉的语言。三年级开始，我开始看日本动漫，到现在也是掌握了一定的日语语法和词汇。</p>
+<p>17年的时候，曾祖父短暂来到过福州几天，我仍然记得我跟他抢电视看。2019年的暑假，我的台湾行被绿党搅黄了，年末，曾祖父也走了……我只见过他几天。</p>
+<p>我身上，真的是一个时代的缩影。</p>
+    </div>
+    <div id="ab-9">
+<p>在今天下午两点我发了一条朋友圈，内容是在分享一个B站视频的同时评论："furry的污名化是我见过最无厘头的怨恨体现之一😅😅😅"</p>
+<p>我自身不是furry，只是和这个文化有些联系。我在十二三岁的时候曾短暂关注一个up主：一块电鹿板。尽管对方被断章取义抹黑的那段时间我也不偏向他，但也没怎么发声。在初中的时候，也有一个喜欢兽装的朋友。因此，我知道这个圈子很乱，但是furry在我看来也是很正常的喜好罢了，而且也有些可爱的。</p>
+<p>但是我观察到有人在我的朋友圈下如此评论："肉呗大福瑞（没有骂你的意思）"。评论这句话的动机看似很迷惑，但是且让我拆解一下。首先，把我的一个绰号"肉贝"写成了"肉呗"，可能是打错了，也有可能是在留后路。其次，在当下社会语境下"福瑞"同furry已经被污名化了，说我是大福瑞实际上是在推测我并不会反驳。</p>
+<p>为什么？如果我因此有不好的情绪，那么我自己为furry群体打抱不平的行为就变成了"伪君子"。如果我中立，他们就精神胜利了。如果我感到高兴，他们就会在别的群体面前宣扬我是福瑞，让我面对别人异样的眼光。不管他们会不会这么做，这句话的作用是十分恶心人的。</p>
+<p>我在那里回应过了，我在这也回应一下：我认为furry的污名化并不完全正确，这不意味着我是furry。</p>
+    </div>
+    <div id="ab-10">
+<p>我发现了一种比较特殊的个性。在我的观察中，这个个性的特征在青少年男生中比较明显，也就是一种对与自身认知不符的行为的抵抗心理。比如我自身喜欢在听到校领导的鸡汤以后表达不满，哪怕我认为鸡汤部分是对的。</p>
+<p>既然在我的观察中，这个特征的持有者青少年男生居多，加之这个时候的男生本就有些叛逆性，这是为医学证明的，外行的我不在这证明，我推测这个特征很大程度上是生理因素决定的，因此难以避免。</p>
+<p>我觉得有趣的议题是他们的表现形式。比如我对权威的反抗，很多时候会被视为"不理智""为黑而黑"，好在通常传不到当事人耳朵里，危害不大。这不意味着我是个觉得在背后说别人坏话无所谓的人，我只是认为在背后说别人坏话比在当事人面前说坏话好得多，除非坏话是建议。</p>
+<p>我来列举一下我认为很令人反感的这种特征的体现形式：</p>
+<p><strong>一，阴阳怪气型</strong>——这类人针对自己想要反抗的事物通常会采取外人眼中的谜之操作，比如对嘲讽对象行为的夸张模仿，或通过反复提及被嘲讽者的言论、无论场合开玩笑等方式来消解、去意义化被嘲讽者本人的行为和言论。这样的后果是隐形而可怕的：会逐渐把被嘲讽者的一切行为和言论异化为玩笑、无意义之物。</p>
+<p><strong>二，正义型</strong>——这类人以一种"正义"作为保护伞，对被嘲讽者进行嘲讽。只要被嘲讽者有错的地方，他们就能不断嘲讽被嘲讽者无论对方感受。关键是此"正义"并非社会上被广泛认同的正义，可能是嘲讽者个人或者所在群体认为"正义"。最令人反感的是，一旦他们的"正义"或部分或全部被证伪，他们也只会开玩笑式认错，令人十分火大。</p>
+<p><strong>三，后面再整吧…</strong></p>
+    </div>
+    <div id="ab-11">
+<p>我认为在写数学表达的时候，表达者所写的所有对象应当被默认同时表达了表达符号内隐含的信息和对象本体。比如A-BCD应当被同时认为是A为定点，BCD为底的空间四面体和A、B、C、D四点构成的立体图形。这样子就能避免V(A-BCD)=V(B-ACD)和AB交BC于B这种废话出现了😅</p>
+    </div>
+    <div id="ab-12">
+<p><strong>奶蛙，一种人为创造的虚拟概念。</strong></p>
+<p>奶蛙的出现离不开其形象来源——奶龙。奶龙是第七印象文化传媒（深圳）有限公司的动画IP，一般出现在公司的单元3D动画里。2020年初，奶龙相关的视频便在一些短视频平台上上线，随后不断扩张，已经成为了家喻户晓的IP。不同于其他出名的动漫IP，奶龙出场的源头动画经常被网民吐槽过分降智、低质，这也是奶龙火出圈的重要原因。</p>
+<p>既然出圈，那么针对奶龙的民间二创自然无从避免。奶蛙最先的出处已经无从考证了，我能追溯到的最早的奶蛙图片是24年末一个抖音账号发布的AI图片相关内容。</p>
+<p>奶蛙出现后，便作为迷因在互联网大行其道。其作为迷因的关键证据有：①极强的存续性。奶蛙的标志性大笑视频是奶蛙迷因的重要载体之一。②极强的可复制性。借助AI画图工具和表情包等等传播媒介，奶蛙可以被轻松地不断引用、不断迭代新作品。</p>
+<p>尽管奶蛙在互联网的传播层面获得了巨大的成功，但是背后的原因值得研究。奶蛙的崛起绝不只是有好笑且抓住了奶龙热的浪潮的原因，更是许多原因交叉的产物。</p>
+<p><strong>恐怖谷效应——生物的天生恐惧。</strong>奶蛙的样貌正是踩在了我们的恐怖谷范围之内。全身是鲜艳的黄色，暗示着自己有剧毒；绿黑色的眼睛，呆滞的表情和人形的身材，暗示着我们畸形；赘肉的下垂天然引起人对血肉的厌恶。正是因此，奶蛙给我们一种"我知道它不是人，但我讨厌"的冲动。</p>
+<p><strong>后虚无主义的天选——消解存在意义的媒介。</strong>我们正处在对自身存在感到无力的时代，无论是个人还是社会。个人的力量在社会面前显得渺小，社会的力量在宇宙面前显得渺小。正是在这样的时代背景下，奶蛙二创这种否认人类特殊论的作品才能流行。</p>
+    </div>
+    <div id="ab-13">
+<p>我发现了一种比较特殊的个性。在我的观察中，这个个性的特征在青少年男生中比较明显，也就是一种对与自身认知不符的行为的抵抗心理。</p>
+<p>既然在我的观察中，这个特征的持有者青少年男生居多，加之这个时候的男生本就有些叛逆性，这是为医学证明的，外行的我不在这证明，我推测这个特征很大程度上是生理因素决定的，因此难以避免。</p>
+<p>我觉得有趣的议题是他们的表现形式。比如我对权威的反抗，很多时候会被视为"不理智""为黑而黑"，好在通常传不到当事人耳朵里，危害不大。</p>
+<p>我来列举一下我认为很令人反感的这种特征的体现形式。值得一提的是，由于我的归类粗糙，所以以下类型是存在交集的。</p>
+<p><strong>一，阴阳怪气型</strong>——这类人针对自己想要反抗的事物通常会采取外人眼中的谜之操作，比如对嘲讽对象行为的夸张模仿，或通过反复提及被嘲讽者的言论、无论场合开玩笑等方式来消解、去意义化被嘲讽者本人的行为和言论。这样的后果是隐形而可怕的：会逐渐把被嘲讽者的一切行为和言论异化为玩笑、无意义之物。值得说明的是，由于长期的实践，阴阳怪气已经在嘲讽者的眼里变为了正常的社交活动，反抗这类社交活动反而会被认为是错误的。我饱受这种人的隐形伤害。</p>
+<p><strong>二，正义型</strong>——这类人以一种"正义"作为保护伞，对被嘲讽者进行嘲讽。只要被嘲讽者有错的地方，他们就能不断嘲讽被嘲讽者无论对方感受。最令人反感的是，一旦他们的"正义"或部分或全部被证伪，他们也只会开玩笑式认错，令人十分火大。我说我的一个例子：福高一号门口的大树由于在地面处有一个小口，所以在下雨天总有外卖员把外卖放在里面避雨。一次见着外面下雨，我自言自语"要不点外卖吧"，有人提醒我到："外卖不会被淋湿吗？"这时，这种人插话了"没事，肉贝的树是防水树，跟我们的不一样"。这个时候我已经懒得反驳了，因为我早知道证伪了也没用。</p>
+<p><strong>三，后面再整吧…</strong></p>
+    </div>
+    <div id="ab-14">
+<p>"这不可能啊，你性格很好的呀"——多</p>
+<p>"我有点无法理解……你肯定没做错什么。抱抱揉揉。。"——命途</p>
+<p>"你觉得你的理性思考真的一点问题没有吗？你喜欢的是经历而不是'我'这个人。"——鱼</p>
+<p>"我从未想过……好像连朋友也变不回去。当时的情况明明在情理之中。"——贝</p>
+<p>我叫哈基贝……准确来说叫林正澔。。妈耶用真名很羞耻啊。不知道什么原因，别人说我有着好好先生般的性格。我讨厌套话，喜欢认真思考后得到的东西。</p>
+<p>这一切的故事都要从四年前开始说起。</p>
+<p>夕阳在窗的一端落下，光线洒在了一张平平无奇的床上，床上坐着一个长相普通偏胖的男孩，"总算把三季超炮刷完了"，他摘下耳机，"可以开始打phigros了。"，这便是当时的我。</p>
+<p>"你怎么看起来还是那么困啊……"，恍惚之间，又到了周一的课堂上，我打了个哈欠"周末玩太嗨了啃啃。"，然后揉了揉眼睛。"真不知道你是怎么活下来的……"，鱼默默吐槽道。鱼是那时我在小学的同桌，她是个很有趣的人，在我为数不多能聊天的人中是不多的那不多的女性。"哎你怎么又睡过去了……我要找你借东西来着，给张纸。"……只记得不是简单的道谢，"好人一生……一百零八胎。"</p>
+<p>疫情居家时刻，我仍然在看课之余在微信群摸鱼。"既然是好同桌，那么就申请个好友吧哈。"</p>
+<p>最后小学的时光匆匆而过，我也发现了自己暗恋的人，但不是鱼，另有其人……"这么冷漠我也接近不了啊，不像鱼，既有趣善良学习也不错。"</p>
+<p>随后的初中三年，每每看到来自鱼的朋友圈评论和点赞，我心里总有着特殊的一暖。</p>
+<p>因为不在同一个班，这三年倒是没发生什么。直到初中快结束我意识到以后我再也不能靠着暗恋的人作为自己动力了……我找上了鱼，问了问解决方案。"啊啊啊……她超萌的啊，总算有人懂我了（点赞表情包）。""是吧是吧。"就这样，我们在网上有了比较经常的联系，我跟她谈天说地。</p>
+<p>七月末，我们被同一所高中录取。我跟她开玩笑，我们开始玩……类似过家家。当时是扮演男女朋友的关系，过不了三天，"我觉得我们扮演的有点太像了……""好吧……"她不知道的是，我从中收获了多少快乐……也忘了发生了什么事，我删了她十五分钟，后来她就生闷气了……我也很难受。</p>
+<p>八月，我们的关系缓和了。由于身体原因，她没去军训，我多熟悉了学校附近一周。"你带我去附近吃呗……你比较熟悉。"我很高兴，她能在线下见我。"好啊好啊。"时间不长，她在班上找到了新朋友，随后就不跟我出来了……一次次，连通知我都没有，就是默认不跟我出来。那时我很崩溃。到了国庆，由于她要补看漫画，甚至到了最后一天才回复我的私信……"我还是跟你出去吧……" 但是终究还是只有一两天。</p>
+<p>"现在，立刻 ，马上跟我炒CP！"略带命令的语气，我却很是激动。起因是她不能忍受闺蜜尝试磕她和她后桌，出了这个计策。"好……"转瞬之间"我不忍心骗她们……"</p>
+<p>一次次的失望，让我略微有些崩溃，我想直接表明我的想法。"我有点想和你发展，我很忏愧，请骂我好吗……""不知道怎么骂啊……"她是只很善良的鱼。到了晚上，可能是忘记了这件事，她略带崩溃的情绪，问"我好想要个理科男朋友啊……你行不行？"我害怕这只是玩笑，我问了很多，确认了这是她真心想法，才说"我的荣幸。"我看着她公开在了QQ空间上，才对此公开。"你害怕被关注到吗？""应该不怕吧？"</p>
+<p>第二天正好是周一，中午她和朋友们去了食堂吃饭，我觉得我们只是比较慢热……到了晚上，她让我送她回家走一段路，我欣然同意，路上无事发生……</p>
+<p>周二，我跟她因为顺路一起回去，我不知道该说些什么，她说"我觉得我需要再考虑考虑，咱们先做朋友吧""但是这是我第一段恋情啊……明面上持续久一点吧。"为了证明我的想法，我特地写了一篇正式的表白信。我又写了我喜欢她的缘由，希望她能参考。</p>
+<p>周三的时候，却是她同学代替她说"她根本不喜欢你，你不要骚扰她了……"我很崩溃，我好像没做错什么，为什么说我在骚扰。"可能只是夸张了吧，对不起……""没事。"</p>
+<p>周四的时候，她问我到底有多喜欢她，我尝试用理性的角度分析。我说了很多，最后在交手机前说："我会在今天晚上写明白的"，最后她说"你喜欢的只不过是这些经历罢了……就算换了个人你也会喜欢她吧？我对我的其他闺蜜们的喜欢程度甚至跟你说的一样，你有什么特殊的？"</p>
+<p>周五的晚上，再把信息发出去，就被拒收了……我写了两个多小时。</p>
+<p>到底是为什么……</p>
+    </div>
+    <div id="ab-15">
+<p><em>Inspired by LYZ. 本篇一切内容均为虚构，如有巧合，纯属雷同。</em></p>
+<p>大家可曾听过所谓"直男技术宅"这般的群体呢？他们或沉迷于各项技术难以自拔，或难以混入线下的大众圈子里。而画面中的主人公就是他们的一员。</p>
+<p>键盘声此起彼伏地响起，一口咖啡下肚，"文案就快要写好了"。电脑右下方的3:00悄然亮着，屏幕的上方赫然写着"日记分析——白井"。我深吸一口气，将办公椅连同身体轻轻往后一推，转身开始补起了作业。这就是我，白井，一个对知识充满渴望，主张要系统化一切的我。</p>
+<p>（第一幕：小学时代，白井与同桌御坂的日常，涂改带的故事，暗恋女生叶月的开始。）</p>
+<p>（第二幕：白井对叶月的暗恋，毕业分班后继续关注，最后通过纸条获得联系方式。）</p>
+<p>（第三幕：网课时期与御坂的微信互动，点点滴滴的积累，御坂对白井的试探性表白。）</p>
+<p>（第四幕：高中重逢，过家家式的CP扮演，最终表白失败。）</p>
+<p>相信从那一刻起，我就意识到了一切都是宿命。我早有预料，却没有做好准备。就像是蝴蝶开始扇动翅膀的瞬间，没人知道在混沌系统中这会引起些什么，但至少那个画面让我们窥见了它会引起的一切。诸位，请同我观看一个命运之众的败犬的诞生之路吧！</p>
+<p>全篇以白井与御坂的故事为主线，横跨小学到高中时光，细腻刻画了一段无法结果的暗恋与青春遗憾。</p>
+    </div>
+    <div id="ab-16">
+<p>My name is Jiahao, a student from a junior high school in my community. I'd like to introduce an old man called Bei, I don't know his real name, in our community.</p>
+<p>Shining in the sky, the sun set his light on patches of sakuras and a stone table, bringing a sense of comfort. "According to fork history, Dong Zuo and Lv Bu are a famous couple.." My friends and I were sitting around the stone table to listen to Bei's story. Bei is a wise and interesting man. He knew many things but was different from others——he seldom used memes, even popular ones.</p>
+<p>I still remembered it was a cloudy day. My friends and I were sitting surrounding Bei as usual. One of my friends asked him a question: "Mr.Bei, why I never heard of your lover?". Everything became silence. Mr.Bei, usually with smile on his face, had some tears filled in his eyes.</p>
+<p>After a while, Bei finally said "Ahh…It's because I haven't loved anyone, even the most beautiful girl I've met."</p>
+<p>Two years later. My classmates and I went to junior high schools. We were busy studying and didn't meet Bei even once.</p>
+<p>Occasionally, according to my Chinese homework, I went out my home to find "the beauty of Autumn" and passed Bei's house. I heard a low voice from the house. I got closer to Bei's house, looking through his windows. Bei was in the bed and repeated something. It sounded like a name, a girl's name. "Yuer.."</p>
+<p>Then I never see Bei.</p>
+<p>A few days later, I was told by my father that Bei was dead. At first, no one noticed his disappearance. It was supposed that he had dead 3 days before my uncle found him dead. The full moon was shining in the sky. Leaves fell in front of a door.</p>
+<p>There was a letter lying on his wooden table, written some words: "I love my dear, Yuban, forever. I made it."</p>
+    </div>
+    <div id="ab-17">
+<p>今天是，我和琳琳认识的第一百天～</p>
+<p>感谢我们的吴启凡、林宇聪、雷耀祖、包哲铭、叶潮凡、yyh、马yc、lrx、ctx、civet先生和蔡沛霖、周运熙、糖糖小哒、lyx、nie、曾星颖、hxy、lrx对象、zyf、ywf女士之前对我的事情的关注！顺带一提，这个顺序是随便拍的，都非常感谢你们！但我最感谢的人，就是我最喜欢的琳琳了！</p>
+<p>认识琳琳一百天，实际上也意味着这件事在理论上结束了一百天。她就像一道光，重新照亮了我的未来。原谅我引用前天在致琳琳的话中的一串话：「Like an angel saving me from the darkest time of my life, Liang first chatted with me on January 27th, this year. On that day, everything that had lost its color was suddenly filled again with the most beautiful color of my world—you. 絶望の中で、君を見つけた。」</p>
+<p>收到琳琳抄写我的九十九遍名字，没错，刚才还是第九十九天～祝我们99～我非常开心。在上个月我写完九十九遍她的名字过后，我还一直在想她为什么不发呢，甚至有些伤心，现在这股势能全然转化为了一种以高兴、兴奋为主的情绪！我真是太幸福了！</p>
+<p>希望我能不断成为琳琳更离不开的人，也希望你们能为我们的故事感动。</p>
+<p style="text-align:right">——来自MatCha Koikokoro 一百天特供</p>
+    </div>
+    <div id="ab-18">
+<p>空气里残存的硝烟并非火药独有的刺鼻，还裹挟着一丝淡若鸢尾、令人心神恍惚的甜香。那不是凡俗爆炸该有的气息。</p>
+<p>约翰缓缓放下咖啡杯，银质勺底在瓷盘擦出一声嗡鸣。他灰蓝色的眼眸蒙上一层雾似晦暗，目光穿透喧闹骚动的人群，落向第三大道那团翻滚的灰烟。</p>
+<p>"走火？"他低声重复，语调带着一丝悲悯的嘲弄，"亲爱的汉弗莱，真正的失控，从来不是火药的莽撞。"</p>
+<p>我停下哼唱的调子，心底莫名泛起一阵刺骨的寒意。方才那份大快人心的亢奋如同潮水般褪去，四肢泛起细微的麻痹感，仿佛被无形的丝线缠上。街角路灯的光晕微微扭曲，行人的喧哗变得遥远模糊。</p>
+<p>汉弗莱的笑容淡下，指尖无意识摩挲着西装纽扣。</p>
+<p>"周博士……他研究的从来不是寻常器械。"约翰的声音轻得像叹息，"今晚的黄昏，不止笼罩帝国的黑夜，某些沉睡的存在，已经被这场突如其来的爆炸，轻轻叩响了门扉。"</p>
+<p>风掠过商场长廊，带着灰烬与诡异的甜香，无人知晓，方才那一声轰鸣，撕开的究竟是一栋建筑，还是世界表层之下，不可直视的隐密。</p>
+    </div>
+    <div id="ab-19">
+<p><strong>To 我重要的人：</strong></p>
+<p>好开心，时间好快，今天居然已经是我们认识的100天啦。蓦然回首，我们认识的时间虽然不长，但也一同度过与经历了许多。</p>
+<p>想起我们相识还得感谢lrx的名片，没有他，我也不可能会认识你。当时的我或许也想不到，现在我们之间已经这样好，也对彼此惺惺相惜。在这说长不长说短不短的时间里，我发现你是一个十分有趣，时常开朗，或而敏感，总是能有很多新奇想法的人。你十分的珍惜我，珍惜我的人，珍惜和我在一起的时光，珍惜和我创造的回忆，珍惜和我在一起的一切，这些我在前男友那鲜有体会。</p>
+<p>想到我在你那是如此重要，想到这世界上有一个人如此在意我喜欢我，我也对自己拥有了更多的自信和希望。谢谢你，我们一起度过的这些那些，不仅在你眼里是一些可贵的回忆，在我心中也成为我刻骨铭心的光阴。</p>
+<p>我家庭并不好，性格也有许多缺陷。还时常不在线，没有办法及时回复你的信息，照顾你的情绪和感受。这些困难也令我感到焦急和难过，在搭子替我接管账号的时候，我也想我能拿着手机和你聊天，而不是每次聊天都因为父母只得匆匆结束。然而面对这样的我，你也没有急躁，而是悉心包容我的全部。这一切的一切都令我动容，让我总是不止一次感谢有你的出现。</p>
+<p>谢谢你，林，谢谢你出现在我的生活里，成为我生命里的一束光。希望我们之间在未来的未来还能拥有更多，更多属于我们的回忆。</p>
+    </div>
+  </div>
+
+  <script>
+// ========== 文章元数据（不含 body）==========
+var articles = [
+  {id:1, title:"止战之殇", category:"原创", author:"", date:"2026-08-04", time:"16:08", sortDate:"2026-08-04", excerpt:"帝国·圣洛基市的枪声打破了下午茶的宁静。我作为前线报道员，踏上了前往加瑟的征途……"},
+  {id:2, title:"后战争时代·第一章", category:"原创", author:"", date:"时间不可考", time:"", sortDate:"2024-01-01", excerpt:"2077年，地联集团发布了一款名为「联梦」的VR眼镜，全球为之疯狂。康淘公司太子林予衡踏入了这场游戏……"},
+  {id:4, title:"定语从句：whose与whom的用法笔记", category:"原创", author:"", date:"2025-01-16", time:"00:26", sortDate:"2025-01-16", excerpt:"NCE2教了定语从句，但几乎完全没提到过whose和whom主导的定语从句。我运用AI工具查了一些相关信息……"},
+  {id:5, title:"论损友与益友", category:"原创", author:"", date:"2025-04-12", time:"21:17", sortDate:"2025-04-12", excerpt:"回家途中无事可做，念此前在语文卷子上看到一篇议论文，对其观点略有不满……"},
+  {id:7, title:"关于泛情问题的讨论", category:"原创", author:"", date:"2025-07-18", time:"02:51", sortDate:"2025-07-18", excerpt:"泛情是一种决策，这是无意识的，决策的回报是更多生子机会，决策代价是更低的信任……"},
+  {id:8, title:"一个时代的缩影——我的背景", category:"原创", author:"", date:"2026-02-10", time:"22:57", sortDate:"2026-02-10", excerpt:"我是一个混合了很多地方文化的人。1949年，随着红旗插遍长江以南，我的曾祖父去了宝岛……"},
+  {id:9, title:"furry的污名化与朋友圈风波", category:"原创", author:"", date:"2026-05-10", time:"19:24", sortDate:"2026-05-10", excerpt:"在今天下午两点我发了一条朋友圈，内容是在分享一个B站视频的同时评论……"},
+  {id:10, title:"青少年男生的抵抗心理", category:"原创", author:"", date:"2026-05-10", time:"22:02", sortDate:"2026-05-10", excerpt:"我发现了一种比较特殊的个性。在我的观察中，这个个性的特征在青少年男生中比较明显……"},
+  {id:11, title:"数学表达的一点想法", category:"原创", author:"", date:"2026-05-16", time:"21:44", sortDate:"2026-05-16", excerpt:"我认为在写数学表达的时候，表达者所写的所有对象应当被默认同时表达了表达符号内隐含的信息和对象本体……"},
+  {id:12, title:"后虚无主义时代的象征——奶蛙的崛起", category:"原创", author:"", date:"2026-06-17", time:"21:44", sortDate:"2026-06-17", excerpt:"奶蛙，一种人为创造的虚拟概念。奶蛙的出现离不开其形象来源——奶龙……"},
+  {id:13, title:"男青少年人格分类", category:"原创", author:"", date:"2026-06-23", time:"", sortDate:"2026-06-23", excerpt:"我发现了一种比较特殊的个性。在我的观察中，这个个性的特征在青少年男生中比较明显……"},
+  {id:14, title:"自哈基贝的半个失恋感想——大好人的自述", category:"原创", author:"", date:"2025-11-09", time:"15:04", sortDate:"2025-11-09", excerpt:"'这不可能啊，你性格很好的呀'——多。我叫哈基贝……准确来说叫林正澔。这一切的故事都要从四年前开始说起……"},
+  {id:15, title:"亡妻回忆录", category:"原创", author:"", date:"2025-11-16", time:"14:49", sortDate:"2025-11-16", excerpt:"本篇一切内容均为虚构。大家可曾听过所谓'直男技术宅'这般的群体呢？而画面中的主人公就是他们的一员……"},
+  {id:16, title:"The Fading Elderly in Silence", category:"原创", author:"", date:"2025-11-17", time:"01:33", sortDate:"2025-11-17", excerpt:"My name is Jiahao, a student from a junior high school. I'd like to introduce an old man called Bei……"},
+  {id:17, title:"我和琳琳认识的第一百天", category:"原创", author:"", date:"2026-05-08", time:"", sortDate:"2026-05-08", excerpt:"今天是，我和琳琳认识的第一百天～感谢我们的吴启凡、林宇聪、雷耀祖……但我最感谢的人，就是我最喜欢的琳琳了！"},
+  {id:18, title:"止战之殇（续写）", category:"优秀二创", author:"闻人木", date:"2026-08-01", time:"21:02", sortDate:"2026-08-01", excerpt:"空气里残存的硝烟并非火药独有的刺鼻，还裹挟着一丝淡若鸢尾、令人心神恍惚的甜香……"},
+  {id:19, title:"100天——致我重要的人", category:"优秀二创", author:"琳琳", date:"2026-05-08", time:"", sortDate:"2026-05-08", excerpt:"好开心，时间好快，今天居然已经是我们认识的100天啦。蓦然回首，我们认识的时间虽然不长，但也一同度过与经历了许多……"}
+];
+
+// ========== 渲染函数 ==========
+function renderPassages() {
+  var catFilter = document.getElementById('passage-cat-filter').value;
+  var sortOrder = document.getElementById('passage-sort').value;
+
+  var filtered = articles.filter(function(a) {
+    if (catFilter === 'all') return true;
+    return a.category === catFilter;
+  });
+
+  filtered.sort(function(a, b) {
+    if (a.sortDate > b.sortDate) return sortOrder === 'asc' ? 1 : -1;
+    if (a.sortDate < b.sortDate) return sortOrder === 'asc' ? -1 : 1;
+    return 0;
+  });
+
+  // Featured: latest article（改为 <a> 链接）
+  var featEl = document.getElementById('passage-featured');
+  if (filtered.length > 0) {
+    var feat = filtered[0];
+    var featHTML = '<a href="article_' + feat.id + '.html" class="featured-card" data-id="' + feat.id + '">';
+    featHTML += '<div class="featured-tag">最新文章</div>';
+    featHTML += '<h3 class="featured-title">' + feat.title + '</h3>';
+    featHTML += '<div class="featured-meta">';
+    featHTML += '<span class="feat-cat">' + feat.category + '</span>';
+    featHTML += '<span class="feat-date">' + feat.date + (feat.time ? ' ' + feat.time : '') + '</span>';
+    if (feat.author) featHTML += '<span class="feat-author">作者：' + feat.author + '</span>';
+    featHTML += '</div>';
+    featHTML += '<p class="featured-excerpt">' + feat.excerpt + '</p>';
+    featHTML += '<span class="featured-cta">阅读全文 →</span>';
+    featHTML += '</a>';
+    featEl.innerHTML = featHTML;
+  } else {
+    featEl.innerHTML = '';
+  }
+
+  // List: skip first (featured)
+  var listEl = document.getElementById('passage-list');
+  var listHTML = '';
+  for (var i = 1; i < filtered.length; i++) {
+    var a = filtered[i];
+    listHTML += '<a href="article_' + a.id + '.html" class="passage-item" data-id="' + a.id + '">';
+    listHTML += '<div class="passage-item-header">';
+    listHTML += '<span class="passage-item-cat cat-' + (a.category === '优秀二创' ? 'derivative' : 'original') + '">' + a.category + '</span>';
+    listHTML += '<span class="passage-item-date">' + a.date + '</span>';
+    if (a.author) listHTML += '<span class="passage-item-author">— ' + a.author + '</span>';
+    listHTML += '</div>';
+    listHTML += '<h4 class="passage-item-title">' + a.title + '</h4>';
+    listHTML += '<p class="passage-item-excerpt">' + a.excerpt + '</p>';
+    listHTML += '</a>';
+  }
+  listEl.innerHTML = listHTML;
+
+  // Bind click events
+  bindArticleClicks();
+}
+
+function bindArticleClicks() {
+  // 文章现在是独立页面链接，不需要阻止默认行为
+}
+
+function openArticle(id) {
+  var a = articles.find(function(item) { return item.id === id; });
+  if (!a) return;
+  document.getElementById('article-modal-title').textContent = a.title;
+  document.getElementById('article-modal-cat').textContent = a.category;
+  document.getElementById('article-modal-date').textContent = a.date + (a.time ? ' ' + a.time : '');
+  document.getElementById('article-modal-author').textContent = a.author ? '作者：' + a.author : '';
+  var abEl = document.getElementById('ab-' + id);
+  document.getElementById('article-modal-body').innerHTML = abEl ? abEl.innerHTML : '<p>文章加载失败</p>';
+  document.getElementById('article-modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeArticle() {
+  document.getElementById('article-modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ========== 事件绑定 ==========
+document.getElementById('passage-cat-filter').addEventListener('change', renderPassages);
+document.getElementById('passage-sort').addEventListener('change', renderPassages);
+document.getElementById('article-modal-close').addEventListener('click', closeArticle);
+document.getElementById('article-modal-overlay').addEventListener('click', closeArticle);
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    var am = document.getElementById('article-modal');
+    if (am.classList.contains('active')) {
+      closeArticle();
+    }
+  }
+});
+
+// ========== Lightbox ==========
+(function() {
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  var lbClose = document.getElementById('lightbox-close');
+  var imgs = document.querySelectorAll('img');
+  imgs.forEach(function(img) {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', function(e) {
+      e.stopPropagation();
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lb.classList.add('active');
+    });
+  });
+  lbClose.addEventListener('click', function() { lb.classList.remove('active'); });
+  lb.addEventListener('click', function(e) {
+    if (e.target === lb) lb.classList.remove('active');
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lb.classList.contains('active')) {
+      lb.classList.remove('active');
+    }
+  });
+})();
+
+// ========== URL Query 检测：直接打开文章 ==========
+function getQueryParam(name) {
+  var match = location.search.match(new RegExp('[?&]' + name + '=([^&]*)'));
+  return match ? decodeURIComponent(match[1]) : null;
+}
+var pid = getQueryParam('p');
+if (pid) {
+  renderPassages();
+  setTimeout(function() { openArticle(parseInt(pid)); }, 200);
+} else {
+  renderPassages();
+}
+  </script>
+
+  <!-- ========== 200天倒计时逻辑 ========== -->
+  <script>
+  (function() {
+    var TARGET_DATE = new Date('2026-08-15T00:00:00+08:00'); // UTC+8 第200天
+    var lockEl = document.getElementById('countdown-lock');
+    var revealEl = document.getElementById('countdown-reveal');
+    var overlay = document.getElementById('countdown-overlay');
+    var closeBtn = document.getElementById('countdown-close-btn');
+    var checked = false;
+
+    function updateTimer(diff) {
+      if (diff <= 0) {
+        // 时间到！切换到揭示内容
+        if (lockEl) lockEl.style.display = 'none';
+        if (revealEl) revealEl.style.display = 'block';
+        return;
+      }
+      var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      var secs = Math.floor((diff % (1000 * 60)) / 1000);
+      document.getElementById('cd-days').textContent = days;
+      document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
+      document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+    }
+
+    function checkTime() {
+      var now = new Date();
+      var diff = TARGET_DATE.getTime() - now.getTime();
+      updateTimer(diff);
+    }
+
+    // 从 API 获取 UTC+8 时间校准
+    fetch('https://api.freecodecamp.org/api/time/now?timezone=Asia/Shanghai')
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        var serverNow = new Date(data.currentTime);
+        var localNow = new Date();
+        var offset = serverNow.getTime() - localNow.getTime(); // 服务器与本地的时间差
+        checked = true;
+
+        function tick() {
+          var now = new Date(Date.now() + offset);
+          var diff = TARGET_DATE.getTime() - now.getTime();
+          updateTimer(diff);
+        }
+        tick();
+        setInterval(tick, 1000);
+      })
+      .catch(function() {
+        // 降级：使用本地时间
+        checked = true;
+        checkTime();
+        setInterval(checkTime, 1000);
+      });
+
+    // 关闭/跳过按钮
+    function hideOverlay() {
+      overlay.classList.add('countdown-hidden');
+      document.body.style.overflow = '';
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', hideOverlay);
+    }
+
+    var skipBtn = document.getElementById('countdown-skip-btn');
+    if (skipBtn) {
+      skipBtn.addEventListener('click', hideOverlay);
+    }
+
+    // 倒计时覆盖层显示，但不阻止主页滚动（保留主页可见）
+    // 用户可点击按钮关闭覆盖层查看主页
+  })();
+  </script>
+</body>
+</html>
