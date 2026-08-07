@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>认识琳琳200天活动 — MatChaの神秘小屋</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .countdown-overlay {
+      position: fixed !important; opacity: 1 !important; visibility: visible !important;
+      pointer-events: auto !important; min-height: 100vh !important; z-index: 99999 !important;
+      background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 25%, #f3e5f5 50%, #e8eaf6 75%, #fce4ec 100%) !important;
+    }
+    .back-link {
+      position: fixed; top: 16px; left: 20px; z-index: 999999;
+      font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em;
+      color: var(--gray-dark); text-decoration: none; background: rgba(255,255,255,0.8);
+      padding: 6px 14px; border: 1px solid var(--gray-mid);
+    }
+    .back-link:hover { color: var(--green); border-color: var(--green); }
+    .skip-hint { font-size: 0.65rem; color: var(--gray-mid); margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <div class="grid-overlay"></div>
+  <a href="index.html" class="back-link">← 返回首页</a>
+
+  <div class="countdown-overlay" id="countdown-overlay">
+    <div class="countdown-bg-hearts"></div>
+    <div class="countdown-container">
+      <div class="countdown-lock" id="countdown-lock">
+        <span class="countdown-lock-icon">🔒</span>
+        <p class="countdown-lock-title">认识琳琳200天活动</p>
+        <p class="countdown-lock-sub">一份特别的惊喜正在路上……</p>
+        <div class="countdown-timer">
+          <div class="countdown-unit"><span class="countdown-num" id="cd-days">--</span><span class="countdown-label">天</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="cd-hours">--</span><span class="countdown-label">时</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="cd-mins">--</span><span class="countdown-label">分</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="cd-secs">--</span><span class="countdown-label">秒</span></div>
+        </div>
+        <p class="countdown-hint">倒计时结束后揭晓 ✨</p>
+        <button class="countdown-close-btn" id="countdown-skip-btn" disabled style="opacity:0.4;cursor:not-allowed;background:var(--white);color:var(--gray-mid);border-color:var(--gray-mid);">还剩 >10 小时可提前查看</button>
+        <p class="skip-hint">倒计时最后10小时内开放</p>
+        <div class="cd-unlock-area">
+          <p class="cd-unlock-hint">🔑 输入暗号提前看</p>
+          <div class="cd-unlock-row">
+            <input type="text" class="cd-unlock-input" id="preview-unlock-input" placeholder="输入暗号……">
+            <button class="cd-unlock-btn" id="preview-unlock-btn">→</button>
+          </div>
+        </div>
+        <button class="countdown-close-btn" id="countdown-dismiss-btn" style="margin-top:6px;background:transparent;color:var(--gray-mid);border-color:var(--gray-mid);">先不看了，返回主页</button>
+      </div>
+      <div class="countdown-reveal" id="countdown-reveal" style="display:none;">
+        <span class="countdown-reveal-icon">💌</span>
+        <h2 class="countdown-reveal-title">致琳琳</h2>
+        <p class="countdown-reveal-date">2026.1.27 — 2026.8.15 · 200 天</p>
+        <div class="countdown-reveal-divider"></div>
+        <div class="countdown-reveal-body">
+          <p>今天，也就是二〇二六年八月十五日，是我和琳琳认识的第200天！！！恭喜恭喜</p>
+          <p>距离上次100天时候呢，在这一百天里，由于包括我自己在内的不可抗力因素，我们并没有机会能相处很久 TxT，也称不上有多少实质性进展</p>
+          <p>但是！</p>
+          <p>有一些东西是藏不住的。经过了这段时间，我们对彼此变得越来越安心了，能够更加自然的向对方展示自我，小秘密也没以前多了，何其有幸呐。</p>
+          <p>琳琳，虽然这点大家都知道，但我还是想在这里大喊一句：</p>
+          <p class="love-shout">我喜欢你！</p>
+          <p>正如一束光照进了我的生活，把我拉出过去的黑暗。</p>
+          <p>我知道，我上课有时候还是会无精打采的，甚至发呆；我内心有时候还是会感到空虚的，甚至疼痛；我大脑有时候还是会因过去难受，但那叫铭记。</p>
+          <p>200天，对于一段人际关系很短，对于一辈子更短，甚至对情侣相处的时间也很短。这个数字本应该是没什么特殊意味的但是……它因你而不同。</p>
+          <p>感谢你的出现，也祝愿我们能够走到最后吧！爱你哟。</p>
+          <div class="cd-signature-line">
+            <img src="handwriting.jpg" alt="林正澔 亲笔签名" class="cd-signature-img">
+          </div>
+        </div>
+        <button class="countdown-close-btn" onclick="location.href='index.html'">❤ 返回首页</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 彩蛋弹窗 ===== -->
+  <div class="easter-overlay" id="easter-overlay">
+    <div class="easter-dialog">
+      <h3>🔑 暗号</h3>
+      <p>请输入暗号解锁彩蛋</p>
+      <input type="text" class="easter-input" id="easter-input" placeholder="输入暗号……">
+      <div class="easter-btns">
+        <button class="easter-btn cancel" id="easter-cancel">取消</button>
+        <button class="easter-btn confirm" id="easter-confirm">确定</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  (function() {
+    var TARGET_DATE = new Date('2026-08-15T00:00:00+08:00');
+    var lockEl = document.getElementById('countdown-lock');
+    var revealEl = document.getElementById('countdown-reveal');
+    var skipBtn = document.getElementById('countdown-skip-btn');
+    var dismissBtn = document.getElementById('countdown-dismiss-btn');
+    var TEN_HOURS = 10 * 60 * 60 * 1000;
+    var globalDiffRef = 86400000;
+
+    function updateTimer(diff) {
+      globalDiffRef = diff;
+      if (diff <= 0) {
+        if (lockEl) lockEl.style.display = 'none';
+        if (revealEl) revealEl.style.display = 'flex';
+        return;
+      }
+      var days = Math.floor(diff / 86400000);
+      var hours = Math.floor((diff % 86400000) / 3600000);
+      var mins = Math.floor((diff % 3600000) / 60000);
+      var secs = Math.floor((diff % 60000) / 1000);
+      document.getElementById('cd-days').textContent = days;
+      document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+      document.getElementById('cd-mins').textContent = String(mins).padStart(2,'0');
+      document.getElementById('cd-secs').textContent = String(secs).padStart(2,'0');
+
+      if (diff <= TEN_HOURS && skipBtn) {
+        skipBtn.disabled = false;
+        skipBtn.style.opacity = '1';
+        skipBtn.style.cursor = 'pointer';
+        skipBtn.style.background = 'var(--green)';
+        skipBtn.style.color = 'var(--white)';
+        skipBtn.style.borderColor = 'var(--green)';
+        skipBtn.textContent = '提前查看 →';
+      } else if (skipBtn) {
+        var remainH = Math.floor((diff - TEN_HOURS) / 3600000) + 10;
+        skipBtn.textContent = '还剩 ' + remainH + '+ 小时可提前查看';
+      }
+    }
+
+    function tickWithOffset(offset) {
+      return function() {
+        var now = new Date(Date.now() + offset);
+        updateTimer(TARGET_DATE.getTime() - now.getTime());
+      };
+    }
+
+    fetch('https://api.freecodecamp.org/api/time/now?timezone=Asia/Shanghai')
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        var offset = new Date(d.currentTime).getTime() - Date.now();
+        var tick = tickWithOffset(offset);
+        tick(); setInterval(tick, 1000);
+      })
+      .catch(function(){
+        function tick(){ updateTimer(TARGET_DATE.getTime() - Date.now()); }
+        tick(); setInterval(tick, 1000);
+      });
+
+    if (skipBtn) {
+      skipBtn.addEventListener('click', function(){
+        if (globalDiffRef > TEN_HOURS) return;
+        if (lockEl) lockEl.style.display = 'none';
+        if (revealEl) revealEl.style.display = 'flex';
+      });
+    }
+
+    // 暗号解锁
+    var unlockInput = document.getElementById('preview-unlock-input');
+    var unlockBtn = document.getElementById('preview-unlock-btn');
+    if (unlockBtn && unlockInput) {
+      function doUnlock() {
+        var v = unlockInput.value.trim();
+        var keys = ['我也喜欢你','我爱你','我也爱你','喜歡你','love you','i love you','iloveyou'];
+        var hit = false;
+        for (var i = 0; i < keys.length; i++) {
+          if (v.toLowerCase().indexOf(keys[i].toLowerCase()) !== -1) { hit = true; break; }
+        }
+        if (hit) {
+          if (lockEl) lockEl.style.display = 'none';
+          if (revealEl) revealEl.style.display = 'flex';
+        } else {
+          unlockInput.value = '';
+          unlockInput.placeholder = '暗号不对……';
+        }
+      }
+      unlockBtn.addEventListener('click', doUnlock);
+      unlockInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') doUnlock();
+      });
+    }
+
+    if (dismissBtn) {
+      dismissBtn.addEventListener('click', function(){
+        location.href = 'index.html';
+      });
+    }
+  })();
+
+  // ========== 彩蛋 ==========
+  (function(){
+    var clickCount=0, timer=null, triggered=false;
+    function reset(){ clickCount=0; if(timer)clearTimeout(timer); timer=null; }
+    function showEaster(){
+      if(triggered)return; triggered=true;
+      document.getElementById('easter-overlay').classList.add('active'); reset();
+    }
+    function checkPw(){
+      var v=document.getElementById('easter-input').value.trim();
+      var keys=['我也喜欢你','我爱你','我也爱你','喜歡你','love you','i love you','iloveyou'],hit=false;
+      for(var i=0;i<keys.length;i++){ if(v.toLowerCase().indexOf(keys[i].toLowerCase())!==-1){hit=true;break;} }
+      if(hit){ document.getElementById('easter-overlay').classList.remove('active'); location.href='secret.html'; }
+      else { document.getElementById('easter-input').value=''; document.getElementById('easter-input').placeholder='暗号不对，再试试……'; document.getElementById('easter-input').focus(); }
+    }
+    function bindLove(){
+      var el=document.querySelector('.love-shout');
+      if(!el)return false;
+      el.style.cursor='pointer'; el.style.userSelect='none'; el.title='戳戳我~';
+      el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); clickCount++; if(!timer)timer=setTimeout(reset,15000); if(clickCount>=10)showEaster(); });
+      return true;
+    }
+    if(!bindLove()){ var obs=new MutationObserver(function(){ if(bindLove())obs.disconnect(); }); obs.observe(document.body,{childList:true,subtree:true}); }
+    document.getElementById('easter-confirm').addEventListener('click',checkPw);
+    document.getElementById('easter-cancel').addEventListener('click',function(){ document.getElementById('easter-overlay').classList.remove('active'); document.getElementById('easter-input').value=''; document.getElementById('easter-input').placeholder='输入暗号……'; triggered=false; });
+    document.getElementById('easter-input').addEventListener('keydown',function(e){ if(e.key==='Enter')checkPw(); });
+  })();
+  </script>
+</body>
+</html>

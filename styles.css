@@ -1064,6 +1064,24 @@ body {
 }
 
 /* =============================================
+   亲笔签名 Hero Signature
+   ============================================= */
+.hero-signature {
+  width: auto;
+  max-width: 200px;
+  height: auto;
+  display: block;
+  opacity: 0.78;
+  margin-bottom: var(--spacing-xs);
+  mix-blend-mode: multiply;
+  transition: opacity 0.3s;
+}
+
+.hero-signature:hover {
+  opacity: 1;
+}
+
+/* =============================================
    免责声明 Disclaimer
    ============================================= */
 .disclaimer {
@@ -1351,6 +1369,183 @@ body {
 
 .lightbox-close:hover {
   color: var(--green-light);
+}
+
+/* =============================================
+   区域十：版本活动 Events
+   ============================================= */
+.events-section {
+  grid-column: 1 / 13;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  background: #fafafa;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg) var(--spacing-md);
+  border: var(--border-thick) solid var(--black);
+  background: var(--white);
+  text-decoration: none;
+  color: var(--black);
+  transition: all 0.25s;
+  position: relative;
+}
+
+.event-card:hover {
+  border-color: var(--green);
+  background: #fdfdfd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.event-card-badge {
+  position: absolute;
+  top: -12px;
+  left: var(--spacing-sm);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 3px 12px;
+}
+
+.event-badge-active {
+  background: var(--green);
+  color: var(--white);
+}
+
+.event-badge-ended {
+  background: var(--gray-mid);
+  color: var(--white);
+}
+
+.event-card-icon {
+  font-size: 2rem;
+}
+
+.event-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.event-card-desc {
+  font-size: 0.8rem;
+  color: var(--gray-dark);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.event-card-cta {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--green);
+  transition: opacity 0.2s;
+}
+
+.event-card:hover .event-card-cta {
+  opacity: 0.7;
+}
+
+/* =============================================
+   彩蛋弹窗 Easter Egg
+   ============================================= */
+.easter-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 999999;
+  background: rgba(17,17,17,0.7);
+  align-items: center;
+  justify-content: center;
+}
+
+.easter-overlay.active {
+  display: flex;
+}
+
+.easter-dialog {
+  background: var(--white);
+  border: var(--border-thick) solid var(--green);
+  padding: var(--spacing-xl) var(--spacing-lg);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.easter-dialog h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--black);
+}
+
+.easter-dialog p {
+  font-size: 0.85rem;
+  color: var(--gray-dark);
+  margin-bottom: var(--spacing-md);
+}
+
+.easter-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: var(--border-thick) solid var(--black);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  text-align: center;
+  outline: none;
+  margin-bottom: var(--spacing-sm);
+  transition: border-color 0.2s;
+}
+
+.easter-input:focus {
+  border-color: var(--green);
+}
+
+.easter-btns {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.easter-btn {
+  flex: 1;
+  padding: 10px 0;
+  border: var(--border-thick) solid var(--black);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.easter-btn.confirm {
+  background: var(--green);
+  color: var(--white);
+  border-color: var(--green);
+}
+
+.easter-btn.confirm:hover {
+  background: var(--white);
+  color: var(--green);
+}
+
+.easter-btn.cancel {
+  background: var(--white);
+  color: var(--black);
+}
+
+.easter-btn.cancel:hover {
+  background: var(--black);
+  color: var(--white);
 }
 
 /* =============================================
@@ -2189,8 +2384,86 @@ body {
   max-width: 480px;
 }
 
+.countdown-reveal-body .love-shout {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #e91e63;
+  text-align: center;
+  margin: var(--spacing-sm) 0;
+  letter-spacing: 0.08em;
+}
+
 .countdown-reveal-body p {
   margin-bottom: var(--spacing-sm);
+}
+
+.cd-signature-line {
+  text-align: right;
+  margin-top: var(--spacing-md);
+}
+
+.cd-signature-img {
+  width: auto;
+  max-width: 180px;
+  height: auto;
+  opacity: 0.82;
+  mix-blend-mode: multiply;
+  transition: opacity 0.3s;
+}
+
+.cd-signature-img:hover {
+  opacity: 1;
+}
+
+.cd-unlock-area {
+  margin-top: var(--spacing-sm);
+  width: 100%;
+  max-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cd-unlock-hint {
+  font-size: 0.65rem;
+  color: var(--gray-mid);
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.cd-unlock-row {
+  display: flex;
+  gap: 0;
+}
+
+.cd-unlock-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: var(--border-thick) solid var(--black);
+  border-right: none;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  outline: none;
+  background: var(--white);
+  transition: border-color 0.2s;
+}
+
+.cd-unlock-input:focus {
+  border-color: var(--green);
+}
+
+.cd-unlock-btn {
+  padding: 8px 16px;
+  border: var(--border-thick) solid var(--black);
+  background: var(--black);
+  color: var(--white);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cd-unlock-btn:hover {
+  background: var(--green);
+  border-color: var(--green);
 }
 
 .countdown-close-btn {
@@ -2229,6 +2502,40 @@ body {
   .countdown-reveal-title {
     font-size: 1.5rem;
   }
+}
+
+/* =============================================
+   滚动渐入动画（GPU 加速）
+   ============================================= */
+@media (prefers-reduced-motion: no-preference) {
+  .section {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: transform, opacity;
+  }
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .hero-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* 通用 GPU 加速 */
+.main-grid,
+.toc-bar,
+.countdown-container,
+.article-modal-content,
+.section,
+.like-card,
+.nav-link-item,
+.social-link-item {
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 /* =============================================
