@@ -757,18 +757,10 @@ if (pid) {
     var closeBtn = document.getElementById('countdown-close-btn');
     var skipBtn = document.getElementById('countdown-skip-btn');
 
-    if (sessionStorage.getItem('cd-dismissed') === '1') {
+    // 始终展示倒计时覆盖层，sessionStorage 仅用于同一标签页返回时不重复弹出
+    if (sessionStorage.getItem('cd-dismissed')) {
       overlay.classList.add('countdown-hidden');
-      document.body.style.overflow = '';
     }
-
-    // BFCache 恢复时重新检查状态
-    window.addEventListener('pageshow', function(e) {
-      if (e.persisted && sessionStorage.getItem('cd-dismissed') === '1') {
-        overlay.classList.add('countdown-hidden');
-        document.body.style.overflow = '';
-      }
-    });
 
     function updateTimer(diff) {
       if (diff <= 0) {
@@ -800,8 +792,7 @@ if (pid) {
 
     function hideOverlay() {
       overlay.classList.add('countdown-hidden');
-      document.body.style.overflow = '';
-      sessionStorage.setItem('cd-dismissed', '1');
+      sessionStorage.setItem('cd-dismissed', Date.now());
     }
 
     if (closeBtn) closeBtn.addEventListener('click', hideOverlay);
@@ -830,6 +821,12 @@ if (pid) {
       triggered = true;
       easterOverlay.classList.add('active');
       resetClicks();
+      setTimeout(function() {
+        if (easterInput) {
+          easterInput.focus();
+          easterInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 150);
     }
 
     function checkPassword() {
@@ -883,6 +880,45 @@ if (pid) {
         if (e.key === 'Enter') checkPassword();
       });
     }
+  })();
+
+  // ========== 目录高亮跟随滚动 ==========
+  (function() {
+    var tocLinks = document.querySelectorAll('.toc-item');
+    var sections = [];
+    tocLinks.forEach(function(link) {
+      var id = link.getAttribute('href');
+      if (id && id.startsWith('#')) {
+        var el = document.getElementById(id.substring(1));
+        if (el) sections.push({ link: link, el: el, id: id.substring(1) });
+      }
+    });
+    if (sections.length === 0) return;
+
+    function updateActive() {
+      var scrollY = window.scrollY + 120;
+      var active = sections[0];
+      for (var i = sections.length - 1; i >= 0; i--) {
+        if (sections[i].el.offsetTop <= scrollY) {
+          active = sections[i];
+          break;
+        }
+      }
+      tocLinks.forEach(function(l) { l.classList.remove('active'); });
+      if (active) active.link.classList.add('active');
+    }
+
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        requestAnimationFrame(function() {
+          updateActive();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+    updateActive();
   })();
 
   // ========== 滚动渐入动画 ==========
