@@ -51,6 +51,7 @@
             <img src="handwriting.jpg" alt="林正澔 亲笔签名" class="cd-signature-img">
           </div>
         </div>
+        <p class="countdown-scroll-hint">↓↓ 向下滚动查看签名 ↓↓</p>
         <button class="countdown-close-btn" id="countdown-close-btn">❤ 我知道了</button>
       </div>
     </div>
@@ -229,14 +230,14 @@
         </a>
         <a href="https://x.com/MatChaRoubei" target="_blank" rel="noopener" class="social-link-item">
           <div class="social-link-img-crop">
-            <img src="X.jpg" alt="X / Twitter" class="social-link-img">
+            <img src="X.jpg" alt="X / Twitter" class="social-link-img" loading="lazy">
           </div>
           <span class="social-link-label">X / Twitter</span>
           <span class="social-link-desc">关注我的X</span>
         </a>
         <a href="https://www.youtube.com/@MatCha_RoubeiMilkBro" target="_blank" rel="noopener" class="social-link-item">
           <div class="social-link-img-crop">
-            <img src="youtube.jpg" alt="YouTube" class="social-link-img">
+            <img src="youtube.jpg" alt="YouTube" class="social-link-img" loading="lazy">
           </div>
           <span class="social-link-label">YouTube</span>
           <span class="social-link-desc">关注我的YT</span>
@@ -746,86 +747,65 @@ if (pid) {
 }
   </script>
 
-  <!-- ========== 200天倒计时逻辑 ========== -->
-  <script>
+  <!-- ========== 200天倒计时 + BFCache 修复 ========== -->
+  <script data-cfasync="false">
   (function() {
-    var TARGET_DATE = new Date('2026-08-15T00:00:00+08:00'); // UTC+8 第200天
+    var TARGET_DATE = new Date('2026-08-15T00:00:00+08:00');
     var lockEl = document.getElementById('countdown-lock');
     var revealEl = document.getElementById('countdown-reveal');
     var overlay = document.getElementById('countdown-overlay');
     var closeBtn = document.getElementById('countdown-close-btn');
-    var checked = false;
+    var skipBtn = document.getElementById('countdown-skip-btn');
 
     if (sessionStorage.getItem('cd-dismissed') === '1') {
       overlay.classList.add('countdown-hidden');
       document.body.style.overflow = '';
     }
 
+    // BFCache 恢复时重新检查状态
+    window.addEventListener('pageshow', function(e) {
+      if (e.persisted && sessionStorage.getItem('cd-dismissed') === '1') {
+        overlay.classList.add('countdown-hidden');
+        document.body.style.overflow = '';
+      }
+    });
+
     function updateTimer(diff) {
       if (diff <= 0) {
-        // 时间到！切换到揭示内容
         if (lockEl) lockEl.style.display = 'none';
         if (revealEl) revealEl.style.display = 'block';
         return;
       }
-      var days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      var secs = Math.floor((diff % (1000 * 60)) / 1000);
+      var days = Math.floor(diff / 86400000);
+      var hours = Math.floor((diff % 86400000) / 3600000);
+      var mins = Math.floor((diff % 3600000) / 60000);
+      var secs = Math.floor((diff % 60000) / 1000);
       document.getElementById('cd-days').textContent = days;
       document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
       document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
       document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
     }
 
-    function checkTime() {
-      var now = new Date();
-      var diff = TARGET_DATE.getTime() - now.getTime();
-      updateTimer(diff);
-    }
-
-    // 从 API 获取 UTC+8 时间校准
     fetch('https://api.freecodecamp.org/api/time/now?timezone=Asia/Shanghai')
-      .then(function(res) { return res.json(); })
-      .then(function(data) {
-        var serverNow = new Date(data.currentTime);
-        var localNow = new Date();
-        var offset = serverNow.getTime() - localNow.getTime(); // 服务器与本地的时间差
-        checked = true;
-
-        function tick() {
-          var now = new Date(Date.now() + offset);
-          var diff = TARGET_DATE.getTime() - now.getTime();
-          updateTimer(diff);
-        }
-        tick();
-        setInterval(tick, 1000);
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        var offset = new Date(d.currentTime).getTime() - Date.now();
+        function tick(){ updateTimer(TARGET_DATE.getTime() - (Date.now() + offset)); }
+        tick(); setInterval(tick, 1000);
       })
-      .catch(function() {
-        // 降级：使用本地时间
-        checked = true;
-        checkTime();
-        setInterval(checkTime, 1000);
+      .catch(function(){
+        function tick(){ updateTimer(TARGET_DATE.getTime() - Date.now()); }
+        tick(); setInterval(tick, 1000);
       });
 
-    // 关闭/跳过按钮
     function hideOverlay() {
       overlay.classList.add('countdown-hidden');
       document.body.style.overflow = '';
       sessionStorage.setItem('cd-dismissed', '1');
     }
 
-    if (closeBtn) {
-      closeBtn.addEventListener('click', hideOverlay);
-    }
-
-    var skipBtn = document.getElementById('countdown-skip-btn');
-    if (skipBtn) {
-      skipBtn.addEventListener('click', hideOverlay);
-    }
-
-    // 倒计时覆盖层显示，但不阻止主页滚动（保留主页可见）
-    // 用户可点击按钮关闭覆盖层查看主页
+    if (closeBtn) closeBtn.addEventListener('click', hideOverlay);
+    if (skipBtn) skipBtn.addEventListener('click', hideOverlay);
   })();
 
   // ========== 彩蛋：10秒点击10次"我喜欢你" ==========

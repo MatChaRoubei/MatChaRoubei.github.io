@@ -2270,9 +2270,12 @@ body {
   backdrop-filter: blur(12px);
   border: 2px solid rgba(74, 124, 89, 0.3);
   border-radius: 4px;
-  padding: var(--spacing-xl) var(--spacing-lg);
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md);
   max-width: 600px;
   width: 90%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
   text-align: center;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1), 0 0 40px rgba(244, 143, 177, 0.15);
 }
@@ -2348,7 +2351,24 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-right: 4px;
+  flex: 1;
+  min-height: 0;
+}
+
+.countdown-reveal::-webkit-scrollbar {
+  width: 4px;
+}
+.countdown-reveal::-webkit-scrollbar-track {
+  background: transparent;
+}
+.countdown-reveal::-webkit-scrollbar-thumb {
+  background: rgba(74, 124, 89, 0.3);
+  border-radius: 2px;
 }
 
 .countdown-reveal-icon {
@@ -2356,10 +2376,11 @@ body {
 }
 
 .countdown-reveal-title {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   color: var(--black);
+  margin-bottom: 0;
 }
 
 .countdown-reveal-date {
@@ -2377,8 +2398,8 @@ body {
 }
 
 .countdown-reveal-body {
-  font-size: 0.95rem;
-  line-height: 2;
+  font-size: 0.88rem;
+  line-height: 1.8;
   color: var(--gray-dark);
   text-align: left;
   max-width: 480px;
@@ -2400,11 +2421,12 @@ body {
 .cd-signature-line {
   text-align: right;
   margin-top: var(--spacing-md);
+  padding-bottom: var(--spacing-xs);
 }
 
 .cd-signature-img {
   width: auto;
-  max-width: 180px;
+  max-width: 150px;
   height: auto;
   opacity: 0.82;
   mix-blend-mode: multiply;
@@ -2413,6 +2435,19 @@ body {
 
 .cd-signature-img:hover {
   opacity: 1;
+}
+
+.countdown-scroll-hint {
+  font-size: 0.6rem;
+  color: var(--gray-mid);
+  letter-spacing: 0.08em;
+  margin-top: var(--spacing-xs);
+  animation: cdHintBounce 1.5s ease infinite;
+}
+
+@keyframes cdHintBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(-3px); opacity: 1; }
 }
 
 .cd-unlock-area {
@@ -2468,7 +2503,8 @@ body {
 
 .countdown-close-btn {
   display: inline-block;
-  margin-top: var(--spacing-sm);
+  margin-top: var(--spacing-xs);
+  flex-shrink: 0;
   padding: 12px 40px;
   font-family: var(--font-mono);
   font-size: 0.8rem;
