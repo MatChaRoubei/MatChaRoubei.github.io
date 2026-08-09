@@ -196,6 +196,10 @@
     function showEaster(){
       if(triggered)return; triggered=true;
       document.getElementById('easter-overlay').classList.add('active'); reset();
+      setTimeout(function(){
+        var inp = document.getElementById('easter-input');
+        if (inp) { inp.focus(); inp.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      }, 150);
     }
     function checkPw(){
       var v=document.getElementById('easter-input').value.trim();

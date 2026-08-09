@@ -96,7 +96,7 @@
         </div>
       </div>
       <div class="hero-text">
-        <h1 class="name-cn">林正澔</h1>
+        <h1 class="name-cn">牛奶哥</h1>
         <img src="handwriting.jpg" alt="林正澔 亲笔签名" class="hero-signature">
         <div class="divider-line"></div>
         <p class="birth-info">2009 <span class="accent">·</span> 福州土著</p>
@@ -592,30 +592,12 @@
     </div>
   </div>
 
+  <script src="articles.js"></script>
   <script>
-// ========== 文章元数据（不含 body）==========
-var articles = [
-  {id:1, title:"止战之殇", category:"原创", author:"", date:"2026-08-04", time:"16:08", sortDate:"2026-08-04", excerpt:"帝国·圣洛基市的枪声打破了下午茶的宁静。我作为前线报道员，踏上了前往加瑟的征途……"},
-  {id:2, title:"后战争时代·第一章", category:"原创", author:"", date:"时间不可考", time:"", sortDate:"2024-01-01", excerpt:"2077年，地联集团发布了一款名为「联梦」的VR眼镜，全球为之疯狂。康淘公司太子林予衡踏入了这场游戏……"},
-  {id:4, title:"定语从句：whose与whom的用法笔记", category:"原创", author:"", date:"2025-01-16", time:"00:26", sortDate:"2025-01-16", excerpt:"NCE2教了定语从句，但几乎完全没提到过whose和whom主导的定语从句。我运用AI工具查了一些相关信息……"},
-  {id:5, title:"论损友与益友", category:"原创", author:"", date:"2025-04-12", time:"21:17", sortDate:"2025-04-12", excerpt:"回家途中无事可做，念此前在语文卷子上看到一篇议论文，对其观点略有不满……"},
-  {id:7, title:"关于泛情问题的讨论", category:"原创", author:"", date:"2025-07-18", time:"02:51", sortDate:"2025-07-18", excerpt:"泛情是一种决策，这是无意识的，决策的回报是更多生子机会，决策代价是更低的信任……"},
-  {id:8, title:"一个时代的缩影——我的背景", category:"原创", author:"", date:"2026-02-10", time:"22:57", sortDate:"2026-02-10", excerpt:"我是一个混合了很多地方文化的人。1949年，随着红旗插遍长江以南，我的曾祖父去了宝岛……"},
-  {id:9, title:"furry的污名化与朋友圈风波", category:"原创", author:"", date:"2026-05-10", time:"19:24", sortDate:"2026-05-10", excerpt:"在今天下午两点我发了一条朋友圈，内容是在分享一个B站视频的同时评论……"},
-  {id:10, title:"青少年男生的抵抗心理", category:"原创", author:"", date:"2026-05-10", time:"22:02", sortDate:"2026-05-10", excerpt:"我发现了一种比较特殊的个性。在我的观察中，这个个性的特征在青少年男生中比较明显……"},
-  {id:11, title:"数学表达的一点想法", category:"原创", author:"", date:"2026-05-16", time:"21:44", sortDate:"2026-05-16", excerpt:"我认为在写数学表达的时候，表达者所写的所有对象应当被默认同时表达了表达符号内隐含的信息和对象本体……"},
-  {id:12, title:"后虚无主义时代的象征——奶蛙的崛起", category:"原创", author:"", date:"2026-06-17", time:"21:44", sortDate:"2026-06-17", excerpt:"奶蛙，一种人为创造的虚拟概念。奶蛙的出现离不开其形象来源——奶龙……"},
-  {id:13, title:"男青少年人格分类", category:"原创", author:"", date:"2026-06-23", time:"", sortDate:"2026-06-23", excerpt:"我发现了一种比较特殊的个性。在我的观察中，这个个性的特征在青少年男生中比较明显……"},
-  {id:14, title:"自哈基贝的半个失恋感想——大好人的自述", category:"原创", author:"", date:"2025-11-09", time:"15:04", sortDate:"2025-11-09", excerpt:"'这不可能啊，你性格很好的呀'——多。我叫哈基贝……准确来说叫林正澔。这一切的故事都要从四年前开始说起……"},
-  {id:15, title:"亡妻回忆录", category:"原创", author:"", date:"2025-11-16", time:"14:49", sortDate:"2025-11-16", excerpt:"本篇一切内容均为虚构。大家可曾听过所谓'直男技术宅'这般的群体呢？而画面中的主人公就是他们的一员……"},
-  {id:16, title:"The Fading Elderly in Silence", category:"原创", author:"", date:"2025-11-17", time:"01:33", sortDate:"2025-11-17", excerpt:"My name is Jiahao, a student from a junior high school. I'd like to introduce an old man called Bei……"},
-  {id:17, title:"我和琳琳认识的第一百天", category:"原创", author:"", date:"2026-05-08", time:"", sortDate:"2026-05-08", excerpt:"今天是，我和琳琳认识的第一百天～感谢我们的吴启凡、林宇聪、雷耀祖……但我最感谢的人，就是我最喜欢的琳琳了！"},
-  {id:18, title:"止战之殇（续写）", category:"优秀二创", author:"闻人木", date:"2026-08-01", time:"21:02", sortDate:"2026-08-01", excerpt:"空气里残存的硝烟并非火药独有的刺鼻，还裹挟着一丝淡若鸢尾、令人心神恍惚的甜香……"},
-  {id:19, title:"100天——致我重要的人", category:"优秀二创", author:"琳琳", date:"2026-05-08", time:"", sortDate:"2026-05-08", excerpt:"好开心，时间好快，今天居然已经是我们认识的100天啦。蓦然回首，我们认识的时间虽然不长，但也一同度过与经历了许多……"}
-];
+// ========== 文章数据 ==========
+var articles = (window.SITE_ARTICLES_DATA && window.SITE_ARTICLES_DATA.articles) || [];
 
-// ========== 渲染函数 ==========
-function renderPassages() {
+function doRenderPassages() {
   var catFilter = document.getElementById('passage-cat-filter').value;
   var sortOrder = document.getElementById('passage-sort').value;
 
@@ -653,6 +635,10 @@ function renderPassages() {
   // List: skip first (featured)
   var listEl = document.getElementById('passage-list');
   var listHTML = '';
+  if (filtered.length <= 1 && listEl) {
+    listEl.innerHTML = '';
+    return;
+  }
   for (var i = 1; i < filtered.length; i++) {
     var a = filtered[i];
     listHTML += '<a href="article_' + a.id + '.html" class="passage-item" data-id="' + a.id + '">';
@@ -667,26 +653,33 @@ function renderPassages() {
   }
   listEl.innerHTML = listHTML;
 
-  // Bind click events
-  bindArticleClicks();
+  // 文章现在是独立页面链接，无需额外的 click 绑定
 }
 
-function bindArticleClicks() {
-  // 文章现在是独立页面链接，不需要阻止默认行为
-}
-
-function openArticle(id) {
-  var a = articles.find(function(item) { return item.id === id; });
-  if (!a) return;
-  document.getElementById('article-modal-title').textContent = a.title;
-  document.getElementById('article-modal-cat').textContent = a.category;
-  document.getElementById('article-modal-date').textContent = a.date + (a.time ? ' ' + a.time : '');
-  document.getElementById('article-modal-author').textContent = a.author ? '作者：' + a.author : '';
-  var abEl = document.getElementById('ab-' + id);
-  document.getElementById('article-modal-body').innerHTML = abEl ? abEl.innerHTML : '<p>文章加载失败</p>';
-  document.getElementById('article-modal').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
+// 活动数据渲染（从 articles.json 的 activities 字段）
+(function() {
+  var evtGrid = document.getElementById('events-grid');
+  if (!evtGrid) return;
+  fetch('articles.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var activities = data.activities || [];
+      if (activities.length === 0) return;
+      var html = '';
+      activities.forEach(function(act) {
+        var badgeClass = act.status === 'active' ? 'event-badge-active' : 'event-badge-ended';
+        html += '<a href="' + act.link + '" class="event-card">';
+        html += '<div class="event-card-badge ' + badgeClass + '">' + (act.status === 'active' ? '进行中' : '已结束') + '</div>';
+        html += '<span class="event-card-icon">💌</span>';
+        html += '<h3 class="event-card-title">' + act.title + '</h3>';
+        html += '<p class="event-card-desc">' + act.date + ' · ' + act.desc + '</p>';
+        html += '<span class="event-card-cta">查看活动 →</span>';
+        html += '</a>';
+      });
+      evtGrid.innerHTML = html;
+    })
+    .catch(function() {});
+})();
 
 function closeArticle() {
   document.getElementById('article-modal').classList.remove('active');
@@ -694,8 +687,8 @@ function closeArticle() {
 }
 
 // ========== 事件绑定 ==========
-document.getElementById('passage-cat-filter').addEventListener('change', renderPassages);
-document.getElementById('passage-sort').addEventListener('change', renderPassages);
+document.getElementById('passage-cat-filter').addEventListener('change', doRenderPassages);
+document.getElementById('passage-sort').addEventListener('change', doRenderPassages);
 document.getElementById('article-modal-close').addEventListener('click', closeArticle);
 document.getElementById('article-modal-overlay').addEventListener('click', closeArticle);
 document.addEventListener('keydown', function(e) {
@@ -733,18 +726,7 @@ document.addEventListener('keydown', function(e) {
   });
 })();
 
-// ========== URL Query 检测：直接打开文章 ==========
-function getQueryParam(name) {
-  var match = location.search.match(new RegExp('[?&]' + name + '=([^&]*)'));
-  return match ? decodeURIComponent(match[1]) : null;
-}
-var pid = getQueryParam('p');
-if (pid) {
-  renderPassages();
-  setTimeout(function() { openArticle(parseInt(pid)); }, 200);
-} else {
-  renderPassages();
-}
+doRenderPassages();
   </script>
 
   <!-- ========== 200天倒计时 + BFCache 修复 ========== -->
