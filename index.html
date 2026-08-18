@@ -57,6 +57,31 @@
     </div>
   </div>
 
+  <!-- ===== 开学倒计时 · 恐怖弹出层 ===== -->
+  <div class="school-popup-overlay" id="school-popup">
+    <div class="school-popup">
+      <span class="school-popup-icon">👁️</span>
+      <p class="school-popup-kicker">SCHOOL COUNTDOWN</p>
+      <h2 class="school-popup-title">开学倒计时</h2>
+      <p class="school-popup-days" id="school-popup-days">距离开学还有 -- 天</p>
+      <p class="school-popup-sub">2026.9.1 · 返校倒计时 — 你真的准备好了吗？</p>
+      <a href="countdown-school.html" class="school-popup-cta">查看活动 →</a>
+    </div>
+  </div>
+  <script data-cfasync="false">
+  (function() {
+    var popup = document.getElementById('school-popup');
+    if (!popup) return;
+    var daysEl = document.getElementById('school-popup-days');
+    var TARGET = new Date('2026-09-01T00:00:00+08:00');
+    var diff = TARGET.getTime() - Date.now();
+    var days = Math.max(0, Math.ceil(diff / 86400000));
+    if (daysEl) daysEl.textContent = '距离开学还有 ' + days + ' 天';
+    setTimeout(function() {
+      popup.classList.add('school-popup-hidden');
+    }, 3000);
+  })();
+  </script>
   <div class="grid-overlay"></div>
 
   <header class="header-bar">
@@ -257,6 +282,13 @@
           <span class="event-card-icon">💌</span>
           <h3 class="event-card-title">认识琳琳200天活动</h3>
           <p class="event-card-desc">2026.8.15 · 倒计时中 — 一份特别的惊喜即将揭晓</p>
+          <span class="event-card-cta">查看活动 →</span>
+        </a>
+        <a href="countdown-school.html" class="event-card event-card-horror">
+          <div class="event-card-badge event-badge-horror">倒计时</div>
+          <span class="event-card-icon">🕯️</span>
+          <h3 class="event-card-title">开学倒计时</h3>
+          <p class="event-card-desc">2026.9.1 · 恐怖倒计时 — 距离开学越来越近……</p>
           <span class="event-card-cta">查看活动 →</span>
         </a>
       </div>
@@ -744,10 +776,8 @@ doRenderPassages();
     var closeBtn = document.getElementById('countdown-close-btn');
     var skipBtn = document.getElementById('countdown-skip-btn');
 
-    // 始终展示倒计时覆盖层，sessionStorage 仅用于同一标签页返回时不重复弹出
-    if (sessionStorage.getItem('cd-dismissed')) {
-      overlay.classList.add('countdown-hidden');
-    }
+    // 200天活动已结束，主页不再自动弹出信件；如需查看请进入活动页
+    overlay.classList.add('countdown-hidden');
 
     function updateTimer(diff) {
       if (diff <= 0) {

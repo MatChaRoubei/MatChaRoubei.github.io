@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>开学倒计时 — MatChaの神秘小屋</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body.night-body {
+      min-height: 100vh;
+      background: #000;
+      color: #e0e0e0;
+      font-family: 'Courier New', 'Noto Serif SC', 'SimSun', monospace;
+      background-image:
+        radial-gradient(120% 90% at 50% 0%, rgba(120, 0, 0, 0.28) 0%, transparent 55%),
+        radial-gradient(100% 100% at 50% 100%, rgba(0, 0, 0, 0.9) 0%, transparent 60%);
+    }
+    .night-vignette {
+      position: fixed; inset: 0; z-index: 4; pointer-events: none;
+      background: radial-gradient(120% 120% at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.88) 100%);
+    }
+    .night-noise {
+      position: fixed; inset: 0; z-index: 5; pointer-events: none;
+      background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 3px);
+      mix-blend-mode: screen; opacity: 0.6;
+      animation: nightScan 9s linear infinite;
+    }
+    @keyframes nightScan {
+      from { background-position: 0 0; }
+      to { background-position: 0 140px; }
+    }
+    .night-back {
+      position: fixed; top: 16px; left: 20px; z-index: 50;
+      font-family: 'Courier New', monospace; font-size: 0.72rem; letter-spacing: 0.12em;
+      color: #c9c9c9; text-decoration: none; background: rgba(0, 0, 0, 0.72);
+      padding: 6px 14px; border: 1px solid #5b0000;
+    }
+    .night-back:hover { color: #ff5252; border-color: #ff5252; }
+    .night-stage {
+      position: relative; z-index: 10;
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 96px 20px 48px;
+    }
+    .night-card {
+      width: min(640px, 100%);
+      text-align: center;
+      background: linear-gradient(180deg, rgba(18, 3, 3, 0.92), rgba(6, 0, 0, 0.94));
+      border: 1px solid rgba(160, 20, 20, 0.55);
+      box-shadow: 0 0 80px rgba(140, 0, 0, 0.35), inset 0 0 80px rgba(70, 0, 0, 0.28);
+      padding: 40px 28px 32px;
+      position: relative;
+    }
+    .night-card::before {
+      content: ''; position: absolute; inset: 6px;
+      border: 1px dashed rgba(160, 20, 20, 0.25); pointer-events: none;
+    }
+    .night-omen {
+      font-family: 'Courier New', monospace;
+      font-size: 0.68rem; letter-spacing: 0.4em;
+      color: #8a5a5a; text-transform: uppercase;
+    }
+    .night-title {
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 900; letter-spacing: 0.16em;
+      color: #ff3b3b; margin: 12px 0 6px;
+      text-shadow: 0 0 18px rgba(255, 59, 59, 0.6);
+      position: relative;
+    }
+    .glitch { position: relative; z-index: 0; }
+    .glitch::before, .glitch::after {
+      content: attr(data-text); position: absolute; left: 0; top: 0; width: 100%;
+      overflow: hidden;
+    }
+    .glitch::before { color: #00e5ff; z-index: -1; animation: glitchShift 2.4s infinite linear alternate-reverse; }
+    .glitch::after { color: #ff1744; z-index: -2; animation: glitchShift 1.7s infinite linear alternate; }
+    @keyframes glitchShift {
+      0% { clip-path: inset(0 0 82% 0); transform: translate(-2px, -1px); }
+      20% { clip-path: inset(28% 0 40% 0); transform: translate(2px, 1px); }
+      40% { clip-path: inset(62% 0 12% 0); transform: translate(-1px, 2px); }
+      60% { clip-path: inset(10% 0 70% 0); transform: translate(2px, -1px); }
+      80% { clip-path: inset(44% 0 30% 0); transform: translate(-2px, 1px); }
+      100% { clip-path: inset(74% 0 8% 0); transform: translate(1px, -2px); }
+    }
+    .night-sub { font-size: 0.9rem; letter-spacing: 0.08em; color: #b9b9b9; font-style: italic; }
+    .night-count {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+      margin: 28px 0 8px;
+    }
+    .night-cell {
+      min-width: 74px; padding: 12px 6px 8px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(160, 20, 20, 0.45);
+      box-shadow: inset 0 0 24px rgba(140, 0, 0, 0.25);
+    }
+    .night-num {
+      display: block; font-family: 'Courier New', monospace;
+      font-size: 2.6rem; font-weight: 700; line-height: 1;
+      color: #ff3b3b;
+      text-shadow: 0 0 14px rgba(255, 59, 59, 0.8), 0 0 30px rgba(255, 59, 59, 0.4);
+      animation: nightNum 1.6s ease-in-out infinite;
+    }
+    .night-cell:nth-child(2) .night-num { animation-delay: 0.1s; }
+    .night-cell:nth-child(3) .night-num { animation-delay: 0.2s; }
+    .night-cell:nth-child(4) .night-num { animation-delay: 0.3s; }
+    @keyframes nightNum {
+      0%, 100% { opacity: 1; filter: none; }
+      50% { opacity: 0.55; filter: blur(0.6px); }
+    }
+    .night-unit {
+      display: block; font-family: 'Courier New', monospace;
+      font-size: 0.6rem; letter-spacing: 0.3em; color: #7a4a4a; margin-top: 6px;
+      text-transform: uppercase;
+    }
+    .night-psst { font-size: 0.72rem; color: #8a8a8a; letter-spacing: 0.06em; margin-top: 10px; }
+    .night-btn {
+      display: inline-block; margin-top: 14px; padding: 11px 34px;
+      font-family: 'Courier New', monospace; font-size: 0.78rem; letter-spacing: 0.15em;
+      color: #f5f0f0; background: #7f0000; border: 1px solid #b71c1c;
+      cursor: pointer; transition: all 0.22s;
+    }
+    .night-btn:hover:not(:disabled) { background: transparent; color: #ff5252; border-color: #ff5252; }
+    .night-btn:disabled {
+      opacity: 0.4; cursor: not-allowed;
+      background: transparent; color: #8a8a8a; border-color: #5a5a5a;
+    }
+    .night-btn-ghost { background: transparent; color: #8a8a8a; border-color: #5a5a5a; }
+    .night-unlock { margin-top: 22px; }
+    .night-unlock-hint { font-size: 0.68rem; color: #7a5a5a; letter-spacing: 0.04em; margin-bottom: 8px; }
+    .night-unlock-row { display: flex; justify-content: center; }
+    .night-unlock-input {
+      flex: 1; max-width: 260px; padding: 9px 12px;
+      background: rgba(0, 0, 0, 0.6); border: 1px solid #5b0000; border-right: none;
+      color: #e0d0d0; font-family: 'Courier New', monospace; font-size: 0.85rem; outline: none;
+    }
+    .night-unlock-input:focus { border-color: #b71c1c; }
+    .night-unlock-btn {
+      padding: 9px 16px; background: #5b0000; color: #f0e6e6; border: 1px solid #5b0000;
+      font-family: 'Courier New', monospace; font-size: 0.8rem; letter-spacing: 0.1em;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .night-unlock-btn:hover { background: #b71c1c; border-color: #b71c1c; }
+    .night-reveal { display: none; }
+    .night-letter {
+      text-align: left;
+      background:
+        radial-gradient(120% 120% at 20% 10%, rgba(120, 90, 50, 0.16) 0%, transparent 40%),
+        radial-gradient(120% 120% at 80% 90%, rgba(90, 50, 40, 0.14) 0%, transparent 45%),
+        linear-gradient(180deg, #e8dcc0, #d9c9a8);
+      color: #2a2018;
+      padding: 30px 30px 26px;
+      border: 1px solid #5a3a20;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.6), inset 0 0 60px rgba(90, 50, 20, 0.18);
+      transform: rotate(-0.4deg);
+      max-height: 58vh; overflow-y: auto;
+    }
+    .night-letter-head { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.12em; color: #4a1a1a; text-align: center; margin-bottom: 4px; }
+    .night-letter-date { font-family: 'Courier New', monospace; font-size: 0.7rem; text-align: center; color: #6a5a48; margin-bottom: 14px; letter-spacing: 0.1em; }
+    .night-letter-body { font-size: 0.95rem; line-height: 2; color: #3a2e20; }
+    .night-letter-body p { margin-bottom: 12px; }
+    .night-letter-sign { margin-top: 18px; text-align: right; font-family: 'Courier New', monospace; font-size: 0.75rem; color: #6a5040; letter-spacing: 0.06em; font-style: italic; }
+    @media (max-width: 480px) {
+      .night-card { padding: 30px 16px 24px; }
+      .night-cell { min-width: 60px; }
+      .night-num { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body class="night-body">
+  <div class="night-vignette"></div>
+  <div class="night-noise"></div>
+  <a href="index.html" class="night-back">← 逃离主页</a>
+
+  <main class="night-stage">
+    <section class="night-card" id="school-lock">
+      <p class="night-omen">⛧ 你的暑假余额已不足 ⛧</p>
+      <h1 class="night-title glitch" data-text="开学倒计时">开学倒计时</h1>
+      <p class="night-sub">2026.9.1 · 返校日 · 无人幸免</p>
+      <div class="night-count">
+        <div class="night-cell"><span class="night-num" id="sc-days">--</span><span class="night-unit">天</span></div>
+        <div class="night-cell"><span class="night-num" id="sc-hours">--</span><span class="night-unit">时</span></div>
+        <div class="night-cell"><span class="night-num" id="sc-mins">--</span><span class="night-unit">分</span></div>
+        <div class="night-cell"><span class="night-num" id="sc-secs">--</span><span class="night-unit">秒</span></div>
+      </div>
+      <p class="night-psst">封印解除后，你将看到真相……</p>
+      <button class="night-btn" id="school-skip" disabled>封印尚未松动</button>
+      <div class="night-unlock">
+        <p class="night-unlock-hint">在破旧的纸片上写下暗号，可提前撕开封印</p>
+        <div class="night-unlock-row">
+          <input type="text" class="night-unlock-input" id="school-unlock-input" placeholder="写下暗号……">
+          <button class="night-unlock-btn" id="school-unlock-btn">撕开</button>
+        </div>
+      </div>
+      <button class="night-btn night-btn-ghost" id="school-dismiss">我先逃了</button>
+    </section>
+
+    <section class="night-card night-reveal" id="school-reveal">
+      <div class="night-letter">
+        <p class="night-letter-head">福州高级中学 · 返校通知</p>
+        <p class="night-letter-date">2026年9月1日 · 返校日</p>
+        <div class="night-letter-body">
+          <p>……你听见了吗？</p>
+          <p>凌晨六点整，闹钟会准时响起。那不是闹钟，是某种召唤。</p>
+          <p>暑假的余温正在一点一点散去，作业本在书包最底层慢慢腐烂，而新学期，已经悄无声息地站在门外了。</p>
+          <p>早自习的铃声、晚自习的灯光、永远也写不完的卷子、睡不醒的周一……它们都还认得你。</p>
+          <p>2026年9月1日，返校日。没有人能逃掉。</p>
+          <p>祝你好运，同学。🕯️</p>
+        </div>
+        <p class="night-letter-sign">—— 校 · 教务处（署名已被涂黑）</p>
+      </div>
+      <button class="night-btn" onclick="location.href='index.html'">🕯️ 返回主页</button>
+    </section>
+  </main>
+
+  <script>
+  (function() {
+    var TARGET = new Date('2026-09-01T00:00:00+08:00');
+    var lock = document.getElementById('school-lock');
+    var reveal = document.getElementById('school-reveal');
+    var skip = document.getElementById('school-skip');
+    var dismiss = document.getElementById('school-dismiss');
+    var TEN_HOURS = 10 * 60 * 60 * 1000;
+    var ref = 86400000;
+
+    function showReveal() {
+      if (lock) lock.style.display = 'none';
+      if (reveal) reveal.style.display = 'block';
+    }
+
+    function render(diff) {
+      ref = diff;
+      if (diff <= 0) {
+        showReveal();
+        return;
+      }
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      document.getElementById('sc-days').textContent = d;
+      document.getElementById('sc-hours').textContent = String(h).padStart(2, '0');
+      document.getElementById('sc-mins').textContent = String(m).padStart(2, '0');
+      document.getElementById('sc-secs').textContent = String(s).padStart(2, '0');
+
+      if (diff <= TEN_HOURS && skip) {
+        skip.disabled = false;
+        skip.textContent = '提前撕开封印 →';
+      } else if (skip) {
+        var remainH = Math.floor((diff - TEN_HOURS) / 3600000) + 10;
+        skip.textContent = '封印尚未松动 · 约 ' + remainH + ' 小时后';
+      }
+    }
+
+    function tickWithOffset(offset) {
+      return function() {
+        render(TARGET.getTime() - (Date.now() + offset));
+      };
+    }
+
+    fetch('https://api.freecodecamp.org/api/time/now?timezone=Asia/Shanghai')
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        var offset = new Date(d.currentTime).getTime() - Date.now();
+        var tick = tickWithOffset(offset);
+        tick(); setInterval(tick, 1000);
+      })
+      .catch(function() {
+        function tick() { render(TARGET.getTime() - Date.now()); }
+        tick(); setInterval(tick, 1000);
+      });
+
+    if (skip) {
+      skip.addEventListener('click', function() {
+        if (ref <= TEN_HOURS) showReveal();
+      });
+    }
+
+    var input = document.getElementById('school-unlock-input');
+    var unlockBtn = document.getElementById('school-unlock-btn');
+    function doUnlock() {
+      var v = input.value.trim();
+      var keys = ['我不想开学', '我不想上学', '放过我', '救命', '不想开学', '好可怕'];
+      var hit = false;
+      for (var i = 0; i < keys.length; i++) {
+        if (v.toLowerCase().indexOf(keys[i].toLowerCase()) !== -1) { hit = true; break; }
+      }
+      if (hit) {
+        showReveal();
+      } else {
+        input.value = '';
+        input.placeholder = '暗号不对，再想想……';
+      }
+    }
+    if (unlockBtn && input) {
+      unlockBtn.addEventListener('click', doUnlock);
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') doUnlock();
+      });
+    }
+
+    if (dismiss) {
+      dismiss.addEventListener('click', function() {
+        location.href = 'index.html';
+      });
+    }
+  })();
+  </script>
+</body>
+</html>
+
+
+
+
