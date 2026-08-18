@@ -79,7 +79,8 @@ def build():
             'time': meta.get('time',''),
             'sortDate': meta.get('sortDate') or meta.get('date',''),
             'excerpt': meta.get('excerpt','') or body_text[:100].replace('\n',' ').strip(),
-            'body': md_to_html(body_text) if body_text else ''
+            'body': md_to_html(body_text) if body_text else '',
+            'chapters': meta.get('chapters','')
         }
         articles.append(art)
         gen_article_page(art)
@@ -136,17 +137,33 @@ def md_to_html(t):
     return '\n'.join(out)
 
 def gen_article_page(a):
-    html = f'''<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><link rel="icon" type="image/jpeg" href="favicon.jpg"><title>{a['title']} — MatChaの神秘小屋</title><link rel="stylesheet" href="styles.css"><style>
+    chapter_nav = ''
+    chapters = (a.get('chapters') or '').strip()
+    if chapters:
+        links = []
+        for part in chapters.split(','):
+            part = part.strip()
+            if not part or ':' not in part:
+                continue
+            label, _, href = part.partition(':')
+            label, href = label.strip(), href.strip()
+            active = ' active' if href == f'article_{a["id"]}.html' else ''
+            links.append(f'<a href="{href}" class="chapter-link{active}">{label}</a>')
+        if links:
+            chapter_nav = '<div class="chapter-nav">' + ''.join(links) + '</div>'
+    desc = (a.get('excerpt') or '').replace('&','&amp;').replace('"','&quot;').replace('<','&lt;').replace('>','&gt;')
+    html = f'''<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><link rel="icon" type="image/jpeg" href="favicon.jpg"><title>{a['title']} — MatChaの神秘小屋</title><meta name="description" content="{desc}"><meta property="og:title" content="{a['title']}"><meta property="og:description" content="{desc}"><meta property="og:type" content="article"><meta property="og:image" content="favicon.jpg"><link rel="canonical" href="https://www.matchamilk.site/article_{a['id']}.html"><meta property="og:url" content="https://www.matchamilk.site/article_{a['id']}.html"><link rel="stylesheet" href="styles.css"><style>
 :root{{--black:#111;--white:#f5f5f5;--gray-mid:#999;--gray-dark:#444;--green:#4a7c59;--spacing-xs:8px;--spacing-sm:16px;--spacing-md:32px;--spacing-lg:64px;--spacing-xl:96px;--border-thin:1px;--border-thick:4px;--font-mono:'Courier New',Courier,monospace;--font-sans:'Helvetica Neue',Helvetica,Arial,'PingFang SC','Noto Sans SC','Microsoft YaHei',sans-serif}}
 *,*::before,*::after{{margin:0;padding:0;box-sizing:border-box}}html{{font-size:16px;-webkit-font-smoothing:antialiased}}body{{font-family:var(--font-sans);background:var(--white);color:var(--black);line-height:1.6;letter-spacing:.02em;min-height:100vh;position:relative}}
 .grid-overlay{{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.06;background-image:linear-gradient(to right,var(--black)1px,transparent 1px),linear-gradient(to bottom,var(--black)1px,transparent 1px);background-size:48px 48px}}
 .header-bar{{position:relative;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:var(--spacing-md) var(--spacing-lg);border-bottom:var(--border-thin) solid var(--black);background:var(--white)}}.header-label{{font-family:var(--font-mono);font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gray-dark)}}.header-dot{{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:12px;vertical-align:middle}}.green-dot{{background:var(--green)}}.black-dot{{background:var(--black)}}.header-left,.header-right{{display:flex;align-items:center;gap:12px}}.header-right .header-dot{{margin-right:0;margin-left:12px}}
 .article-page{{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:var(--spacing-xl) var(--spacing-lg)}}.article-back{{display:inline-block;margin-bottom:var(--spacing-lg);font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;color:var(--green);text-decoration:none;border-bottom:1px solid var(--green);padding-bottom:2px}}.article-back:hover{{color:var(--black);border-color:var(--black)}}.article-meta{{display:flex;gap:var(--spacing-sm);flex-wrap:wrap;margin-bottom:var(--spacing-sm)}}.article-cat{{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border:1px solid var(--green);color:var(--green)}}.article-date{{font-family:var(--font-mono);font-size:.7rem;color:var(--gray-mid)}}.article-author{{font-family:var(--font-mono);font-size:.7rem;color:var(--green);font-weight:600}}.article-title{{font-size:2rem;font-weight:700;letter-spacing:.08em;color:var(--black);margin-bottom:var(--spacing-md);line-height:1.3}}.article-body{{font-size:.95rem;line-height:2;color:var(--gray-dark);letter-spacing:.03em}}.article-body p{{margin-bottom:var(--spacing-sm)}}.article-body strong{{color:var(--black)}}.footer-bar{{position:relative;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:var(--spacing-md) var(--spacing-lg);border-top:var(--border-thin) solid var(--black);background:var(--white);font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;color:var(--gray-mid)}}.footer-center .footer-dot{{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green)}}.disclaimer{{position:relative;z-index:10;text-align:center;padding:var(--spacing-sm) var(--spacing-md);background:var(--white);border-top:var(--border-thin) solid var(--black)}}.disclaimer p{{font-size:.7rem;letter-spacing:.05em;color:var(--gray-mid);font-style:italic}}
+.chapter-nav{{display:flex;gap:var(--spacing-sm);flex-wrap:wrap;margin:var(--spacing-md) 0 var(--spacing-sm)}}.chapter-link{{display:inline-block;padding:8px 18px;border:var(--border-thick) solid var(--black);font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-decoration:none;color:var(--black);transition:all .2s}}.chapter-link:hover,.chapter-link.active{{border-color:var(--green);background:var(--green);color:var(--white)}}
 @media(max-width:768px){{.article-page{{padding:var(--spacing-lg) var(--spacing-md)}}.article-title{{font-size:1.5rem}}.header-bar{{padding:var(--spacing-sm) var(--spacing-md);flex-wrap:wrap;gap:4px;justify-content:center;text-align:center}}}}</style></head><body>
 <div class="grid-overlay"></div><header class="header-bar"><div class="header-left"><span class="header-dot green-dot"></span><span class="header-label">MatChaの神秘小屋</span></div><div class="header-right"><span class="header-label">✨ おかえり ✨</span><span class="header-dot black-dot"></span></div></header>
 <main class="article-page"><a href="index.html" class="article-back">← 返回首页</a>
 <div class="article-meta"><span class="article-cat">{a['category']}</span><span class="article-date">{a['date']}{' ' + a['time'] if a.get('time') else ''}</span>{'<span class="article-author">作者：' + a['author'] + '</span>' if a.get('author') else ''}</div>
-<h1 class="article-title">{a['title']}</h1><div class="article-body">{a['body']}</div></main>
+<h1 class="article-title">{a['title']}</h1>{chapter_nav}<div class="article-body">{a['body']}</div></main>
 <footer class="footer-bar"><div class="footer-left"><span>© 2026 LIN ZHENGHAO</span></div><div class="footer-center"><span class="footer-dot green-dot"></span></div><div class="footer-right"><span>MatCha / 木茶</span></div></footer>
 <div class="disclaimer"><p>这都是我用 DeepSeek 做的，我一眼网站源码都没有看，我也是小白来着 :P</p></div></body></html>'''
     open(os.path.join(BASE_DIR, f'article_{a["id"]}.html'), 'w', encoding='utf-8').write(html)
