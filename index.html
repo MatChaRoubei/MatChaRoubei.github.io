@@ -16,49 +16,6 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- ===== 200天倒计时覆盖层 ===== -->
-  <div class="countdown-overlay" id="countdown-overlay">
-    <div class="countdown-bg-hearts"></div>
-    <div class="countdown-container">
-      <div class="countdown-lock" id="countdown-lock">
-        <span class="countdown-lock-icon">🔒</span>
-        <p class="countdown-lock-title">预祝页面</p>
-        <p class="countdown-lock-sub">一份特别的惊喜正在路上……</p>
-        <div class="countdown-timer" id="countdown-timer">
-          <div class="countdown-unit"><span class="countdown-num" id="cd-days">--</span><span class="countdown-label">天</span></div>
-          <div class="countdown-unit"><span class="countdown-num" id="cd-hours">--</span><span class="countdown-label">时</span></div>
-          <div class="countdown-unit"><span class="countdown-num" id="cd-mins">--</span><span class="countdown-label">分</span></div>
-          <div class="countdown-unit"><span class="countdown-num" id="cd-secs">--</span><span class="countdown-label">秒</span></div>
-        </div>
-        <p class="countdown-hint">倒计时结束后揭晓 ✨</p>
-        <button class="countdown-close-btn countdown-skip-btn" id="countdown-skip-btn">先看看主页 →</button>
-      </div>
-      <div class="countdown-reveal" id="countdown-reveal" style="display:none;">
-        <span class="countdown-reveal-icon">💌</span>
-        <h2 class="countdown-reveal-title">致琳琳</h2>
-        <p class="countdown-reveal-date">2026.1.27 — 2026.8.15 · 200 天</p>
-        <div class="countdown-reveal-divider"></div>
-        <div class="countdown-reveal-body" id="countdown-message">
-          <p>今天，也就是二〇二六年八月十五日，是我和琳琳认识的第200天！！！恭喜恭喜</p>
-          <p>距离上次100天时候呢，在这一百天里，由于包括我自己在内的不可抗力因素，我们并没有机会能相处很久 TxT，也称不上有多少实质性进展</p>
-          <p>但是！</p>
-          <p>有一些东西是藏不住的。经过了这段时间，我们对彼此变得越来越安心了，能够更加自然的向对方展示自我，小秘密也没以前多了，何其有幸呐。</p>
-          <p>琳琳，虽然这点大家都知道，但我还是想在这里大喊一句：</p>
-          <p class="love-shout">我喜欢你！</p>
-          <p>正如一束光照进了我的生活，把我拉出过去的黑暗。</p>
-          <p>我知道，我上课有时候还是会无精打采的，甚至发呆；我内心有时候还是会感到空虚的，甚至疼痛；我大脑有时候还是会因过去难受，但那叫铭记。</p>
-          <p>200天，对于一段人际关系很短，对于一辈子更短，甚至对情侣相处的时间也很短。这个数字本应该是没什么特殊意味的但是……它因你而不同。</p>
-          <p>感谢你的出现，也祝愿我们能够走到最后吧！爱你哟。</p>
-          <div class="cd-signature-line">
-            <img src="handwriting.jpg" alt="林正澔 亲笔签名" class="cd-signature-img">
-          </div>
-        </div>
-        <p class="countdown-scroll-hint">↓↓ 向下滚动查看签名 ↓↓</p>
-        <button class="countdown-close-btn" id="countdown-close-btn">❤ 我知道了</button>
-      </div>
-    </div>
-  </div>
-
   <!-- ===== 开学倒计时 · 恐怖弹出层 ===== -->
   <div class="school-popup-overlay" id="school-popup">
     <div class="school-popup">
@@ -98,15 +55,17 @@
   </header>
 
   <nav class="toc-bar">
-    <a href="#hero" class="toc-item active">介绍</a>
+    <a href="#hero" class="toc-item active">🏠 介绍</a>
     <span class="toc-sep">/</span>
-    <a href="#passage" class="toc-item">文章</a>
+    <a href="#passage" class="toc-item">📖 文章</a>
     <span class="toc-sep">/</span>
-    <a href="#events" class="toc-item">活动</a>
+    <a href="#events" class="toc-item">🎉 活动</a>
     <span class="toc-sep">/</span>
-    <a href="#ad" class="toc-item">广告</a>
+    <a href="about.html" class="toc-item">📮 关于我</a>
     <span class="toc-sep">/</span>
-    <a href="#nav" class="toc-item">导航</a>
+    <a href="ad.html" class="toc-item">📢 广告</a>
+    <span class="toc-sep">/</span>
+    <a href="links.html" class="toc-item">🔗 链接</a>
   </nav>
 
   <main class="main-grid">
@@ -140,89 +99,6 @@
       <div class="hero-label-rotated"><span>IDENTITY</span></div>
     </section>
 
-    <!-- ===== 区域二：MatCha 网名由来 ===== -->
-    <section class="section name-section" id="name">
-      <div class="section-tag">MATCHA</div>
-      <div class="name-content">
-        <div class="name-big">
-          <span class="name-line-accent">MatCha</span>
-          <span class="name-line">MaTtya</span>
-          <span class="name-line">MuoCha</span>
-          <span class="name-line">木茶</span>
-        </div>
-      </div>
-      <div class="name-story">
-        <div class="story-block"><h3 class="block-title">MC</h3><p class="block-text">首字母大写的执念——<br>Minecraft 玩家的身份印记</p></div>
-        <div class="story-block"><h3 class="block-title">瑞士卷</h3><p class="block-text">巧克力味 × 抹茶味<br>童年最爱的味道组合</p></div>
-        <div class="story-image-block"><img src="cooking.jpg" alt="认真做饭表情包" class="cooking-img" loading="lazy"><span class="img-caption">认真做饭.jpg</span></div>
-      </div>
-    </section>
-
-    <!-- ===== 区域三：网名变体 ===== -->
-    <section class="section alias-section" id="alias">
-      <div class="alias-grid">
-        <div class="alias-item"><span class="alias-name">Koieta</span></div>
-        <div class="alias-item"><span class="alias-name">Koisarete</span></div>
-        <div class="alias-item alias-highlight"><span class="alias-name">RoubeiMilk</span></div>
-        <div class="alias-item alias-explain"><p><strong>肉贝</strong> — 朋友三岁亲妹的误称<br>将错就错，成了独特的昵称</p></div>
-        <div class="alias-item alias-explain"><p><strong>牛奶</strong> — 小学长方体课堂的<br>牛奶盒子固定供应方</p></div>
-        <div class="alias-item alias-variants"><span>牛奶哥</span><span>牛奶姐</span><span>奶牛哥</span><span>奶牛姐</span></div>
-      </div>
-      <div class="section-rosette"><span>ALIAS</span></div>
-    </section>
-
-    <!-- ===== 区域四：人格特点 ===== -->
-    <section class="section personality-section" id="personality">
-      <div class="pers-layout">
-        <div class="pers-left">
-          <div class="pers-tag">PERSONALITY</div>
-          <div class="pers-traits">
-            <span class="trait-badge">三分热度</span><span class="trait-badge">胜负欲旺盛</span><span class="trait-badge">马马虎虎</span><span class="trait-badge dark">温柔细腻</span>
-          </div>
-        </div>
-        <div class="pers-right"><p class="pers-quote">"尽管自认为做事马马虎虎还不关心后果，<br>但还是有时候被贴上了温柔细腻的标签，<br><span class="accent-text">不是很明白。</span>"</p></div>
-      </div>
-    </section>
-
-    <!-- ===== 区域五：喜好 ===== -->
-    <section class="section likes-section" id="likes">
-      <div class="likes-header"><h2 class="likes-title">好</h2><div class="likes-title-line"></div></div>
-      <div class="likes-grid">
-        <div class="like-card" id="like-color"><div class="like-number">01</div><h3>颜色</h3><div class="color-swatch"></div><p>抹茶的绿，绿帽子的绿——<br>有种擦边和自谦感</p></div>
-        <div class="like-card like-card-large" id="like-city"><div class="like-number">02</div><h3>城市 · 东京</h3><div class="city-image-crop"><img src="tokyo.jpg" alt="涉谷街景" class="city-img" loading="lazy"></div><p>涉谷街景 · 此刻我想到的就是东京</p></div>
-        <div class="like-card" id="like-game"><div class="like-number">03</div><h3>游戏</h3><p class="like-big-text">Minecraft</p><div class="mc-image-crop"><img src="MC.jpg" alt="Minecraft" class="mc-img" loading="lazy"></div><p>玩了很久，一直都在玩的那个</p></div>
-        <div class="like-card like-card-wide" id="like-music"><div class="like-number">04</div><h3>音乐</h3><div class="music-content"><img src="asiankungfugeneration.jpg" alt="Asian Kung-fu Generation" class="music-img" loading="lazy"><div class="music-info"><p class="music-band">Asian Kung-fu Generation</p><p class="music-note">亚细亚功夫小子 · 日本摇滚乐队<br>最近一直在听的</p></div></div></div>
-        <div class="like-card like-card-small" id="like-media"><div class="like-number">05</div><h3>文艺作品</h3><p>小说、番剧、视频系列<br>数不过来，别问我行话<br><span class="small-note">TxT 不是很狂热</span></p></div>
-      </div>
-    </section>
-
-    <!-- ===== 区域六：爱好 & 旅行 ===== -->
-    <section class="section hobbies-section" id="hobbies">
-      <div class="hobbies-left">
-        <h2 class="hobbies-title">爱好</h2>
-        <div class="hobby-tags"><span>写作</span><span>弹吉他</span><span>做视频</span><span>玩游戏</span></div>
-        <p class="hobby-note">不是特别有耐心和恒心<br>但总时不时拿出来做</p>
-      </div>
-      <div class="hobbies-right">
-        <h2 class="travel-title">远行</h2>
-        <p class="travel-intro">虽然身材偏胖，但实际上喜欢旅游，而且认为越远越好。</p>
-        <div class="kyoto-image-crop"><img src="kyoto.JPG" alt="俯看京都" class="kyoto-img" loading="lazy"><span class="kyoto-caption">俯看京都</span></div>
-        <div class="travel-cities"><span>珠海</span><span>广州</span><span>深圳</span><span>香港</span><span>澳门</span><span>潮州</span><span>漳州</span><span>福州</span><span>武夷山</span><span>黄山</span><span>上海</span><span>北京</span><span>鄂尔多斯</span><span>呼和浩特</span><span>包头</span><span>西宁</span><span>敦煌</span><span>贵州</span><span>马尼拉</span><span>吉隆坡</span><span>大阪</span><span>京都</span></div>
-      </div>
-    </section>
-
-    <!-- ===== 区域七：联系方式 ===== -->
-    <section class="section contact-section" id="contact">
-      <div class="contact-tag">CONTACT</div>
-      <div class="contact-links">
-        <div class="contact-item"><span class="contact-label">微信</span><span class="contact-value">MatChaRoubeiMilk</span></div>
-        <div class="contact-divider"></div>
-        <div class="contact-item"><span class="contact-label">QQ</span><span class="contact-value">938338415</span></div>
-        <div class="contact-divider"></div>
-        <div class="contact-item"><span class="contact-label">Email</span><span class="contact-value">linzhenghao472@gmail.com</span></div>
-      </div>
-    </section>
-
     <!-- ===== 区域八：文章（横跨全幅） ===== -->
     <section class="section passage-section" id="passage">
       <div class="passage-header">
@@ -242,34 +118,6 @@
       </div>
       <div class="passage-featured" id="passage-featured"></div>
       <div class="passage-list" id="passage-list"></div>
-    </section>
-
-    <!-- ===== 区域九：社交链接 ===== -->
-    <section class="section social-section" id="social">
-      <div class="social-tag">SOCIAL</div>
-      <div class="social-links">
-        <a href="https://space.bilibili.com/523372964?spm_id_from=333.1007.0.0" target="_blank" rel="noopener" class="social-link-item">
-          <div class="social-link-img-crop">
-              <img src="bilibili.jpg" alt="Bilibili" class="social-link-img" loading="lazy">
-          </div>
-          <span class="social-link-label">Bilibili</span>
-          <span class="social-link-desc">关注我的B站</span>
-        </a>
-        <a href="https://x.com/MatChaRoubei" target="_blank" rel="noopener" class="social-link-item">
-          <div class="social-link-img-crop">
-            <img src="X.jpg" alt="X / Twitter" class="social-link-img" loading="lazy">
-          </div>
-          <span class="social-link-label">X / Twitter</span>
-          <span class="social-link-desc">关注我的X</span>
-        </a>
-        <a href="https://www.youtube.com/@MatCha_RoubeiMilkBro" target="_blank" rel="noopener" class="social-link-item">
-          <div class="social-link-img-crop">
-            <img src="youtube.jpg" alt="YouTube" class="social-link-img" loading="lazy">
-          </div>
-          <span class="social-link-label">YouTube</span>
-          <span class="social-link-desc">关注我的YT</span>
-        </a>
-      </div>
     </section>
 
     <!-- ===== 区域十：版本活动展示 ===== -->
@@ -296,89 +144,31 @@
       </div>
     </section>
 
-    <!-- ===== 区域十一：广告（MC 交流群） ===== -->
-    <section class="section ad-section" id="ad">
+    <!-- ===== 站点导航 ===== -->
+    <section class="section events-section" id="sitemap">
       <div class="passage-header">
-        <h2 class="passage-title" style="font-size: 3.5rem;">广</h2>
+        <h2 class="passage-title" style="font-size: 3rem;">屋</h2>
         <div class="passage-title-line"></div>
       </div>
-      <div class="ad-hero">
-        <div class="ad-hero-badge">📢 AD</div>
-        <h3 class="ad-hero-title">加入福州高级中学MC交流群喵！</h3>
-        <p class="ad-hero-qun">群号：<strong>692629678</strong></p>
-      </div>
-      <div class="ad-maps">
-        <h4 class="ad-subtitle">🗺️ 地图</h4>
-        <div class="ad-image-grid">
-          <figure class="ad-figure">
-            <img src="map1.jpg" alt="主城" class="ad-img">
-            <figcaption>主城</figcaption>
-          </figure>
-          <figure class="ad-figure">
-            <img src="map2.jpg" alt="胃袋城" class="ad-img">
-            <figcaption>胃袋城</figcaption>
-          </figure>
-          <figure class="ad-figure">
-            <img src="map3.jpg" alt="我不知道" class="ad-img">
-            <figcaption>我不知道</figcaption>
-          </figure>
-          <figure class="ad-figure">
-            <img src="map4.jpg" alt="樱落千念" class="ad-img">
-            <figcaption>樱落千念</figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="ad-gallery">
-        <h4 class="ad-subtitle">🖼️ 宣传图</h4>
-        <div class="ad-image-grid">
-          <figure class="ad-figure">
-            <img src="mcad0.jpg" alt="我不知道战舰" class="ad-img">
-            <figcaption>我不知道战舰</figcaption>
-          </figure>
-          <figure class="ad-figure">
-            <img src="mcad1.jpg" alt="樱花林" class="ad-img">
-            <figcaption>樱花林</figcaption>
-          </figure>
-          <figure class="ad-figure">
-            <img src="mcad2.jpg" alt="一张雪峰" class="ad-img">
-            <figcaption>一张雪峰</figcaption>
-          </figure>
-          <figure class="ad-figure">
-            <img src="mcad3.jpg" alt="太空战舰" class="ad-img">
-            <figcaption>太空战舰</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== 区域十一：导航（施工中） ===== -->
-    <section class="section nav-section" id="nav">
-      <div class="nav-tag">LINKS</div>
-      <div class="nav-links" id="nav-links">
-        <a href="https://nailong.matchamilk.site" target="_blank" rel="noopener" class="nav-link-item">
-          <span class="nav-link-icon">🐉</span>
-          <span class="nav-link-label">奶龙介绍</span>
-          <span class="nav-link-desc">nailong.matchamilk.site</span>
+      <div class="events-grid">
+        <a href="about.html" class="event-card">
+          <span class="event-card-icon">📮</span>
+          <h3 class="event-card-title">关于我</h3>
+          <p class="event-card-desc">网名由来 · 人格特点 · 喜好 · 旅行</p>
+          <span class="event-card-cta">进入 →</span>
         </a>
-        <a href="https://tarot.matchamilk.site" target="_blank" rel="noopener" class="nav-link-item">
-          <span class="nav-link-icon">🃏</span>
-          <span class="nav-link-label">塔罗牌</span>
-          <span class="nav-link-desc">tarot.matchamilk.site</span>
+        <a href="links.html" class="event-card">
+          <span class="event-card-icon">🔗</span>
+          <h3 class="event-card-title">链接</h3>
+          <p class="event-card-desc">社交账号 · 友情链接</p>
+          <span class="event-card-cta">进入 →</span>
         </a>
-        <a href="https://zxycx330.github.io/wc/" target="_blank" rel="noopener" class="nav-link-item">
-          <span class="nav-link-icon">🔗</span>
-          <span class="nav-link-label">缘点o导航</span>
-          <span class="nav-link-desc">zxycx330.github.io/wc/</span>
+        <a href="ad.html" class="event-card">
+          <span class="event-card-icon">📢</span>
+          <h3 class="event-card-title">广告</h3>
+          <p class="event-card-desc">福州高级中学 MC 交流群</p>
+          <span class="event-card-cta">进入 →</span>
         </a>
-        <a href="https://zxycx330.github.io/realheartword/" target="_blank" rel="noopener" class="nav-link-item">
-          <span class="nav-link-icon">🎲</span>
-          <span class="nav-link-label">真心话大冒险抽题</span>
-          <span class="nav-link-desc">zxycx330.github.io/realheartword/</span>
-        </a>
-        <div class="nav-construction">
-          <span class="nav-construction-icon">🚧</span>
-          <span class="nav-construction-text">正在施工中<br><small>Coming Soon</small></span>
-        </div>
       </div>
     </section>
 
@@ -406,19 +196,6 @@
       </div>
       <h2 class="article-modal-title" id="article-modal-title"></h2>
       <div class="article-modal-body" id="article-modal-body"></div>
-    </div>
-  </div>
-
-  <!-- ===== 彩蛋弹窗 ===== -->
-  <div class="easter-overlay" id="easter-overlay">
-    <div class="easter-dialog">
-      <h3>🔑 暗号</h3>
-      <p>请输入暗号解锁彩蛋</p>
-      <input type="text" class="easter-input" id="easter-input" placeholder="输入暗号……">
-      <div class="easter-btns">
-        <button class="easter-btn cancel" id="easter-cancel">取消</button>
-        <button class="easter-btn confirm" id="easter-confirm">确定</button>
-      </div>
     </div>
   </div>
 
@@ -768,139 +545,7 @@ document.addEventListener('keydown', function(e) {
 doRenderPassages();
   </script>
 
-  <!-- ========== 200天倒计时 + BFCache 修复 ========== -->
-  <script data-cfasync="false">
-  (function() {
-    var TARGET_DATE = new Date('2026-08-15T00:00:00+08:00');
-    var lockEl = document.getElementById('countdown-lock');
-    var revealEl = document.getElementById('countdown-reveal');
-    var overlay = document.getElementById('countdown-overlay');
-    var closeBtn = document.getElementById('countdown-close-btn');
-    var skipBtn = document.getElementById('countdown-skip-btn');
-
-    // 200天活动已结束，主页不再自动弹出信件；如需查看请进入活动页
-    overlay.classList.add('countdown-hidden');
-
-    function updateTimer(diff) {
-      if (diff <= 0) {
-        if (lockEl) lockEl.style.display = 'none';
-        if (revealEl) revealEl.style.display = 'block';
-        return;
-      }
-      var days = Math.floor(diff / 86400000);
-      var hours = Math.floor((diff % 86400000) / 3600000);
-      var mins = Math.floor((diff % 3600000) / 60000);
-      var secs = Math.floor((diff % 60000) / 1000);
-      document.getElementById('cd-days').textContent = days;
-      document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
-      document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
-      document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
-    }
-
-    fetch('https://api.freecodecamp.org/api/time/now?timezone=Asia/Shanghai')
-      .then(function(r){ return r.json(); })
-      .then(function(d){
-        var offset = new Date(d.currentTime).getTime() - Date.now();
-        function tick(){ updateTimer(TARGET_DATE.getTime() - (Date.now() + offset)); }
-        tick(); setInterval(tick, 1000);
-      })
-      .catch(function(){
-        function tick(){ updateTimer(TARGET_DATE.getTime() - Date.now()); }
-        tick(); setInterval(tick, 1000);
-      });
-
-    function hideOverlay() {
-      overlay.classList.add('countdown-hidden');
-      sessionStorage.setItem('cd-dismissed', Date.now());
-    }
-
-    if (closeBtn) closeBtn.addEventListener('click', hideOverlay);
-    if (skipBtn) skipBtn.addEventListener('click', hideOverlay);
-  })();
-
-  // ========== 彩蛋：10秒点击10次"我喜欢你" ==========
-  (function() {
-    var loveEl = document.querySelector('.love-shout');
-    var easterOverlay = document.getElementById('easter-overlay');
-    var easterInput = document.getElementById('easter-input');
-    var easterConfirm = document.getElementById('easter-confirm');
-    var easterCancel = document.getElementById('easter-cancel');
-    var clickCount = 0;
-    var clickTimer = null;
-    var triggered = false;
-
-    function resetClicks() {
-      clickCount = 0;
-      if (clickTimer) clearTimeout(clickTimer);
-      clickTimer = null;
-    }
-
-    function showEaster() {
-      if (triggered) return;
-      triggered = true;
-      easterOverlay.classList.add('active');
-      resetClicks();
-      setTimeout(function() {
-        if (easterInput) {
-          easterInput.focus();
-          easterInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      }, 150);
-    }
-
-    function checkPassword() {
-      var val = easterInput.value.trim();
-      var keywords = ['我也喜欢你', '我爱你', '我也爱你', '喜歡你', 'love you', 'i love you', 'iloveyou'];
-      var matched = false;
-      for (var i = 0; i < keywords.length; i++) {
-        if (val.toLowerCase().indexOf(keywords[i].toLowerCase()) !== -1) {
-          matched = true;
-          break;
-        }
-      }
-      if (matched) {
-        easterOverlay.classList.remove('active');
-        location.href = 'secret.html';
-      } else {
-        easterInput.value = '';
-        easterInput.placeholder = '暗号不对，再试试……';
-        easterInput.focus();
-      }
-    }
-
-    if (loveEl) {
-      loveEl.style.cursor = 'pointer';
-      loveEl.style.userSelect = 'none';
-      loveEl.addEventListener('click', function(e) {
-        e.stopPropagation();
-        clickCount++;
-        if (!clickTimer) {
-          clickTimer = setTimeout(resetClicks, 10000);
-        }
-        if (clickCount >= 10) {
-          showEaster();
-        }
-      });
-    }
-
-    if (easterConfirm) {
-      easterConfirm.addEventListener('click', checkPassword);
-    }
-    if (easterCancel) {
-      easterCancel.addEventListener('click', function() {
-        easterOverlay.classList.remove('active');
-        easterInput.value = '';
-        easterInput.placeholder = '输入暗号……';
-        triggered = false;
-      });
-    }
-    if (easterInput) {
-      easterInput.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') checkPassword();
-      });
-    }
-  })();
-
+  <script>
   // ========== 目录高亮跟随滚动 ==========
   (function() {
     var tocLinks = document.querySelectorAll('.toc-item');

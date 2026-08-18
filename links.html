@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MatCha 的社交账号与友情链接：Bilibili、X / Twitter、YouTube，以及好友们的站点。">
+  <meta property="og:title" content="链接 — MatChaの神秘小屋">
+  <meta property="og:description" content="MatCha 的社交账号与友情链接。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.matchamilk.site/links.html">
+  <meta property="og:image" content="favicon.jpg">
+  <link rel="icon" type="image/jpeg" href="favicon.jpg">
+  <title>链接 — MatChaの神秘小屋</title>
+  <link rel="canonical" href="https://www.matchamilk.site/links.html">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grid-overlay"></div>
+  <header class="header-bar">
+    <div class="header-left">
+      <span class="header-dot green-dot"></span>
+      <span class="header-label">MatChaの神秘小屋</span>
+    </div>
+    <div class="header-right">
+      <span class="header-label">✨ おかえり ✨</span>
+      <span class="header-dot black-dot"></span>
+    </div>
+  </header>
+
+  <nav class="toc-bar">
+    <a href="index.html" class="toc-item">🏠 首页</a>
+    <span class="toc-sep">/</span>
+    <a href="about.html" class="toc-item">📮 关于我</a>
+    <span class="toc-sep">/</span>
+    <a href="links.html" class="toc-item active">🔗 链接</a>
+    <span class="toc-sep">/</span>
+    <a href="ad.html" class="toc-item">📢 广告</a>
+  </nav>
+
+  <main class="main-grid">
+
+    <!-- ===== 社交链接 ===== -->
+    <section class="section social-section" id="social">
+      <div class="social-tag">SOCIAL</div>
+      <div class="social-links">
+        <a href="https://space.bilibili.com/523372964?spm_id_from=333.1007.0.0" target="_blank" rel="noopener" class="social-link-item">
+          <div class="social-link-img-crop">
+              <img src="bilibili.jpg" alt="Bilibili" class="social-link-img" loading="lazy">
+          </div>
+          <span class="social-link-label">Bilibili</span>
+          <span class="social-link-desc">关注我的B站</span>
+        </a>
+        <a href="https://x.com/MatChaRoubei" target="_blank" rel="noopener" class="social-link-item">
+          <div class="social-link-img-crop">
+            <img src="X.jpg" alt="X / Twitter" class="social-link-img" loading="lazy">
+          </div>
+          <span class="social-link-label">X / Twitter</span>
+          <span class="social-link-desc">关注我的X</span>
+        </a>
+        <a href="https://www.youtube.com/@MatCha_RoubeiMilkBro" target="_blank" rel="noopener" class="social-link-item">
+          <div class="social-link-img-crop">
+            <img src="youtube.jpg" alt="YouTube" class="social-link-img" loading="lazy">
+          </div>
+          <span class="social-link-label">YouTube</span>
+          <span class="social-link-desc">关注我的YT</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== 友情链接 ===== -->
+    <section class="section nav-section" id="nav">
+      <div class="nav-tag">LINKS</div>
+      <div class="nav-links" id="nav-links">
+        <a href="https://nailong.matchamilk.site" target="_blank" rel="noopener" class="nav-link-item">
+          <span class="nav-link-icon">🐉</span>
+          <span class="nav-link-label">奶龙介绍</span>
+          <span class="nav-link-desc">nailong.matchamilk.site</span>
+        </a>
+        <a href="https://tarot.matchamilk.site" target="_blank" rel="noopener" class="nav-link-item">
+          <span class="nav-link-icon">🃏</span>
+          <span class="nav-link-label">塔罗牌</span>
+          <span class="nav-link-desc">tarot.matchamilk.site</span>
+        </a>
+        <a href="https://zxycx330.github.io/wc/" target="_blank" rel="noopener" class="nav-link-item">
+          <span class="nav-link-icon">🔗</span>
+          <span class="nav-link-label">缘点o导航</span>
+          <span class="nav-link-desc">zxycx330.github.io/wc/</span>
+        </a>
+        <a href="https://zxycx330.github.io/realheartword/" target="_blank" rel="noopener" class="nav-link-item">
+          <span class="nav-link-icon">🎲</span>
+          <span class="nav-link-label">真心话大冒险抽题</span>
+          <span class="nav-link-desc">zxycx330.github.io/realheartword/</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer-bar">
+    <div class="footer-left"><span>© 2026 LIN ZHENGHAO</span></div>
+    <div class="footer-center"><span class="footer-dot green-dot"></span></div>
+    <div class="footer-right"><span>MatCha / 木茶</span></div>
+  </footer>
+
+  <div class="disclaimer">
+    <p>这都是我用 DeepSeek 做的，我一眼网站源码都没有看，我也是小白来着 :P</p>
+  </div>
+
+  <script>
+  (function() {
+    var sections = document.querySelectorAll('.section');
+    if (!('IntersectionObserver' in window)) {
+      sections.forEach(function(s) { s.classList.add('visible'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    sections.forEach(function(s) { observer.observe(s); });
+  })();
+  </script>
+</body>
+</html>
