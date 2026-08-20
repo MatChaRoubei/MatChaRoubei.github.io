@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>认识琳琳200天活动 — MatChaの神秘小屋</title>
+  <link rel="canonical" href="https://www.matchamilk.site/preview-200days.html">
+  <meta property="og:url" content="https://www.matchamilk.site/preview-200days.html">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .countdown-overlay {
+      position: fixed !important; opacity: 1 !important; visibility: visible !important;
+      pointer-events: auto !important; min-height: 100vh !important; z-index: 99999 !important;
+      background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 25%, #f3e5f5 50%, #e8eaf6 75%, #fce4ec 100%) !important;
+    }
+    .back-link {
+      position: fixed; top: 16px; left: 20px; z-index: 999999;
+      font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em;
+      color: var(--gray-dark); text-decoration: none; background: rgba(255,255,255,0.8);
+      padding: 6px 14px; border: 1px solid var(--gray-mid);
+    }
+    .back-link:hover { color: var(--green); border-color: var(--green); }
+    .skip-hint { font-size: 0.65rem; color: var(--gray-mid); margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <div class="grid-overlay"></div>
+  <a href="index.html" class="back-link">← 返回首页</a>
+
+  <div class="countdown-overlay" id="countdown-overlay">
+    <div class="countdown-bg-hearts"></div>
+    <div class="countdown-container">
+      <div class="countdown-reveal" id="countdown-reveal">
+        <span class="countdown-reveal-icon">💌</span>
+        <h2 class="countdown-reveal-title">致琳琳</h2>
+        <p class="countdown-reveal-date">2026.1.27 — 2026.8.15 · 200 天</p>
+        <div class="countdown-reveal-divider"></div>
+        <div class="countdown-reveal-body">
+          <p>今天，也就是二〇二六年八月十五日，是我和琳琳认识的第200天！！！恭喜恭喜</p>
+          <p>距离上次100天时候呢，在这一百天里，由于包括我自己在内的不可抗力因素，我们并没有机会能相处很久 TxT，也称不上有多少实质性进展</p>
+          <p>但是！</p>
+          <p>有一些东西是藏不住的。经过了这段时间，我们对彼此变得越来越安心了，能够更加自然的向对方展示自我，小秘密也没以前多了，何其有幸呐。</p>
+          <p>琳琳，虽然这点大家都知道，但我还是想在这里大喊一句：</p>
+          <p class="love-shout">我喜欢你！</p>
+          <p>正如一束光照进了我的生活，把我拉出过去的黑暗。</p>
+          <p>我知道，我上课有时候还是会无精打采的，甚至发呆；我内心有时候还是会感到空虚的，甚至疼痛；我大脑有时候还是会因过去难受，但那叫铭记。</p>
+          <p>200天，对于一段人际关系很短，对于一辈子更短，甚至对情侣相处的时间也很短。这个数字本应该是没什么特殊意味的但是……它因你而不同。</p>
+          <p>感谢你的出现，也祝愿我们能够走到最后吧！爱你哟。</p>
+          <div class="cd-signature-line">
+            <img src="handwriting.jpg" alt="林正澔 亲笔签名" class="cd-signature-img">
+          </div>
+        </div>
+        <p class="countdown-scroll-hint">↓↓ 向下滚动查看签名 ↓↓</p>
+        <button class="countdown-close-btn" onclick="location.href='index.html'">❤ 返回首页</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 彩蛋弹窗 ===== -->
+  <div class="easter-overlay" id="easter-overlay">
+    <div class="easter-dialog">
+      <h3>🔑 暗号</h3>
+      <p>请输入暗号解锁彩蛋</p>
+      <input type="text" class="easter-input" id="easter-input" placeholder="输入暗号……">
+      <div class="easter-btns">
+        <button class="easter-btn cancel" id="easter-cancel">取消</button>
+        <button class="easter-btn confirm" id="easter-confirm">确定</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  // ========== 彩蛋 ==========
+  (function(){
+    var clickCount=0, timer=null, triggered=false;
+    function reset(){ clickCount=0; if(timer)clearTimeout(timer); timer=null; }
+    function showEaster(){
+      if(triggered)return; triggered=true;
+      document.getElementById('easter-overlay').classList.add('active'); reset();
+      setTimeout(function(){
+        var inp = document.getElementById('easter-input');
+        if (inp) { inp.focus(); inp.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      }, 150);
+    }
+    function checkPw(){
+      var v=document.getElementById('easter-input').value.trim();
+      var keys=['我也喜欢你','我爱你','我也爱你','喜歡你','love you','i love you','iloveyou'],hit=false;
+      for(var i=0;i<keys.length;i++){ if(v.toLowerCase().indexOf(keys[i].toLowerCase())!==-1){hit=true;break;} }
+      if(hit){ document.getElementById('easter-overlay').classList.remove('active'); location.href='secret.html'; }
+      else { document.getElementById('easter-input').value=''; document.getElementById('easter-input').placeholder='暗号不对，再试试……'; document.getElementById('easter-input').focus(); }
+    }
+    function bindLove(){
+      var el=document.querySelector('.love-shout');
+      if(!el)return false;
+      el.style.cursor='pointer'; el.style.userSelect='none'; el.title='戳戳我~';
+      el.addEventListener('click',function(e){ e.stopPropagation(); e.preventDefault(); clickCount++; if(!timer)timer=setTimeout(reset,15000); if(clickCount>=10)showEaster(); });
+      return true;
+    }
+    if(!bindLove()){ var obs=new MutationObserver(function(){ if(bindLove())obs.disconnect(); }); obs.observe(document.body,{childList:true,subtree:true}); }
+    document.getElementById('easter-confirm').addEventListener('click',checkPw);
+    document.getElementById('easter-cancel').addEventListener('click',function(){ document.getElementById('easter-overlay').classList.remove('active'); document.getElementById('easter-input').value=''; document.getElementById('easter-input').placeholder='输入暗号……'; triggered=false; });
+    document.getElementById('easter-input').addEventListener('keydown',function(e){ if(e.key==='Enter')checkPw(); });
+  })();
+  </script>
+</body>
+</html>

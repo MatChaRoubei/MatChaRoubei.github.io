@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /secret.html
+
+Sitemap: https://www.matchamilk.site/sitemap.xml

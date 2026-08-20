@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="福州高级中学 Minecraft 交流群宣传：群号 692629678，附主城、胃袋城等地图与宣传图。">
+  <meta property="og:title" content="广告 — MatChaの神秘小屋">
+  <meta property="og:description" content="福州高级中学 MC 交流群宣传：群号 692629678。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.matchamilk.site/ad.html">
+  <meta property="og:image" content="favicon.jpg">
+  <link rel="icon" type="image/jpeg" href="favicon.jpg">
+  <title>广告 — MatChaの神秘小屋</title>
+  <link rel="canonical" href="https://www.matchamilk.site/ad.html">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grid-overlay"></div>
+  <header class="header-bar">
+    <div class="header-left">
+      <span class="header-dot green-dot"></span>
+      <span class="header-label">MatChaの神秘小屋</span>
+    </div>
+    <div class="header-right">
+      <span class="header-label">✨ おかえり ✨</span>
+      <span class="header-dot black-dot"></span>
+    </div>
+  </header>
+
+  <nav class="toc-bar">
+    <a href="index.html" class="toc-item">🏠 首页</a>
+    <span class="toc-sep">/</span>
+    <a href="about.html" class="toc-item">📮 关于我</a>
+    <span class="toc-sep">/</span>
+    <a href="links.html" class="toc-item">🔗 链接</a>
+    <span class="toc-sep">/</span>
+    <a href="ad.html" class="toc-item active">📢 广告</a>
+  </nav>
+
+  <main class="main-grid">
+
+    <!-- ===== 广告（MC 交流群） ===== -->
+    <section class="section ad-section" id="ad">
+      <div class="passage-header">
+        <h2 class="passage-title" style="font-size: 3.5rem;">广</h2>
+        <div class="passage-title-line"></div>
+      </div>
+      <div class="ad-hero">
+        <div class="ad-hero-badge">📢 AD</div>
+        <h3 class="ad-hero-title">加入福州高级中学MC交流群喵！</h3>
+        <p class="ad-hero-qun">群号：<strong>692629678</strong></p>
+      </div>
+      <div class="ad-maps">
+        <h4 class="ad-subtitle">🗺️ 地图</h4>
+        <div class="ad-image-grid">
+          <figure class="ad-figure">
+            <img src="map1.jpg" alt="主城" class="ad-img">
+            <figcaption>主城</figcaption>
+          </figure>
+          <figure class="ad-figure">
+            <img src="map2.jpg" alt="胃袋城" class="ad-img">
+            <figcaption>胃袋城</figcaption>
+          </figure>
+          <figure class="ad-figure">
+            <img src="map3.jpg" alt="我不知道" class="ad-img">
+            <figcaption>我不知道</figcaption>
+          </figure>
+          <figure class="ad-figure">
+            <img src="map4.jpg" alt="樱落千念" class="ad-img">
+            <figcaption>樱落千念</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="ad-gallery">
+        <h4 class="ad-subtitle">🖼️ 宣传图</h4>
+        <div class="ad-image-grid">
+          <figure class="ad-figure">
+            <img src="mcad0.jpg" alt="我不知道战舰" class="ad-img">
+            <figcaption>我不知道战舰</figcaption>
+          </figure>
+          <figure class="ad-figure">
+            <img src="mcad1.jpg" alt="樱花林" class="ad-img">
+            <figcaption>樱花林</figcaption>
+          </figure>
+          <figure class="ad-figure">
+            <img src="mcad2.jpg" alt="一张雪峰" class="ad-img">
+            <figcaption>一张雪峰</figcaption>
+          </figure>
+          <figure class="ad-figure">
+            <img src="mcad3.jpg" alt="太空战舰" class="ad-img">
+            <figcaption>太空战舰</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer-bar">
+    <div class="footer-left"><span>© 2026 LIN ZHENGHAO</span></div>
+    <div class="footer-center"><span class="footer-dot green-dot"></span></div>
+    <div class="footer-right"><span>MatCha / 木茶</span></div>
+  </footer>
+
+  <div class="disclaimer">
+    <p>这都是我用 DeepSeek 做的，我一眼网站源码都没有看，我也是小白来着 :P</p>
+  </div>
+
+  <script>
+  (function() {
+    var sections = document.querySelectorAll('.section');
+    if (!('IntersectionObserver' in window)) {
+      sections.forEach(function(s) { s.classList.add('visible'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    sections.forEach(function(s) { observer.observe(s); });
+  })();
+  </script>
+</body>
+</html>
