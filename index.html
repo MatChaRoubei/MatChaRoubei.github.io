@@ -472,29 +472,23 @@ function doRenderPassages() {
   // 文章现在是独立页面链接，无需额外的 click 绑定
 }
 
-// 活动数据渲染（从 articles.json 的 activities 字段）
+// 活动数据渲染：直接使用 articles.js，避免额外请求与失效的旧 JSON
 (function() {
   var evtGrid = document.getElementById('events-grid');
   if (!evtGrid) return;
-  fetch('articles.json')
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      var activities = data.activities || [];
-      if (activities.length === 0) return;
-      var html = '';
-      activities.forEach(function(act) {
-        var badgeClass = act.status === 'active' ? 'event-badge-active' : 'event-badge-ended';
-        html += '<a href="' + act.link + '" class="event-card">';
-        html += '<div class="event-card-badge ' + badgeClass + '">' + (act.status === 'active' ? '进行中' : '已结束') + '</div>';
-        html += '<span class="event-card-icon">💌</span>';
-        html += '<h3 class="event-card-title">' + act.title + '</h3>';
-        html += '<p class="event-card-desc">' + act.date + ' · ' + act.desc + '</p>';
-        html += '<span class="event-card-cta">查看活动 →</span>';
-        html += '</a>';
-      });
-      evtGrid.innerHTML = html;
-    })
-    .catch(function() {});
+  var activities = (window.SITE_ARTICLES_DATA && window.SITE_ARTICLES_DATA.activities) || [];
+  activities.forEach(function(act) {
+    var badgeClass = act.status === 'active' ? 'event-badge-active' : 'event-badge-ended';
+    var themeClass = act.theme ? ' event-card-' + act.theme : '';
+    var html = '<a href="' + act.link + '" class="event-card' + themeClass + '">';
+    html += '<div class="event-card-badge ' + badgeClass + '">' + (act.status === 'active' ? '进行中' : '已结束') + '</div>';
+    html += '<span class="event-card-icon">' + (act.icon || '✦') + '</span>';
+    html += '<h3 class="event-card-title">' + act.title + '</h3>';
+    html += '<p class="event-card-desc">' + act.date + ' · ' + act.desc + '</p>';
+    html += '<span class="event-card-cta">查看活动 →</span>';
+    html += '</a>';
+    evtGrid.insertAdjacentHTML('afterbegin', html);
+  });
 })();
 
 function closeArticle() {

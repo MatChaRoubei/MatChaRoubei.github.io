@@ -93,7 +93,9 @@ def build():
                 'date': meta.get('date',''),
                 'status': meta.get('activity_status','active'),
                 'link': meta.get('activity_link',''),
-                'desc': meta.get('activity_desc', meta.get('excerpt',''))
+                'desc': meta.get('activity_desc', meta.get('excerpt','')),
+                'icon': meta.get('activity_icon','✦'),
+                'theme': meta.get('activity_theme','')
             })
 
     out = {'articles': articles, 'activities': acts[::-1]}

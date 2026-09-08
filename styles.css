@@ -1459,6 +1459,27 @@ body {
   opacity: 0.7;
 }
 
+/* 教师节活动：在黑白网格中加入温暖但克制的节日提示色 */
+.event-card-teacher {
+  border-color: #8b6b3f;
+  background: #fffaf0;
+}
+
+.event-card-teacher:hover {
+  border-color: #b07d32;
+  background: #fff5df;
+  box-shadow: 0 4px 18px rgba(139, 107, 63, 0.18);
+}
+
+.event-card-teacher .event-card-icon,
+.event-card-teacher .event-card-cta {
+  color: #9a6a24;
+}
+
+.event-card-teacher .event-badge-active {
+  background: #9a6a24;
+}
+
 /* 恐怖风格活动卡片 */
 .event-card-horror {
   border-color: #2a0000;
