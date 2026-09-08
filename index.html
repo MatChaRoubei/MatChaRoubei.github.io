@@ -16,31 +16,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- ===== 开学倒计时 · 恐怖弹出层 ===== -->
-  <div class="school-popup-overlay" id="school-popup">
-    <div class="school-popup">
-      <span class="school-popup-icon">👁️</span>
-      <p class="school-popup-kicker">SCHOOL COUNTDOWN</p>
-      <h2 class="school-popup-title">开学倒计时</h2>
-      <p class="school-popup-days" id="school-popup-days">距离开学还有 -- 天</p>
-      <p class="school-popup-sub">2026.9.1 · 返校倒计时 — 你真的准备好了吗？</p>
-      <a href="countdown-school.html" class="school-popup-cta">查看活动 →</a>
-    </div>
-  </div>
-  <script data-cfasync="false">
-  (function() {
-    var popup = document.getElementById('school-popup');
-    if (!popup) return;
-    var daysEl = document.getElementById('school-popup-days');
-    var TARGET = new Date('2026-09-01T00:00:00+08:00');
-    var diff = TARGET.getTime() - Date.now();
-    var days = Math.max(0, Math.ceil(diff / 86400000));
-    if (daysEl) daysEl.textContent = '距离开学还有 ' + days + ' 天';
-    setTimeout(function() {
-      popup.classList.add('school-popup-hidden');
-    }, 3000);
-  })();
-  </script>
+  <a class="skip-link" href="#main-content">跳到主要内容</a>
   <div class="grid-overlay"></div>
 
   <header class="header-bar">
@@ -55,20 +31,38 @@
   </header>
 
   <nav class="toc-bar">
-    <a href="#hero" class="toc-item active">🏠 介绍</a>
+    <a href="#teacher-feature" class="toc-item active">本期</a>
     <span class="toc-sep">/</span>
-    <a href="#passage" class="toc-item">📖 文章</a>
+    <a href="#hero" class="toc-item">介绍</a>
     <span class="toc-sep">/</span>
-    <a href="#events" class="toc-item">🎉 活动</a>
+    <a href="#passage" class="toc-item">文章</a>
     <span class="toc-sep">/</span>
-    <a href="about.html" class="toc-item">📮 关于我</a>
+    <a href="#events" class="toc-item">活动</a>
     <span class="toc-sep">/</span>
-    <a href="ad.html" class="toc-item">📢 广告</a>
+    <a href="about.html" class="toc-item">关于</a>
     <span class="toc-sep">/</span>
-    <a href="links.html" class="toc-item">🔗 链接</a>
+    <a href="links.html" class="toc-item">链接</a>
   </nav>
 
-  <main class="main-grid">
+  <main class="main-grid" id="main-content">
+
+    <!-- ===== 本期首页推送：教师节 ===== -->
+    <section class="section teacher-feature" id="teacher-feature" aria-labelledby="teacher-feature-title">
+      <a href="teachers-day.html" class="teacher-feature-link">
+        <div class="teacher-feature-copy">
+          <p class="section-kicker">09 / 10 · TEACHERS' DAY</p>
+          <h1 id="teacher-feature-title">被看见的<br>高二开端</h1>
+          <p class="teacher-feature-lead">刚进入高二，想谢谢那位愿意器重我，也认真关心每一位同学的班主任。</p>
+          <span class="teacher-feature-cta">阅读教师节专题 <span aria-hidden="true">↗</span></span>
+        </div>
+        <div class="teacher-feature-art" aria-hidden="true">
+          <span class="teacher-art-index">2026—09—10</span>
+          <img src="assets/teacher-orbit.svg" class="teacher-orbit" alt="" data-no-lightbox>
+          <img src="assets/teacher-book.svg" class="teacher-book" alt="" data-no-lightbox>
+          <img src="assets/teacher-marks.svg" class="teacher-marks" alt="" data-no-lightbox>
+        </div>
+      </a>
+    </section>
 
     <!-- ===== 区域一：Hero ===== -->
     <section class="section hero-section" id="hero">
@@ -101,9 +95,11 @@
 
     <!-- ===== 区域八：文章（横跨全幅） ===== -->
     <section class="section passage-section" id="passage">
-      <div class="passage-header">
-        <h2 class="passage-title">文</h2>
-        <div class="passage-title-line"></div>
+      <div class="section-heading passage-header">
+        <div>
+          <p class="section-kicker">WRITING ARCHIVE</p>
+          <h2 class="section-title">最近文章</h2>
+        </div>
         <div class="passage-controls">
           <select id="passage-cat-filter" class="passage-select">
             <option value="all">全部</option>
@@ -118,24 +114,30 @@
       </div>
       <div class="passage-featured" id="passage-featured"></div>
       <div class="passage-list" id="passage-list"></div>
+      <div class="passage-more">
+        <a href="passage.html">浏览全部文章 <span aria-hidden="true">→</span></a>
+      </div>
     </section>
 
     <!-- ===== 区域十：版本活动展示 ===== -->
     <section class="section events-section" id="events">
-      <div class="passage-header">
-        <h2 class="passage-title" style="font-size: 3rem;">活</h2>
-        <div class="passage-title-line"></div>
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">SPECIAL MOMENTS</p>
+          <h2 class="section-title">近期活动</h2>
+        </div>
+        <p class="section-intro">把值得记住的日期，做成可以回看的页面。</p>
       </div>
       <div class="events-grid" id="events-grid">
         <a href="preview-200days.html" class="event-card">
-          <div class="event-card-badge event-badge-active">进行中</div>
+          <div class="event-card-badge event-badge-ended">已结束</div>
           <span class="event-card-icon">💌</span>
           <h3 class="event-card-title">认识琳琳200天活动</h3>
           <p class="event-card-desc">2026.8.15 · 倒计时中 — 一份特别的惊喜即将揭晓</p>
           <span class="event-card-cta">查看活动 →</span>
         </a>
         <a href="countdown-school.html" class="event-card event-card-horror">
-          <div class="event-card-badge event-badge-horror">倒计时</div>
+          <div class="event-card-badge event-badge-ended">已结束</div>
           <span class="event-card-icon">🕯️</span>
           <h3 class="event-card-title">开学倒计时</h3>
           <p class="event-card-desc">2026.9.1 · 恐怖倒计时 — 距离开学越来越近……</p>
@@ -145,29 +147,28 @@
     </section>
 
     <!-- ===== 站点导航 ===== -->
-    <section class="section events-section" id="sitemap">
-      <div class="passage-header">
-        <h2 class="passage-title" style="font-size: 3rem;">屋</h2>
-        <div class="passage-title-line"></div>
+    <section class="section sitemap-section" id="sitemap">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">EXPLORE THE HOUSE</p>
+          <h2 class="section-title">继续逛逛</h2>
+        </div>
       </div>
-      <div class="events-grid">
-        <a href="about.html" class="event-card">
-          <span class="event-card-icon">📮</span>
-          <h3 class="event-card-title">关于我</h3>
-          <p class="event-card-desc">网名由来 · 人格特点 · 喜好 · 旅行</p>
-          <span class="event-card-cta">进入 →</span>
+      <div class="site-links-grid">
+        <a href="about.html" class="site-link-card">
+          <span class="site-link-no">01</span>
+          <span><strong>关于我</strong><small>网名由来 · 喜好 · 旅行</small></span>
+          <span class="site-link-arrow" aria-hidden="true">↗</span>
         </a>
-        <a href="links.html" class="event-card">
-          <span class="event-card-icon">🔗</span>
-          <h3 class="event-card-title">链接</h3>
-          <p class="event-card-desc">社交账号 · 友情链接</p>
-          <span class="event-card-cta">进入 →</span>
+        <a href="links.html" class="site-link-card">
+          <span class="site-link-no">02</span>
+          <span><strong>链接</strong><small>社交账号 · 项目 · 友情链接</small></span>
+          <span class="site-link-arrow" aria-hidden="true">↗</span>
         </a>
-        <a href="ad.html" class="event-card">
-          <span class="event-card-icon">📢</span>
-          <h3 class="event-card-title">广告</h3>
-          <p class="event-card-desc">福州高级中学 MC 交流群</p>
-          <span class="event-card-cta">进入 →</span>
+        <a href="ad.html" class="site-link-card">
+          <span class="site-link-no">03</span>
+          <span><strong>广告</strong><small>福州高级中学 MC 交流群</small></span>
+          <span class="site-link-arrow" aria-hidden="true">↗</span>
         </a>
       </div>
     </section>
@@ -448,14 +449,15 @@ function doRenderPassages() {
     featEl.innerHTML = '';
   }
 
-  // List: skip first (featured)
+  // 首页只保留精选预览，完整归档交给 passage.html
   var listEl = document.getElementById('passage-list');
   var listHTML = '';
   if (filtered.length <= 1 && listEl) {
     listEl.innerHTML = '';
     return;
   }
-  for (var i = 1; i < filtered.length; i++) {
+  var previewLimit = 6;
+  for (var i = 1; i < filtered.length && i <= previewLimit; i++) {
     var a = filtered[i];
     listHTML += '<a href="article_' + a.id + '.html" class="passage-item" data-id="' + a.id + '">';
     listHTML += '<div class="passage-item-header">';
@@ -515,7 +517,7 @@ document.addEventListener('keydown', function(e) {
   var lb = document.getElementById('lightbox');
   var lbImg = document.getElementById('lightbox-img');
   var lbClose = document.getElementById('lightbox-close');
-  var imgs = document.querySelectorAll('img');
+  var imgs = document.querySelectorAll('img:not([data-no-lightbox])');
   imgs.forEach(function(img) {
     img.style.cursor = 'pointer';
     img.addEventListener('click', function(e) {

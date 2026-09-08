@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 280" role="img" aria-labelledby="title desc">
+  <title id="title">被看见的每一个人</title>
+  <desc id="desc">许多圆点围绕一枚温暖的中心圆，象征对每位学生的关心。</desc>
+  <circle cx="140" cy="140" r="104" fill="none" stroke="#111" stroke-width="3" stroke-dasharray="4 12" opacity=".34"/>
+  <circle cx="140" cy="140" r="62" fill="#f5ead2" stroke="#111" stroke-width="5"/>
+  <circle cx="140" cy="140" r="25" fill="#d6a54a"/>
+  <g fill="#4a7c59" stroke="#111" stroke-width="3">
+    <circle cx="140" cy="28" r="10"/><circle cx="196" cy="43" r="9"/><circle cx="238" cy="84" r="11"/>
+    <circle cx="252" cy="142" r="9"/><circle cx="236" cy="199" r="11"/><circle cx="195" cy="238" r="9"/>
+    <circle cx="140" cy="252" r="10"/><circle cx="84" cy="237" r="9"/><circle cx="42" cy="196" r="11"/>
+    <circle cx="28" cy="138" r="9"/><circle cx="44" cy="81" r="11"/><circle cx="85" cy="42" r="9"/>
+  </g>
+  <g stroke="#9a6a24" stroke-width="3" opacity=".65">
+    <path d="M140 115V45M165 123l58-33M166 157l58 34M140 165v70M115 156l-59 34M114 122L56 88"/>
+  </g>
+</svg>

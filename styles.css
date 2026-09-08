@@ -13,6 +13,8 @@
   --green: #4a7c59;
   --green-light: #6b9e7a;
   --green-pale: #c5d9cc;
+  --cream: #fffaf0;
+  --amber: #d6a54a;
   --spacing-xs: 8px;
   --spacing-sm: 16px;
   --spacing-md: 32px;
@@ -1116,6 +1118,13 @@ body {
     border-right: none;
   }
 
+  .teacher-feature,
+  .passage-section,
+  .events-section,
+  .sitemap-section {
+    grid-column: 1 / -1;
+  }
+
   .name-section {
     grid-column: 1 / 9;
   }
@@ -1139,6 +1148,10 @@ body {
   }
 
   .hero-section,
+  .teacher-feature,
+  .passage-section,
+  .events-section,
+  .sitemap-section,
   .name-section,
   .alias-section,
   .personality-section,
@@ -1270,6 +1283,36 @@ body {
   .name-big .name-line-accent {
     font-size: 2rem;
   }
+
+  .teacher-feature-link {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-feature-art {
+    min-height: 390px;
+    border-top: var(--border-thin) solid var(--black);
+    border-left: 0;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .site-links-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-link-card {
+    min-height: 104px;
+    border-right: 0;
+    border-bottom: var(--border-thin) solid var(--black);
+  }
+
+  .site-link-card:last-child {
+    border-bottom: 0;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1285,6 +1328,30 @@ body {
   .hero-image-container {
     width: 140px;
     height: 140px;
+  }
+
+  .teacher-feature-copy {
+    padding: 48px 24px;
+  }
+
+  .teacher-feature-copy h1 {
+    font-size: 3.1rem;
+  }
+
+  .teacher-feature-art {
+    min-height: 300px;
+  }
+
+  .teacher-orbit {
+    top: 4%;
+    right: 4%;
+    width: 54%;
+  }
+
+  .teacher-book {
+    right: 10%;
+    bottom: 7%;
+    width: 72%;
   }
 
   .alias-name {
@@ -1459,6 +1526,24 @@ body {
   opacity: 0.7;
 }
 
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 100000;
+  padding: 8px 14px;
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-decoration: none;
+  transform: translateY(-160%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 /* 教师节活动：在黑白网格中加入温暖但克制的节日提示色 */
 .event-card-teacher {
   border-color: #8b6b3f;
@@ -1508,6 +1593,72 @@ body {
 .event-badge-horror {
   background: #7f0000;
   color: #f5f5f5;
+}
+
+/* =============================================
+   站点导航：与活动卡片区分的紧凑目录
+   ============================================= */
+.sitemap-section {
+  grid-column: 1 / 13;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  background: var(--white);
+}
+
+.site-links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: var(--border-thin) solid var(--black);
+  border-bottom: var(--border-thin) solid var(--black);
+}
+
+.site-link-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--spacing-sm);
+  min-height: 128px;
+  padding: var(--spacing-md);
+  color: var(--black);
+  text-decoration: none;
+  border-right: var(--border-thin) solid var(--black);
+  transition: color .2s, background .2s;
+}
+
+.site-link-card:last-child {
+  border-right: 0;
+}
+
+.site-link-card:hover {
+  color: var(--white);
+  background: var(--black);
+}
+
+.site-link-no {
+  align-self: start;
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: .65rem;
+}
+
+.site-link-card strong,
+.site-link-card small {
+  display: block;
+}
+
+.site-link-card strong {
+  margin-bottom: 5px;
+  font-size: 1.15rem;
+}
+
+.site-link-card small {
+  color: var(--gray-mid);
+  font-size: .72rem;
+  line-height: 1.6;
+}
+
+.site-link-arrow {
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
 }
 
 /* =============================================
@@ -2146,6 +2297,31 @@ body {
   color: var(--gray-dark);
 }
 
+.passage-more {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--spacing-md);
+}
+
+.passage-more a {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0 7px;
+  border-bottom: 2px solid var(--green);
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+
+.passage-more a:hover {
+  color: var(--black);
+  border-color: var(--black);
+}
+
 /* =============================================
    文章阅读模态 Article Modal
    ============================================= */
@@ -2734,12 +2910,81 @@ body {
 /* =============================================
    滚动渐入动画（GPU 加速）
    ============================================= */
+.section-heading.passage-header {
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+  .section-heading.passage-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .teacher-feature-link {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .teacher-feature-art {
+    min-width: 0;
+    min-height: 390px;
+    border-top: var(--border-thin) solid var(--black);
+    border-left: 0;
+  }
+
+  .site-links-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .site-link-card {
+    min-width: 0;
+    min-height: 104px;
+    border-right: 0;
+    border-bottom: var(--border-thin) solid var(--black);
+  }
+
+  .site-link-card:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .teacher-feature {
+    padding: 0;
+  }
+
+  .teacher-feature-art {
+    min-height: 300px;
+  }
+
+  .teacher-orbit {
+    top: 4%;
+    right: 4%;
+    width: 54%;
+  }
+
+  .teacher-book {
+    right: 10%;
+    bottom: 7%;
+    width: 72%;
+  }
+
+  .events-section,
+  .sitemap-section,
+  .passage-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .passage-item {
+    padding: var(--spacing-md);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .section {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    will-change: transform, opacity;
+    opacity: 1;
+    transform: none;
   }
   .section.visible {
     opacity: 1;
@@ -2781,5 +3026,225 @@ body {
   .section {
     border-color: black;
     page-break-inside: avoid;
+  }
+}
+
+/* === 通用内容区标题 === */
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.section-kicker {
+  margin-bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--green);
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 4.4rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: 0.04em;
+}
+
+.section-intro {
+  max-width: 34rem;
+  color: var(--gray-dark);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+/* =============================================
+   首页本期推送 · 教师节
+   ============================================= */
+.teacher-feature {
+  grid-column: 1 / 13;
+  padding: 0;
+  background: var(--cream);
+}
+
+.teacher-feature-link {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.9fr);
+  min-height: 520px;
+  color: var(--black);
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.teacher-feature-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(48px, 7vw, 104px) clamp(32px, 6vw, 88px);
+}
+
+.teacher-feature-copy h1 {
+  max-width: 8em;
+  margin-bottom: var(--spacing-md);
+  font-size: clamp(3.2rem, 7vw, 7rem);
+  font-weight: 750;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+}
+
+.teacher-feature-lead {
+  max-width: 35rem;
+  margin-bottom: var(--spacing-lg);
+  color: var(--gray-dark);
+  font-size: clamp(0.95rem, 1.35vw, 1.15rem);
+  line-height: 1.9;
+}
+
+.teacher-feature-cta {
+  align-self: flex-start;
+  padding: 10px 0 6px;
+  border-bottom: 2px solid var(--black);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.teacher-feature-art {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  border-left: var(--border-thin) solid var(--black);
+  background:
+    linear-gradient(rgba(17,17,17,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17,17,17,.055) 1px, transparent 1px),
+    #e8eee7;
+  background-size: 32px 32px;
+}
+
+.teacher-art-index {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  z-index: 3;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+}
+
+.teacher-orbit {
+  position: absolute;
+  top: 7%;
+  right: 7%;
+  width: min(58%, 290px);
+  transition: transform 0.45s ease;
+}
+
+.teacher-book {
+  position: absolute;
+  right: 16%;
+  bottom: 11%;
+  z-index: 2;
+  width: min(72%, 370px);
+  filter: drop-shadow(12px 16px 0 rgba(17,17,17,.08));
+  transition: transform 0.45s ease;
+}
+
+.teacher-marks {
+  position: absolute;
+  left: 4%;
+  bottom: 2%;
+  width: 94%;
+  opacity: 0.8;
+}
+
+.teacher-feature-link:hover .teacher-feature-cta {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.teacher-feature-link:hover .teacher-book {
+  transform: translateY(-8px) rotate(-1deg);
+}
+
+.teacher-feature-link:hover .teacher-orbit {
+  transform: rotate(8deg);
+}
+
+/* 首页新增组件的最终响应式覆盖（放在组件定义之后） */
+@media (max-width: 1200px) {
+  .teacher-feature,
+  .passage-section,
+  .events-section,
+  .sitemap-section {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .teacher-feature-link {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .teacher-feature-art {
+    min-width: 0;
+    min-height: 390px;
+    border-top: var(--border-thin) solid var(--black);
+    border-left: 0;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .site-links-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .site-link-card {
+    min-width: 0;
+    min-height: 104px;
+    border-right: 0;
+    border-bottom: var(--border-thin) solid var(--black);
+  }
+
+  .site-link-card:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .teacher-feature {
+    padding: 0;
+  }
+
+  .teacher-feature-art {
+    min-height: 300px;
+  }
+
+  .teacher-feature-copy {
+    padding: 48px 24px;
+  }
+
+  .teacher-feature-copy h1 {
+    font-size: 3.1rem;
+  }
+
+  .teacher-orbit {
+    top: 4%;
+    right: 4%;
+    width: 54%;
+  }
+
+  .teacher-book {
+    right: 10%;
+    bottom: 7%;
+    width: 72%;
   }
 }

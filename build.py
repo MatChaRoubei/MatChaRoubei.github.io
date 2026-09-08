@@ -1,15 +1,16 @@
 """
-构建脚本 — 扫描 content/articles/*.md，生成 articles.js + article_*.html
+构建脚本 — 扫描文章与活动内容，生成 articles.js + article_*.html
 用法：python build.py
 
 【傻瓜式操作】
-  在 content/articles/ 新建 .md 文件 → python build.py → 上传
+  文章放进 content/articles/，活动元数据放进 content/activities/
   最小格式只需 # 标题 + 正文，其余自动填充
 """
 import os, json, re
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ARTICLES_DIR = os.path.join(BASE_DIR, 'content', 'articles')
+ACTIVITIES_DIR = os.path.join(BASE_DIR, 'content', 'activities')
 OUT_JS = os.path.join(BASE_DIR, 'articles.js')
 
 def parse_front_matter(text):
@@ -31,6 +32,31 @@ def next_free_id(d):
         n += 1
     return n
 
+def load_activities():
+    """活动与文章分开维护，避免专题活动混入文章列表。"""
+    os.makedirs(ACTIVITIES_DIR, exist_ok=True)
+    activities = []
+    for fname in sorted(os.listdir(ACTIVITIES_DIR)):
+        if not fname.endswith('.md') or fname == 'README.md':
+            continue
+        fpath = os.path.join(ACTIVITIES_DIR, fname)
+        raw = open(fpath, 'r', encoding='utf-8').read()
+        meta, _ = parse_front_matter(raw)
+        if not meta.get('id') or not meta.get('title'):
+            print(f'  → 跳过活动 {fname}：缺少 id 或 title')
+            continue
+        activities.append({
+            'id': meta['id'],
+            'title': meta['title'],
+            'date': meta.get('date',''),
+            'status': meta.get('status','active'),
+            'link': meta.get('link',''),
+            'desc': meta.get('desc',''),
+            'icon': meta.get('icon','✦'),
+            'theme': meta.get('theme','')
+        })
+    return sorted(activities, key=lambda a: a.get('date',''), reverse=True)
+
 def build():
     os.makedirs(ARTICLES_DIR, exist_ok=True)
     files = sorted(
@@ -38,7 +64,7 @@ def build():
         key=lambda x: int(x[:-3]) if x[:-3].isdigit() else 9999
     )
 
-    articles, acts, seen_ids = [], [], set()
+    articles, seen_ids = [], set()
 
     for fname in files:
         fpath = os.path.join(ARTICLES_DIR, fname)
@@ -85,20 +111,8 @@ def build():
         articles.append(art)
         gen_article_page(art)
 
-        # 活动
-        if meta.get('activity'):
-            acts.append({
-                'id': meta['activity'],
-                'title': meta.get('activity_title', title),
-                'date': meta.get('date',''),
-                'status': meta.get('activity_status','active'),
-                'link': meta.get('activity_link',''),
-                'desc': meta.get('activity_desc', meta.get('excerpt','')),
-                'icon': meta.get('activity_icon','✦'),
-                'theme': meta.get('activity_theme','')
-            })
-
-    out = {'articles': articles, 'activities': acts[::-1]}
+    acts = load_activities()
+    out = {'articles': articles, 'activities': acts}
     js = 'var SITE_ARTICLES_DATA = ' + json.dumps(out, ensure_ascii=False) + ';\n'
     with open(OUT_JS, 'w', encoding='utf-8') as f:
         f.write(js)

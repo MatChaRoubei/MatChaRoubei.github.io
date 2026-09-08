@@ -33,6 +33,9 @@ python build.py
 ## 添加文章
 在 `content/articles/` 新建一个 `.md` 文件（格式见该目录下的 `README.md`），然后运行 `python build.py`。
 
+## 添加活动
+在 `content/activities/` 新建一个带有 `id / title / date / status / link / desc` 元数据的 `.md` 文件。活动与文章分开维护，专题页面可独立设计；运行 `python build.py` 后，首页活动区会自动读取新活动。
+
 ## 部署
 托管于 **Cloudflare Pages**（绑定本 GitHub 仓库，push 后自动部署）。
 

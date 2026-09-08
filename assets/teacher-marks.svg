@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 120" role="img" aria-labelledby="title desc">
+  <title id="title">粉笔批注图案</title>
+  <desc id="desc">由对勾、星号、圆圈和弧线组成的装饰图案。</desc>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M23 65l18 18 36-48" stroke="#4a7c59" stroke-width="7"/>
+    <path d="M127 28v58M98 57h58" stroke="#111" stroke-width="5"/>
+    <circle cx="220" cy="59" r="35" stroke="#d6a54a" stroke-width="6"/>
+    <path d="M296 80c28-48 68-58 118-31" stroke="#4a7c59" stroke-width="6"/>
+    <path d="M468 25l8 21 23 1-18 14 6 22-19-13-19 13 6-22-18-14 23-1z" stroke="#111" stroke-width="5"/>
+    <path d="M545 78c17-15 33-15 50 0M548 43h44" stroke="#9a6a24" stroke-width="6"/>
+  </g>
+</svg>
