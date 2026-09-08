@@ -189,6 +189,81 @@
   line-height: 1.9;
 }
 
+.teacher-stories {
+  display: grid;
+  grid-template-columns: minmax(280px, .72fr) minmax(0, 1.28fr);
+  border-bottom: var(--border-thin) solid var(--black);
+  background: var(--teacher-paper);
+}
+
+.teacher-stories-heading {
+  padding: clamp(48px, 7vw, 96px);
+  border-right: var(--border-thin) solid var(--black);
+}
+
+.teacher-stories-heading h2 {
+  margin-bottom: var(--spacing-md);
+  font-size: clamp(2.4rem, 5vw, 5.3rem);
+  line-height: 1.05;
+  letter-spacing: -.04em;
+}
+
+.teacher-stories-heading > p:last-child {
+  max-width: 30rem;
+  color: var(--gray-dark);
+  font-size: .9rem;
+  line-height: 1.9;
+}
+
+.teacher-story-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.teacher-story-list article {
+  display: flex;
+  flex-direction: column;
+  min-height: 520px;
+  padding: clamp(40px, 5vw, 72px);
+  border-right: var(--border-thin) solid var(--black);
+}
+
+.teacher-story-list article:last-child {
+  border-right: 0;
+  background: #e4ebe3;
+}
+
+.story-no {
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+.teacher-story-list h3 {
+  margin: 84px 0 24px;
+  font-size: clamp(1.8rem, 3vw, 3.2rem);
+}
+
+.teacher-story-list p {
+  color: var(--gray-dark);
+  font-size: .92rem;
+  line-height: 2;
+}
+
+.teacher-story-list a {
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: var(--spacing-lg);
+  color: var(--green);
+  border-bottom: 1px solid currentColor;
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  letter-spacing: .08em;
+  text-decoration: none;
+}
+
 .teacher-letter {
   display: grid;
   grid-template-columns: minmax(280px, .7fr) minmax(0, 1.3fr);
@@ -237,6 +312,13 @@
   line-height: 2.15;
 }
 
+.teacher-letter-paper .personal-note {
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-md);
+  border-left: 5px solid var(--teacher-amber);
+  background: #f5ead2;
+}
+
 .letter-sign {
   margin-top: var(--spacing-lg);
   color: var(--green);
@@ -279,7 +361,8 @@
 
 @media (max-width: 900px) {
   .teacher-day-hero,
-  .teacher-letter {
+  .teacher-letter,
+  .teacher-stories {
     grid-template-columns: 1fr;
   }
 
@@ -309,6 +392,11 @@
 
   .teacher-letter-aside {
     min-height: 240px;
+    border-right: 0;
+    border-bottom: var(--border-thin) solid var(--black);
+  }
+
+  .teacher-stories-heading {
     border-right: 0;
     border-bottom: var(--border-thin) solid var(--black);
   }
@@ -357,8 +445,32 @@
   }
 
   .teacher-values article,
-  .teacher-letter-aside {
+  .teacher-letter-aside,
+  .teacher-stories-heading,
+  .teacher-story-list article {
     padding: 40px 24px;
+  }
+
+  .teacher-story-list {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-story-list article {
+    min-height: 0;
+    border-right: 0;
+    border-bottom: var(--border-thin) solid var(--black);
+  }
+
+  .teacher-story-list article:last-child {
+    border-bottom: 0;
+  }
+
+  .teacher-story-list h3 {
+    margin-top: var(--spacing-lg);
+  }
+
+  .teacher-story-list a {
+    margin-top: var(--spacing-lg);
   }
 
   .teacher-letter-paper {

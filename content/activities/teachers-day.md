@@ -1,12 +1,12 @@
 ---
 id: teacher-day
-title: "教师节 · 被看见的高二开端"
+title: "教师节 · 致每一位引路的人"
 date: 2026-09-10
 status: active
 link: teachers-day.html
 icon: "✦"
 theme: teacher
-desc: "刚进入高二，想谢谢那位愿意器重我，也认真关心每一位同学的班主任。"
+desc: "祝所有老师教师节快乐，愿每一份耐心与认真，都能在学生的成长里收到回响。"
 ---
 
 活动正文使用独立专题页 `teachers-day.html`。
