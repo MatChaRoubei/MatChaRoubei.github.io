@@ -3029,6 +3029,56 @@ body {
   }
 }
 
+/* Secondary-page polish: keep legacy archive pages readable on narrow screens. */
+@media (max-width: 768px) {
+  .toc-bar {
+    justify-content: flex-start;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+
+  .toc-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .social-section,
+  .nav-section {
+    min-width: 0;
+    padding: var(--spacing-md);
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-md);
+  }
+
+  .social-tag,
+  .nav-tag {
+    padding-top: 0;
+    writing-mode: horizontal-tb;
+  }
+
+  .social-links,
+  .nav-links {
+    width: 100%;
+    min-width: 0;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .nav-links {
+    display: grid;
+  }
+
+  .social-link-item,
+  .nav-link-item {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .nav-link-desc {
+    overflow-wrap: anywhere;
+  }
+}
+
 /* === 通用内容区标题 === */
 .section-heading {
   display: flex;
