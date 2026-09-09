@@ -744,3 +744,120 @@ select:focus-visible { outline: 3px solid #9cbc82; outline-offset: 4px; }
   .site-shell { width: 100%; margin: 0; border: 0; box-shadow: none; }
   .section-nav { position: static; }
 }
+
+
+/* =============================================
+   Night palette layer — color without ornament
+   Keeps the editorial layout clean while giving the house a dusk atmosphere.
+   ============================================= */
+:root {
+  --night-ink: #101820;
+  --night-blue: #1b3147;
+  --night-violet: #4b466f;
+  --night-teal: #2f6a68;
+  --night-amber: #d9a45e;
+}
+
+/* A layered night sky outside the paper-like archive. */
+html { background: #101820; }
+
+body {
+  background:
+    radial-gradient(circle at 10% 9%, rgba(82, 105, 154, .58), transparent 25rem),
+    radial-gradient(circle at 88% 15%, rgba(47, 106, 104, .38), transparent 30rem),
+    radial-gradient(circle at 52% 100%, rgba(101, 68, 113, .38), transparent 33rem),
+    linear-gradient(135deg, #0b1520 0%, #17293c 48%, #102625 100%);
+}
+
+.site-shell {
+  background-color: #ecece6;
+  background-image:
+    radial-gradient(circle at 86% 8%, rgba(217, 164, 94, .13) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 18% 92%, rgba(47, 106, 104, .10) 0 1px, transparent 1.5px),
+    linear-gradient(rgba(27, 49, 71, .045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27, 49, 71, .045) 1px, transparent 1px);
+  box-shadow:
+    0 30px 88px rgba(3, 10, 18, .55),
+    0 0 90px rgba(91, 92, 148, .20);
+}
+
+.masthead,
+.section-nav {
+  background-color: rgba(239, 239, 234, .92);
+}
+
+.brand-mark {
+  background: linear-gradient(135deg, var(--night-blue), var(--matcha));
+  box-shadow: 3px 4px 0 rgba(217, 164, 94, .45);
+}
+
+.masthead-meta span + span::before {
+  background: var(--night-amber);
+  box-shadow: 0 0 10px rgba(217, 164, 94, .55);
+}
+
+/* The large panels get restrained, distinct night identities. */
+.teacher-feature {
+  background:
+    radial-gradient(circle at 84% 14%, rgba(217, 164, 94, .18), transparent 24rem),
+    linear-gradient(135deg, #183b3e 0%, #315b43 48%, #254050 100%);
+}
+
+.teacher-art {
+  background:
+    radial-gradient(circle at 72% 26%, rgba(217, 164, 94, .35) 0 2px, transparent 2.5px),
+    radial-gradient(circle at 18% 75%, rgba(75, 70, 111, .20), transparent 12rem),
+    linear-gradient(rgba(250, 249, 245, .11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(250, 249, 245, .11) 1px, transparent 1px),
+    #c9d9d1;
+  background-size: auto, auto, 44px 44px, 44px 44px, auto;
+}
+
+.feature-meta span::before {
+  background: var(--night-amber);
+  box-shadow: 0 0 0 5px rgba(217, 164, 94, .14), 0 0 16px rgba(217, 164, 94, .4);
+}
+
+.feature-overline,
+.teacher-copy h1 em,
+.featured-label span:last-child,
+.featured-body > p:first-child,
+.footer-meta a {
+  color: #f0c77a;
+}
+
+.featured-link {
+  background:
+    radial-gradient(circle at 85% 22%, rgba(79, 110, 148, .65), transparent 25rem),
+    radial-gradient(circle at 16% 108%, rgba(42, 119, 105, .48), transparent 28rem),
+    linear-gradient(125deg, #111b2a, #172e3d 58%, #252541);
+}
+
+.featured-link::before {
+  opacity: .38;
+  background:
+    linear-gradient(115deg, transparent 60%, rgba(240, 199, 122, .10) 60%),
+    repeating-linear-gradient(90deg, transparent 0 47px, rgba(250,249,245,.035) 48px);
+}
+
+.event-card:nth-child(3n + 1) .event-date-mark { color: rgba(47, 106, 104, .26); }
+.event-card:nth-child(3n + 2) .event-date-mark { color: rgba(75, 70, 111, .23); }
+.event-card:nth-child(3n) .event-date-mark { color: rgba(189, 107, 66, .26); }
+
+.event-card:nth-child(3n + 1):hover { background: linear-gradient(140deg, #285e5c, #244453); }
+.event-card:nth-child(3n + 2):hover { background: linear-gradient(140deg, #4b466f, #293a58); }
+.event-card:nth-child(3n):hover { background: linear-gradient(140deg, #7a4d44, #563d58); }
+
+.site-footer {
+  background:
+    radial-gradient(circle at 86% 20%, rgba(217, 164, 94, .18), transparent 18rem),
+    linear-gradient(135deg, #101820, #182d3b 52%, #26304d);
+}
+
+@media (max-width: 760px) {
+  body {
+    background:
+      radial-gradient(circle at 12% 0%, rgba(82, 105, 154, .45), transparent 18rem),
+      linear-gradient(155deg, #0b1520, #17293c 52%, #102625);
+  }
+}
