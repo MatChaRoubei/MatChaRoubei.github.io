@@ -14,3 +14,6 @@ desktop.ini
 *.tmp
 *.log
 *.bak
+
+# Cloudflare Wrangler local state
+.wrangler/

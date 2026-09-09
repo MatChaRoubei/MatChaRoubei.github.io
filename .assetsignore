@@ -1,0 +1,25 @@
+# Repository and local build state must never become Worker static assets.
+.git/
+.git/**
+__pycache__/
+.wrangler/
+
+# Authoring sources and local-only scripts.
+content/
+*.py
+*.pyc
+README.md
+
+# Original editing images replaced by the production WebP files in assets/web/.
+asiankungfugeneration.jpg
+tokyo.jpg
+MC.jpg
+kyoto.JPG
+map1.jpg
+map2.jpg
+map3.jpg
+map4.jpg
+mcad0.jpg
+mcad1.jpg
+mcad2.jpg
+mcad3.jpg
