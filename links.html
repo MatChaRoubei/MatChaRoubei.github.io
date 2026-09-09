@@ -3,149 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MatCha 的社交账号与友情链接：Bilibili、X / Twitter、YouTube，以及好友们的站点。">
-  <meta property="og:title" content="链接 — MatChaの神秘小屋">
-  <meta property="og:description" content="MatCha 的社交账号与友情链接。">
+  <meta name="description" content="MatCha 的站外坐标：社交账号、个人项目与友邻站点。">
+  <meta name="theme-color" content="#526c7b">
+  <meta property="og:title" content="站外坐标 — MatChaの神秘小屋">
+  <meta property="og:description" content="从这里前往 MatCha 的其他账号、项目和友邻站点。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.matchamilk.site/links.html">
   <meta property="og:image" content="favicon.jpg">
-  <link rel="icon" type="image/jpeg" href="favicon.jpg">
-  <title>链接 — MatChaの神秘小屋</title>
   <link rel="canonical" href="https://www.matchamilk.site/links.html">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/jpeg" href="favicon.jpg">
+  <title>站外坐标 — MatChaの神秘小屋</title>
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="appendix.css">
 </head>
-<body>
-  <div class="grid-overlay"></div>
-  <header class="header-bar">
-    <div class="header-left">
-      <span class="header-dot green-dot"></span>
-      <span class="header-label">MatChaの神秘小屋</span>
-    </div>
-    <div class="header-right">
-      <span class="header-label">COORDINATES / LINKS</span>
-      <span class="header-dot black-dot"></span>
-    </div>
-  </header>
-
-  <nav class="toc-bar">
-    <a href="index.html" class="toc-item">首页</a>
-    <span class="toc-sep">/</span>
-    <a href="about.html" class="toc-item">档案</a>
-    <span class="toc-sep">/</span>
-    <a href="links.html" class="toc-item active">链接</a>
-    <span class="toc-sep">/</span>
-    <a href="ad.html" class="toc-item">社群</a>
-  </nav>
-
-  <main class="main-grid">
-
-    <!-- ===== 社交链接 ===== -->
-    <section class="section social-section" id="social">
-      <div class="social-tag">SOCIAL</div>
-      <div class="social-links">
-        <a href="https://space.bilibili.com/523372964?spm_id_from=333.1007.0.0" target="_blank" rel="noopener" class="social-link-item">
-          <div class="social-link-img-crop">
-              <img src="bilibili.jpg" alt="Bilibili" class="social-link-img" loading="lazy">
-          </div>
-          <span class="social-link-label">Bilibili</span>
-          <span class="social-link-desc">关注我的B站</span>
-        </a>
-        <a href="https://x.com/MatChaRoubei" target="_blank" rel="noopener" class="social-link-item">
-          <div class="social-link-img-crop">
-            <img src="X.jpg" alt="X / Twitter" class="social-link-img" loading="lazy">
-          </div>
-          <span class="social-link-label">X / Twitter</span>
-          <span class="social-link-desc">关注我的X</span>
-        </a>
-        <a href="https://www.youtube.com/@MatCha_RoubeiMilkBro" target="_blank" rel="noopener" class="social-link-item">
-          <div class="social-link-img-crop">
-            <img src="youtube.jpg" alt="YouTube" class="social-link-img" loading="lazy">
-          </div>
-          <span class="social-link-label">YouTube</span>
-          <span class="social-link-desc">关注我的YT</span>
-        </a>
+<body class="appendix-page appendix-links">
+  <a class="skip-link" href="#main-content">跳到主要内容</a>
+  <div class="site-shell">
+    <header class="masthead">
+      <a class="brand" href="index.html" aria-label="返回首页"><span class="brand-mark" aria-hidden="true">M</span><span class="brand-name">MatChaの神秘小屋</span></a>
+      <div class="masthead-meta"><span>PERSONAL ARCHIVE</span><span>FUZHOU · CN</span><span>EST. 2026</span></div>
+    </header>
+    <nav class="appendix-nav" aria-label="附录页面导航">
+      <a class="appendix-back" href="index.html#explore">← 返回首页</a>
+      <div class="appendix-tabs">
+        <a href="about.html"><span>01</span>人物档案</a>
+        <a href="links.html" class="active" aria-current="page"><span>02</span>站外坐标</a>
+        <a href="ad.html"><span>03</span>一起建造</a>
       </div>
-    </section>
+      <span class="appendix-position">APPENDIX / 02</span>
+    </nav>
 
-    <!-- ===== 项目 ===== -->
-    <section class="section events-section" id="projects">
-      <div class="passage-header">
-        <h2 class="passage-title" style="font-size: 3rem;">项目</h2>
-        <div class="passage-title-line"></div>
-      </div>
-      <div class="events-grid">
-        <a href="https://github.com/MatChaRoubei/Kuroneko_Assistant" target="_blank" rel="noopener" class="event-card">
-          <span class="event-card-icon">01</span>
-          <h3 class="event-card-title">黑猫语音助手</h3>
-          <p class="event-card-desc">一个常驻后台的 Windows 语音助手：喊一声「你好黑猫」，就能语音控制电脑、和本地 Ollama 大模型对话、清理磁盘。完全本地运行，无需云端。</p>
-          <span class="event-card-cta">查看项目 →</span>
-        </a>
-        <a href="https://github.com/MatChaRoubei/Wallpaper-Engine-Flash" target="_blank" rel="noopener" class="event-card">
-          <span class="event-card-icon">02</span>
-          <h3 class="event-card-title">希沃壁纸小助手</h3>
-          <p class="event-card-desc">为教室大屏（希沃白板一体机）制作 4K 班级壁纸的 Windows 小工具：记事本式编辑、可视化框选、一键生成 4K 壁纸。纯 C++ 原生实现，零依赖、单文件 exe。</p>
-          <span class="event-card-cta">查看项目 →</span>
-        </a>
-      </div>
-    </section>
+    <main class="appendix-main" id="main-content">
+      <header class="appendix-hero">
+        <div class="appendix-number"><span>02</span><small>COORDINATES</small></div>
+        <div class="appendix-title"><p class="appendix-kicker">LINKS / PROJECTS / FRIENDS</p><h1>从这里，<br>离开小屋。</h1></div>
+        <div class="appendix-intro"><p>这一页只负责指路。带有 ↗ 的项目会在新标签页打开站外网站；附录页签则始终留在这间小屋里。</p><dl><div><dt>账号</dt><dd>3 个</dd></div><div><dt>项目</dt><dd>2 个</dd></div><div><dt>友邻</dt><dd>4 处</dd></div></dl></div>
+      </header>
 
-    <!-- ===== 友情链接 ===== -->
-    <section class="section nav-section" id="nav">
-      <div class="nav-tag">LINKS</div>
-      <div class="nav-links" id="nav-links">
-        <a href="https://nailong.matchamilk.site" target="_blank" rel="noopener" class="nav-link-item">
-          <span class="nav-link-icon">01</span>
-          <span class="nav-link-label">奶龙介绍</span>
-          <span class="nav-link-desc">nailong.matchamilk.site</span>
-        </a>
-        <a href="https://tarot.matchamilk.site" target="_blank" rel="noopener" class="nav-link-item">
-          <span class="nav-link-icon">02</span>
-          <span class="nav-link-label">塔罗牌</span>
-          <span class="nav-link-desc">tarot.matchamilk.site</span>
-        </a>
-        <a href="https://zxycx330.github.io/wc/" target="_blank" rel="noopener" class="nav-link-item">
-          <span class="nav-link-icon">03</span>
-          <span class="nav-link-label">缘点o导航</span>
-          <span class="nav-link-desc">zxycx330.github.io/wc/</span>
-        </a>
-        <a href="https://zxycx330.github.io/realheartword/" target="_blank" rel="noopener" class="nav-link-item">
-          <span class="nav-link-icon">04</span>
-          <span class="nav-link-label">真心话大冒险抽题</span>
-          <span class="nav-link-desc">zxycx330.github.io/realheartword/</span>
-        </a>
+      <section class="appendix-chapter coordinates-chapter" aria-labelledby="social-title">
+        <header class="chapter-heading"><span>02.1</span><div><p>SOCIAL</p><h2 id="social-title">我在其他平台</h2></div><p>账号链接会打开新标签页；回来时，这一页仍停在原处。</p></header>
+        <div class="social-coordinate-grid">
+          <a href="https://space.bilibili.com/523372964?spm_id_from=333.1007.0.0" target="_blank" rel="noopener" class="coordinate-card bilibili-card">
+            <div class="coordinate-image"><img src="bilibili.jpg" alt="Bilibili 标识"></div><span class="coordinate-index">01 / VIDEO</span><h3>Bilibili</h3><p>视频与偶尔整理出来的作品。</p><span class="external-action">打开站外 ↗</span>
+          </a>
+          <a href="https://x.com/MatChaRoubei" target="_blank" rel="noopener" class="coordinate-card x-card">
+            <div class="coordinate-image"><img src="X.jpg" alt="X 标识"></div><span class="coordinate-index">02 / SOCIAL</span><h3>X / Twitter</h3><p>更零碎、即时的公开动态。</p><span class="external-action">打开站外 ↗</span>
+          </a>
+          <a href="https://www.youtube.com/@MatCha_RoubeiMilkBro" target="_blank" rel="noopener" class="coordinate-card youtube-card">
+            <div class="coordinate-image"><img src="youtube.jpg" alt="YouTube 标识"></div><span class="coordinate-index">03 / VIDEO</span><h3>YouTube</h3><p>留给更远一点的互联网。</p><span class="external-action">打开站外 ↗</span>
+          </a>
+        </div>
+      </section>
 
-      </div>
-    </section>
+      <section class="appendix-chapter projects-chapter" aria-labelledby="projects-title">
+        <header class="chapter-heading inverse"><span>02.2</span><div><p>SELECTED PROJECTS</p><h2 id="projects-title">做出来的东西</h2></div><p>不一定成熟，但都是从“能不能自己做一个”开始的。</p></header>
+        <div class="project-grid">
+          <a href="https://github.com/MatChaRoubei/Kuroneko_Assistant" target="_blank" rel="noopener" class="project-card">
+            <div class="project-top"><span>PROJECT 01</span><span>WINDOWS / VOICE</span></div><h3>黑猫语音助手</h3><p>常驻后台的 Windows 语音助手。可以语音控制电脑、与本地 Ollama 模型对话并执行清理操作。</p><ul><li>本地运行</li><li>语音唤醒</li><li>Ollama</li></ul><span class="external-action">查看 GitHub ↗</span>
+          </a>
+          <a href="https://github.com/MatChaRoubei/Wallpaper-Engine-Flash" target="_blank" rel="noopener" class="project-card project-card-alt">
+            <div class="project-top"><span>PROJECT 02</span><span>WINDOWS / C++</span></div><h3>希沃壁纸小助手</h3><p>为教室大屏制作 4K 班级壁纸：记事本式编辑、可视化框选，一键生成，原生 C++ 单文件运行。</p><ul><li>4K 输出</li><li>零依赖</li><li>可视化编辑</li></ul><span class="external-action">查看 GitHub ↗</span>
+          </a>
+        </div>
+      </section>
 
-  </main>
+      <section class="appendix-chapter neighbors-chapter" aria-labelledby="neighbors-title">
+        <header class="chapter-heading"><span>02.3</span><div><p>NEIGHBORHOOD</p><h2 id="neighbors-title">附近还有什么</h2></div><p>自己的小实验与友邻站点，像从主屋向外延伸的几条小路。</p></header>
+        <div class="external-directory">
+          <a href="https://nailong.matchamilk.site" target="_blank" rel="noopener"><span>01</span><div><h3>奶龙介绍</h3><p>nailong.matchamilk.site</p></div><small>本站实验</small><b>↗</b></a>
+          <a href="https://tarot.matchamilk.site" target="_blank" rel="noopener"><span>02</span><div><h3>塔罗牌</h3><p>tarot.matchamilk.site</p></div><small>本站实验</small><b>↗</b></a>
+          <a href="https://zxycx330.github.io/wc/" target="_blank" rel="noopener"><span>03</span><div><h3>缘点 o 导航</h3><p>zxycx330.github.io/wc/</p></div><small>友邻站点</small><b>↗</b></a>
+          <a href="https://zxycx330.github.io/realheartword/" target="_blank" rel="noopener"><span>04</span><div><h3>真心话大冒险抽题</h3><p>zxycx330.github.io/realheartword/</p></div><small>友邻站点</small><b>↗</b></a>
+        </div>
+      </section>
 
-  <footer class="footer-bar">
-    <div class="footer-left"><span>© 2026 LIN ZHENGHAO</span></div>
-    <div class="footer-center"><span class="footer-dot green-dot"></span></div>
-    <div class="footer-right"><span>MatCha / 木茶</span></div>
-  </footer>
+      <nav class="appendix-pagination" aria-label="附录翻页">
+        <a href="about.html"><span>上一章 · 01</span><b>← 人物档案</b></a>
+        <a href="ad.html" class="next"><span>下一章 · 03</span><b>一起建造 →</b></a>
+      </nav>
+    </main>
 
-  <div class="disclaimer">
-    <p>一个仍在生长的个人档案 · 由 MatCha 与 AI 协作完成</p>
+    <footer class="site-footer appendix-footer">
+      <div class="footer-brand"><span class="brand-mark" aria-hidden="true">M</span><p><b>MatChaの神秘小屋</b><small>一个仍在生长的个人档案</small></p></div>
+      <p class="footer-note">APPENDIX 02 / COORDINATES<br>账号、项目与友邻站点</p>
+      <div class="footer-meta"><span>© 2026 LIN ZHENGHAO</span><a href="#main-content">BACK TO TOP ↑</a></div>
+    </footer>
   </div>
-
-  <script>
-  (function() {
-    var sections = document.querySelectorAll('.section');
-    if (!('IntersectionObserver' in window)) {
-      sections.forEach(function(s) { s.classList.add('visible'); });
-      return;
-    }
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    sections.forEach(function(s) { observer.observe(s); });
-  })();
-  </script>
+  <script src="appendix.js"></script>
 </body>
 </html>
